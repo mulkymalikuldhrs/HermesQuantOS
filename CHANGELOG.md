@@ -159,7 +159,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Decision logging with full audit trail
 
 ### Reference
-- Base agent: `github.com/nousresearch/hermes`
+- Base agent: `github.com/NousResearch/hermes-agent` (⭐165k)
 - Inspiration: `github.com/mulkymalikuldhrs/AI-MultiColony-Ecosystem`
 - Inspiration: `github.com/mulkymalikuldhrs/Quant-Nanggroe-AI`
 - Inspiration: `github.com/mulkymalikuldhrs/Vibe-Trading`
@@ -182,4 +182,4 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ---
 
 **Maintained by Mulky Malikul Dhaher**
-**Repository: github.com/mulkymalikuldhrs/hermes-quant-os**
+**Repository: github.com/mulkymalikuldhrs/HermesQuantOS**

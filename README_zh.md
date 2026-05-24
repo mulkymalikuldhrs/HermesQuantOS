@@ -20,12 +20,12 @@
 
 <br/><br/>
 
-<!-- 动画：轨道 -->
-<img src="https://raw.githubusercontent.com/trinib/trinib/main/images/orbit.svg" width="200" alt="轨道动画" />
+<!-- 动画：脉冲 -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A0A0A,50:1A1A2E,100:16213E&height=120&section=header&text=&fontSize=0&animation=fadeIn" width="100%" alt="Header Wave" />
 
 <br/>
 
-**基于 [Nous Research Hermes Agent](https://github.com/nousresearch/hermes) 的 Fork**
+**基于 [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)** (165k+ ⭐) **的 Fork**
 **融合 [Quant-Nanggroe-AI](https://github.com/mulkymalikuldhrs/Quant-Nanggroe-AI) | [AI-MultiColony-Ecosystem](https://github.com/mulkymalikuldhrs/AI-MultiColony-Ecosystem) | [Vibe-Trading](https://github.com/mulkymalikuldhrs/Vibe-Trading) | [AutoHedge](https://github.com/mulkymalikuldhrs/AutoHedge)**
 
 <br/>
@@ -69,7 +69,7 @@ Hermes Quant Operating System 是一个**生产级自主多代理交易和研究
 
 | 来源仓库 | 贡献 | 版本 |
 |---|---|---|
-| **[nousresearch/hermes](https://github.com/nousresearch/hermes)** | 基础代理框架、工具编排、对话循环 | 上游 |
+| **[NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)** ⭐165k | 基础代理框架、工具编排、对话循环 | 上游 |
 | **[Quant-Nanggroe-AI](https://github.com/mulkymalikuldhrs/Quant-Nanggroe-AI)** | 确定性代理执行、压力归一化、市场状态引擎、达尔文策略进化、10个集成工具 | v15.2.0 |
 | **[AI-MultiColony-Ecosystem](https://github.com/mulkymalikuldhrs/AI-MultiColony-Ecosystem)** | 统一代理注册、多代理生命周期管理、集群协调 | v8.0.0 |
 | **[Vibe-Trading](https://github.com/mulkymalikuldhrs/Vibe-Trading)** | 450+预构建量化因子、因子纯度执行、因子分析 | v0.1.8 |
@@ -91,7 +91,7 @@ Hermes Quant Operating System 是一个**生产级自主多代理交易和研究
 ## 起源与Fork谱系
 
 ```
-nousresearch/hermes (原始Hermes Agent)
+NousResearch/hermes-agent ⭐165k (原始Hermes Agent)
         │
         │  Fork 与适配
         ▼
@@ -544,9 +544,7 @@ Nous Research原始Hermes Agent同样采用MIT许可证。
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/trinib/trinib/main/images/orbit.svg" width="80" alt="轨道" />
-
-<br/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1A1A2E,50:16213E,100:0F3460&height=80&section=footer&text=&fontSize=0&animation=fadeIn" width="100%" alt="Footer Wave" />
 
 **HERMES QUANT OPERATING SYSTEM**
 
@@ -554,9 +552,9 @@ Nous Research原始Hermes Agent同样采用MIT许可证。
 
 <br/>
 
+<a href="https://github.com/NousResearch/hermes-agent"><img src="https://img.shields.io/badge/Fork自-NousResearch/hermes--agent-00FF88?style=flat-square&logo=github&logoColor=white" /></a>
 <img src="https://img.shields.io/badge/构建工具-Python-3776AB?style=flat-square&logo=python&logoColor=white" />
 <img src="https://img.shields.io/badge/驱动-NVIDIA_AI-76B900?style=flat-square&logo=nvidia&logoColor=white" />
 <img src="https://img.shields.io/badge/LLM-Groq-FF6B35?style=flat-square&logo=groq&logoColor=white" />
-<img src="https://img.shields.io/badge/Fork自-Nous_Research-00D4FF?style=flat-square&logo=github&logoColor=white" />
 
 </div>

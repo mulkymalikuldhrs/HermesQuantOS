@@ -20,12 +20,12 @@
 
 <br/><br/>
 
-<!-- Animasi: Orbit -->
-<img src="https://raw.githubusercontent.com/trinib/trinib/main/images/orbit.svg" width="200" alt="Animasi Orbit" />
+<!-- Animasi: Pulse -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A0A0A,50:1A1A2E,100:16213E&height=120&section=header&text=&fontSize=0&animation=fadeIn" width="100%" alt="Header Wave" />
 
 <br/>
 
-**Fork dari [Nous Research Hermes Agent](https://github.com/nousresearch/hermes)**
+**Fork dari [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)** (165k+ ⭐)
 **Digabungkan dengan [Quant-Nanggroe-AI](https://github.com/mulkymalikuldhrs/Quant-Nanggroe-AI) | [AI-MultiColony-Ecosystem](https://github.com/mulkymalikuldhrs/AI-MultiColony-Ecosystem) | [Vibe-Trading](https://github.com/mulkymalikuldhrs/Vibe-Trading) | [AutoHedge](https://github.com/mulkymalikuldhrs/AutoHedge)**
 
 <br/>
@@ -69,7 +69,7 @@ Arsitektur ini menyintesis pola terkuat dari empat repositori referensi ke dalam
 
 | Repositori Sumber | Kontribusi | Versi |
 |---|---|---|
-| **[nousresearch/hermes](https://github.com/nousresearch/hermes)** | Framework agent dasar, orkestrasi tool, loop percakapan | upstream |
+| **[NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)** ⭐165k | Framework agent dasar, orkestrasi tool, loop percakapan | upstream |
 | **[Quant-Nanggroe-AI](https://github.com/mulkymalikuldhrs/Quant-Nanggroe-AI)** | Deterministic Agent Execution, Pressure Normalization, Market Regime Engine, Darwinian Strategy Evolution, 10 tool terintegrasi | v15.2.0 |
 | **[AI-MultiColony-Ecosystem](https://github.com/mulkymalikuldhrs/AI-MultiColony-Ecosystem)** | Unified Agent Registry, manajemen lifecycle multi-agent, koordinasi koloni | v8.0.0 |
 | **[Vibe-Trading](https://github.com/mulkymalikuldhrs/Vibe-Trading)** | 450+ alpha quant siap pakai, penerapan alpha purity, analisis faktor | v0.1.8 |
@@ -91,7 +91,7 @@ Arsitektur ini menyintesis pola terkuat dari empat repositori referensi ke dalam
 ## Asal & Garis Fork
 
 ```
-nousresearch/hermes (Hermes Agent Asli)
+NousResearch/hermes-agent ⭐165k (Hermes Agent Asli)
         │
         │  Fork & Adaptasi
         ▼
@@ -550,9 +550,7 @@ Hermes Agent asli oleh Nous Research juga dilisensikan di bawah MIT.
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/trinib/trinib/main/images/orbit.svg" width="80" alt="Orbit" />
-
-<br/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1A1A2E,50:16213E,100:0F3460&height=80&section=footer&text=&fontSize=0&animation=fadeIn" width="100%" alt="Footer Wave" />
 
 **HERMES QUANT OPERATING SYSTEM**
 
@@ -560,9 +558,9 @@ Hermes Agent asli oleh Nous Research juga dilisensikan di bawah MIT.
 
 <br/>
 
+<a href="https://github.com/NousResearch/hermes-agent"><img src="https://img.shields.io/badge/Fork_dari-NousResearch/hermes--agent-FF6B35?style=flat-square&logo=github&logoColor=white" /></a>
 <img src="https://img.shields.io/badge/Dibangun_dengan-Python-3776AB?style=flat-square&logo=python&logoColor=white" />
 <img src="https://img.shields.io/badge/Digerakkan_oleh-NVIDIA_AI-76B900?style=flat-square&logo=nvidia&logoColor=white" />
 <img src="https://img.shields.io/badge/LLM-Groq-FF6B35?style=flat-square&logo=groq&logoColor=white" />
-<img src="https://img.shields.io/badge/Fork_dari-Nous_Research-00D4FF?style=flat-square&logo=github&logoColor=white" />
 
 </div>

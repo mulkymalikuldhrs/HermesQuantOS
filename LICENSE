@@ -19,15 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-This project includes code adapted from the Hermes Agent by Nous Research.
-Original repository: https://github.com/nousresearch/hermes
-Original license: MIT License
-
-This project also incorporates patterns and code from the following repositories:
-- Quant-Nanggroe-AI (https://github.com/mulkymalikuldhrs/Quant-Nanggroe-AI)
-- AI-MultiColony-Ecosystem (https://github.com/mulkymalikuldhrs/AI-MultiColony-Ecosystem)
-- Vibe-Trading (https://github.com/mulkymalikuldhrs/Vibe-Trading)
-- AutoHedge (https://github.com/mulkymalikuldhrs/AutoHedge)

@@ -570,6 +570,36 @@ See [PR.md](./PR.md) for the full PR template and review checklist.
 
 ---
 
+## ⚠️ Disclaimer
+
+**For Education Purpose Only**
+
+This project is provided strictly for educational and research purposes. The authors and contributors assume **no responsibility or liability** for any damages, losses, or risks arising from the use of this software. **We do not bear any responsibility or risk** for how this software is used.
+
+**Contact:** Mulky Malikul Dhaher | mulkymalikuldhaher@email.com
+
+---
+
+### 🇮🇩 Disclaimer (Bahasa Indonesia)
+
+**Hanya untuk Tujuan Pendidikan**
+
+Proyek ini disediakan secara ketat untuk tujuan pendidikan dan penelitian. Penulis dan kontributor tidak menanggung **tanggung jawab atau risiko** atas kerusakan, kerugian, atau risiko yang timbul dari penggunaan perangkat lunak ini. **Kami tidak menanggung tanggung jawab atau risiko** atas bagaimana perangkat lunak ini digunakan.
+
+**Kontak:** Mulky Malikul Dhaher | mulkymalikuldhaher@email.com
+
+---
+
+### 🇨🇳 免责声明 (中文)
+
+**仅供教育目的**
+
+本项目严格仅供教育和研究目的。作者和贡献者对因使用本软件而产生的任何损害、损失或风险**不承担任何责任**。**我们不承担任何责任或风险**对于本软件的使用方式。
+
+**联系方式:** Mulky Malikul Dhaher | mulkymalikuldhaher@email.com
+
+---
+
 ## License
 
 This project is licensed under the MIT License — see the [LICENSE](./LICENSE) file for details.

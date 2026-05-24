@@ -508,89 +508,45 @@ See [CHANGELOG.md](./CHANGELOG.md) for full details.
 </div>
 
 See [UPGRADE_PLAN.md](./UPGRADE_PLAN.md) for the full 15-18 month autonomous upgrade roadmap.
-
 ---
 
-## Contributing
+## 🤝 Contributing
 
-<div align="center">
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1500&color=00FF88&center=true&vCenter=true&repeat=true&width=500&height=35&lines=Contributors+Welcome!;Join+the+Autonomous+Trading+Revolution" alt="Contributors Welcome" />
-
-</div>
-
-We welcome contributions from developers, quantitative analysts, risk engineers, and AI researchers! HermesQuantOS is built on the principle that **collaboration produces superior systems**.
-
-### How to Contribute
+Contributions are welcome! We encourage the community to help improve this project.
 
 1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+2. Create a **feature branch** (`git checkout -b feature/amazing-feature`)
 3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
 4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. **Open** a Pull Request
+5. Open a **Pull Request**
 
-### Contribution Areas
-
-- **Trading Tools**: New analysis tools, indicators, or execution adapters
-- **Risk Engineering**: Enhanced risk checks, correlation monitors, portfolio optimization
-- **Infrastructure**: Docker configs, CI/CD pipelines, monitoring dashboards
-- **AI/ML**: Strategy evolution, alpha research, backtesting improvements
-- **Documentation**: Translations, tutorials, architecture diagrams
-- **Testing**: Unit tests, integration tests, stress tests
-
-### Guidelines
-
-- All trading tools must pass through the Risk Officer — no bypass
-- Risk rules are **HARDCODED** and **NON-NEGOTIABLE** — do not submit PRs that weaken them
-- Follow the existing code structure and naming conventions
-- Add tests for new features
-- Update documentation (CHANGELOG.md, STRUCTURE.md) with your changes
-- One PR per feature — keep them focused and reviewable
-
-### PR Review Criteria
-
-See [PR.md](./PR.md) for the full PR template and review checklist.
+Please make sure to update tests as appropriate and follow the existing code style.
 
 ---
 
-## Contact
+## 📬 Contact
 
-<div align="center">
+**Mulky Malikul Dhaher** — [mulkymalikuldhaher@email.com](mailto:mulkymalikuldhaher@email.com)
 
-### Mulky Malikul Dhaher
-
-[![Email](https://img.shields.io/badge/Email-mulkymalikuldhaher@email.com-00D4FF?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0A0A0A)](mailto:mulkymalikuldhaher@email.com)
-[![GitHub](https://img.shields.io/badge/GitHub-mulkymalikuldhrs-FF6B35?style=for-the-badge&logo=github&logoColor=white&labelColor=0A0A0A)](https://github.com/mulkymalikuldhrs)
-
-<br/>
-
-**Project Repository**: [github.com/mulkymalikuldhrs/HermesQuantOS](https://github.com/mulkymalikuldhrs/HermesQuantOS)
-
-</div>
+GitHub: [https://github.com/mulkymalikuldhrs](https://github.com/mulkymalikuldhrs)
 
 ---
 
-## License
+## ⚠️ Disclaimer
 
-This project is licensed under the MIT License — see the [LICENSE](./LICENSE) file for details.
+**This project is for Education Purpose only.**
 
-The original Hermes Agent by Nous Research is also licensed under MIT.
+All content, code, and documentation provided in this repository are intended solely for educational and research purposes. Nothing in this repository constitutes financial, investment, legal, or professional advice.
+
+**Risiko apapun tidak kita tanggung.** (We are not responsible for any risks or damages.)
+
+Use at your own risk. The authors and contributors assume no liability for any losses, damages, or consequences arising from the use of this software or information provided herein.
 
 ---
 
-<div align="center">
+## 📄 License
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1A1A2E,50:16213E,100:0F3460&height=80&section=footer&text=&fontSize=0&animation=fadeIn" width="100%" alt="Footer Wave" />
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
-**HERMES QUANT OPERATING SYSTEM**
+Copyright © Mulky Malikul Dhaher. All rights reserved.
 
-*Autonomous. Deterministic. Risk-First.*
-
-<br/>
-
-<a href="https://github.com/NousResearch/Hermes"><img src="https://img.shields.io/badge/Fork_of-NousResearch/Hermes-00D4FF?style=flat-square&logo=github&logoColor=white" /></a>
-<img src="https://img.shields.io/badge/Built_with-Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-<img src="https://img.shields.io/badge/Powered_by-NVIDIA_AI-76B900?style=flat-square&logo=nvidia&logoColor=white" />
-<img src="https://img.shields.io/badge/LLM-Groq-FF6B35?style=flat-square&logo=groq&logoColor=white" />
-
-</div>

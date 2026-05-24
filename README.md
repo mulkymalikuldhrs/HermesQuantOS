@@ -25,7 +25,7 @@
 
 <br/>
 
-**Fork of [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)** (165k+ ⭐)
+**Fork of [NousResearch/Hermes](https://github.com/NousResearch/Hermes)** ⭐
 **Merged with [Quant-Nanggroe-AI](https://github.com/mulkymalikuldhrs/Quant-Nanggroe-AI) | [AI-MultiColony-Ecosystem](https://github.com/mulkymalikuldhrs/AI-MultiColony-Ecosystem) | [Vibe-Trading](https://github.com/mulkymalikuldhrs/Vibe-Trading) | [AutoHedge](https://github.com/mulkymalikuldhrs/AutoHedge)**
 
 <br/>
@@ -69,7 +69,7 @@ The architecture synthesizes the strongest patterns from four reference reposito
 
 | Source Repository | Contribution | Version |
 |---|---|---|
-| **[NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)** ⭐165k | Base agent framework, tool orchestration, conversation loop | upstream |
+| **[NousResearch/Hermes](https://github.com/NousResearch/Hermes)** ⭐ | Base agent framework, tool orchestration, conversation loop | upstream |
 | **[Quant-Nanggroe-AI](https://github.com/mulkymalikuldhrs/Quant-Nanggroe-AI)** | Deterministic Agent Execution, Pressure Normalization, Market Regime Engine, Darwinian Strategy Evolution, 10 integrated tools | v15.2.0 |
 | **[AI-MultiColony-Ecosystem](https://github.com/mulkymalikuldhrs/AI-MultiColony-Ecosystem)** | Unified Agent Registry, multi-agent lifecycle management, colony coordination patterns | v8.0.0 |
 | **[Vibe-Trading](https://github.com/mulkymalikuldhrs/Vibe-Trading)** | 450+ pre-built quant alphas, alpha purity enforcement, factor analysis, backtesting framework | v0.1.8 |
@@ -91,7 +91,7 @@ The architecture synthesizes the strongest patterns from four reference reposito
 ## Origin & Fork Lineage
 
 ```
-NousResearch/hermes-agent ⭐165k (Original Hermes Agent)
+[NousResearch/Hermes](https://github.com/NousResearch/Hermes) (Original Hermes Model & Agent)
         │
         │  Fork & Adaptation
         ▼
@@ -588,7 +588,7 @@ The original Hermes Agent by Nous Research is also licensed under MIT.
 
 <br/>
 
-<a href="https://github.com/NousResearch/hermes-agent"><img src="https://img.shields.io/badge/Fork_of-NousResearch/hermes--agent-00D4FF?style=flat-square&logo=github&logoColor=white" /></a>
+<a href="https://github.com/NousResearch/Hermes"><img src="https://img.shields.io/badge/Fork_of-NousResearch/Hermes-00D4FF?style=flat-square&logo=github&logoColor=white" /></a>
 <img src="https://img.shields.io/badge/Built_with-Python-3776AB?style=flat-square&logo=python&logoColor=white" />
 <img src="https://img.shields.io/badge/Powered_by-NVIDIA_AI-76B900?style=flat-square&logo=nvidia&logoColor=white" />
 <img src="https://img.shields.io/badge/LLM-Groq-FF6B35?style=flat-square&logo=groq&logoColor=white" />

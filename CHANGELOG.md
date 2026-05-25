@@ -5,6 +5,17 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [4.1.0] - 2026-03-05
+
+### Fixed
+- Replaced placeholder comment in `market_data_tool.py` with clear "not configured" status
+- Verified all 21 tools have proper routing (no dead tools)
+
+### Changed
+- Minor documentation cleanup
+
+---
+
 ## [4.0.0] - 2026-05-25 - PRODUCTION READY: Critical Security & State Fixes
 
 ### Fixed - CRITICAL (P0 Blockers)

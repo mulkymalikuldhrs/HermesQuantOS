@@ -163,9 +163,10 @@ class MarketDataTool:
             return json.dumps({"error": str(e)})
 
     def get_economic_calendar(self) -> str:
-        """Get upcoming economic events (placeholder)"""
+        """Get upcoming economic events - requires external API integration"""
         return json.dumps({
-            "note": "Economic calendar requires additional API integration",
+            "status": "not_configured",
+            "message": "Economic calendar requires additional API integration",
             "suggested_apis": ["ForexFactory", "Investing.com", "FRED"],
-            "implementation": "Connect to economic calendar API for live data"
+            "implementation": "Configure an economic calendar API in config/hermes-quant.yaml to enable live data"
         })

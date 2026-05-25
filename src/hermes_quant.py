@@ -333,16 +333,16 @@ class HermesQuantOS:
         try:
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
 
-            # Check if new week - reset weekly PnL
-            if datetime.now().weekday() == 0 and self.week_start.date() < datetime.now().date():
-                self.weekly_pnl = 0.0
-                self.week_start = datetime.now()
+            # Get PnL from shared RiskOfficer (single source of truth)
+            risk_officer = self.tools.get('risk_officer') if self.tools else None
+            daily_pnl = risk_officer.daily_pnl if risk_officer else 0.0
+            weekly_pnl = risk_officer.weekly_pnl if risk_officer else 0.0
 
             json_data = {
                 'history': self.conversation_history[-100:],
                 'decisions': self.decisions_log[-50:],
-                'daily_pnl': self.daily_pnl,
-                'weekly_pnl': self.weekly_pnl,
+                'daily_pnl': daily_pnl,
+                'weekly_pnl': weekly_pnl,
                 'last_update': datetime.now().isoformat(),
                 'session_id': self.session_id
             }
@@ -355,8 +355,8 @@ class HermesQuantOS:
                 f.write(f"# Hermes Quant OS Memory - {timestamp}\n\n")
                 f.write(f"## Session: {self.session_id}\n")
                 f.write(f"## Last Update: {datetime.now().isoformat()}\n")
-                f.write(f"## Daily PnL: {self.daily_pnl:.2%}\n")
-                f.write(f"## Weekly PnL: {self.weekly_pnl:.2%}\n\n")
+                f.write(f"## Daily PnL: {daily_pnl:.2%}\n")
+                f.write(f"## Weekly PnL: {weekly_pnl:.2%}\n\n")
 
                 f.write("## Recent Conversations\n\n")
                 for item in self.conversation_history[-20:]:

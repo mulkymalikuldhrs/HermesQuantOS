@@ -1,6 +1,9 @@
 # Environment & Secrets
 config/.env
 .env
+.env.local
+.env.production
+.env.*.local
 *.key
 *.pem
 credentials.db
@@ -55,3 +58,11 @@ desktop.ini
 venv/
 .venv/
 env/
+
+# Node.js (for future web dashboard)
+node_modules/
+.next/
+.vercel/
+
+# Replit
+.replit

@@ -9,7 +9,7 @@ Risk Rules HARDCODED: 0.5%/trade, 1%/day, 3%/week
 import json
 import logging
 from datetime import datetime, timedelta
-from typing import Optional, Dict
+from typing import Optional, Dict, List
 
 logger = logging.getLogger("HermesQuantOS.RiskOfficer")
 
@@ -24,17 +24,17 @@ MAX_CORRELATED_POSITIONS = 3  # Max correlated positions
 class RiskOfficerTool:
     """L3 Agent: Risk Officer - FULL VETO, hardcoded risk rules"""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.daily_pnl = 0.0
         self.weekly_pnl = 0.0
         self.trade_count_today = 0
         self.trade_count_week = 0
-        self.active_positions = []
+        self.active_positions: List[str] = []
         self.veto_count = 0
         self.approval_count = 0
         self.last_reset = datetime.now().date()
 
-    def _reset_daily_if_needed(self):
+    def _reset_daily_if_needed(self) -> None:
         """Reset daily counters if new day"""
         today = datetime.now().date()
         if today > self.last_reset:
@@ -212,7 +212,7 @@ class RiskOfficerTool:
             "note": "Risk percentage capped at hardcoded maximum. No override possible."
         }, indent=2)
 
-    def update_pnl(self, trade_pnl: float):
+    def update_pnl(self, trade_pnl: float) -> None:
         """Update daily and weekly PnL tracking"""
         self._reset_daily_if_needed()
         self.daily_pnl += trade_pnl

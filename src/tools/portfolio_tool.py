@@ -7,6 +7,7 @@ Portfolio assessment, allocation, position sizing
 import json
 import logging
 from datetime import datetime
+from typing import Dict, List, Any
 
 logger = logging.getLogger("HermesQuantOS.Portfolio")
 
@@ -14,10 +15,10 @@ logger = logging.getLogger("HermesQuantOS.Portfolio")
 class PortfolioTool:
     """L3 Agent: Portfolio Manager - Allocation & position sizing"""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.account_balance = 10000.0
-        self.positions = []
-        self.allocations = {}
+        self.positions: List[Dict[str, Any]] = []
+        self.allocations: Dict[str, float] = {}
 
     def assess(self) -> str:
         """Assess current portfolio state"""

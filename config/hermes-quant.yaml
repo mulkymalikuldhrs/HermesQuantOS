@@ -105,10 +105,10 @@ communication:
 # ===========================================
 wallets:
   tron:
-    address: "TYsLNKWuyQBsgXkB6TSGuwV7cPQy4ejVvX"
+    address: "${WALLET_TRON}"  # Set via env var — never hardcode wallet addresses
     priority: "HIGH"
   shiba_inu:
-    address: "0x2C619D4f3067C6BB5837a9DC57852Ea68558D4cE"
+    address: "${WALLET_SHIBA}"  # Set via env var — never hardcode wallet addresses
     priority: "MEDIUM"
 
 # ===========================================

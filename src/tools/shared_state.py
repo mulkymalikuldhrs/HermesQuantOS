@@ -16,7 +16,7 @@ import sqlite3
 import logging
 from pathlib import Path
 from datetime import datetime
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Union, List, TypedDict
 
 logger = logging.getLogger("HermesQuantOS.SharedState")
 
@@ -64,7 +64,7 @@ class SharedState:
         self._initialized = True
         logger.info(f"SharedState initialized: db={self.db_path}")
 
-    def _init_db(self):
+    def _init_db(self) -> None:
         """Initialize SQLite database with trading_journal.sql schema"""
         schema_path = Path(__file__).parent.parent / "schemas" / "trading_journal.sql"
 
@@ -142,7 +142,7 @@ class SharedState:
         finally:
             conn.close()
 
-    def _restore_state(self):
+    def _restore_state(self) -> None:
         """Restore persisted state from SQLite"""
         conn = sqlite3.connect(str(self.db_path))
         try:
@@ -202,7 +202,7 @@ class SharedState:
         finally:
             conn.close()
 
-    def persist_risk_officer_state(self):
+    def persist_risk_officer_state(self) -> None:
         """Persist RiskOfficer state to SQLite"""
         ro = self.risk_officer
         state = {
@@ -216,7 +216,7 @@ class SharedState:
         }
         self._persist_key("risk_officer_state", json.dumps(state))
 
-    def persist_kill_switch_state(self):
+    def persist_kill_switch_state(self) -> None:
         """Persist KillSwitch state to SQLite"""
         ks = self.kill_switch
         state = {
@@ -228,7 +228,7 @@ class SharedState:
         }
         self._persist_key("kill_switch_state", json.dumps(state))
 
-    def persist_strategy(self, name: str, strategy_data: dict):
+    def persist_strategy(self, name: str, strategy_data: Dict[str, Union[str, int, float]]) -> None:
         """Persist a single strategy to SQLite"""
         conn = sqlite3.connect(str(self.db_path))
         try:
@@ -249,7 +249,7 @@ class SharedState:
         finally:
             conn.close()
 
-    def log_trade(self, trade_data: dict):
+    def log_trade(self, trade_data: Dict[str, Union[str, float, int, None]]) -> None:
         """Log a trade to SQLite"""
         conn = sqlite3.connect(str(self.db_path))
         try:
@@ -281,7 +281,7 @@ class SharedState:
             conn.close()
 
     def log_risk_check(self, symbol: str, direction: str, verdict: str,
-                       daily_pnl: float, weekly_pnl: float):
+                       daily_pnl: float, weekly_pnl: float) -> None:
         """Log a risk check to SQLite"""
         conn = sqlite3.connect(str(self.db_path))
         try:
@@ -294,7 +294,7 @@ class SharedState:
             conn.close()
 
     def log_kill_switch_event(self, event_type: str, trigger_reason: str,
-                              daily_pnl: float = 0.0, weekly_pnl: float = 0.0):
+                              daily_pnl: float = 0.0, weekly_pnl: float = 0.0) -> None:
         """Log a kill switch event to SQLite"""
         conn = sqlite3.connect(str(self.db_path))
         try:
@@ -306,7 +306,7 @@ class SharedState:
         finally:
             conn.close()
 
-    def log_system_event(self, event_type: str, details: str, severity: str = "INFO"):
+    def log_system_event(self, event_type: str, details: str, severity: str = "INFO") -> None:
         """Log a system event to SQLite"""
         conn = sqlite3.connect(str(self.db_path))
         try:
@@ -318,7 +318,7 @@ class SharedState:
         finally:
             conn.close()
 
-    def _persist_key(self, key: str, value: str):
+    def _persist_key(self, key: str, value: str) -> None:
         """Generic key-value persistence"""
         conn = sqlite3.connect(str(self.db_path))
         try:
@@ -356,7 +356,7 @@ class SharedState:
             self._journal = JournalTool()
         return self._journal
 
-    def _get_or_create(self, attr_name, cls):
+    def _get_or_create(self, attr_name: str, cls: type) -> object:
         """Get or create a shared tool instance"""
         if not hasattr(self, f'_{attr_name}') or getattr(self, f'_{attr_name}') is None:
             setattr(self, f'_{attr_name}', cls())

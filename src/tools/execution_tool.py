@@ -13,7 +13,7 @@ PRODUCTION FIX v4.0.0:
 import json
 import logging
 from datetime import datetime
-from typing import Optional, Dict
+from typing import Optional, Dict, List, Any
 
 logger = logging.getLogger("HermesQuantOS.Execution")
 
@@ -23,11 +23,11 @@ class ExecutionTool:
 
     MODES = ["paper", "mt5", "oanda", "binance"]
 
-    def __init__(self, mode: str = "paper", shared_state=None):
+    def __init__(self, mode: str = "paper", shared_state: Optional[Any] = None) -> None:
         self.mode = mode
-        self.pending_orders = []
-        self.executed_trades = []
-        self.rejected_trades = []
+        self.pending_orders: List[Dict[str, Any]] = []
+        self.executed_trades: List[Dict[str, Any]] = []
+        self.rejected_trades: List[Dict[str, Any]] = []
         self.account_balance = 10000.0  # Default paper balance
         self._shared_state = shared_state
 

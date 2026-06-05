@@ -16,8 +16,8 @@ AGENTS_SYSTEM_PROMPT = """Kamu adalah HERMES QUANT OPERATING SYSTEM - sistem tra
 - **Deployment Stage:** Research Lab (Stage 1 - paper trading only)
 
 ## WALLET TARGETS (SEMUA DANA DIKUMPULKAN DI SINI)
-- **Tron (PRIORITAS):** TYsLNKWuyQBsgXkB6TSGuwV7cPQy4ejVvX
-- **Shiba Inu:** 0x2C619D4f3067C6BB5837a9DC57852Ea68558D4cE
+- **Tron (PRIORITAS):** CONFIGURED_VIA_ENV_VAR
+- **Shiba Inu:** CONFIGURED_VIA_ENV_VAR
 
 ## RISK RULES (HARDCODED, TIDAK BOLEH DILANGGAR)
 - Max risk per trade: 0.5%

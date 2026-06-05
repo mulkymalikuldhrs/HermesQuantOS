@@ -155,6 +155,37 @@ class NewsSentinelTool:
             "timestamp": datetime.now().isoformat()
         }
 
+    def score_impact(self, headline: str, severity: str = "medium") -> str:
+        """Score the impact of a news headline"""
+        event = self.add_event(headline)
+        impact = self.calculate_decayed_impact(event)
+        total = self.get_total_impact()
+
+        return json.dumps({
+            "headline": headline,
+            "event_type": event["event_type"],
+            "raw_impact": event["raw_impact"],
+            "decayed_impact": impact,
+            "severity": severity,
+            "total_active_impact": total["total_impact"],
+            "directional_uncertainty": event["directional_uncertainty"],
+            "timestamp": datetime.now().isoformat()
+        }, indent=2)
+
+    def get_recent_events(self, limit: int = 10) -> str:
+        """Get recent news events"""
+        recent = self.events[-limit:] if self.events else []
+        return json.dumps({
+            "total_events": len(self.events),
+            "recent": [{
+                "headline": e["headline"][:80],
+                "type": e["event_type"],
+                "raw_impact": e["raw_impact"],
+                "timestamp": e["timestamp"]
+            } for e in recent],
+            "timestamp": datetime.now().isoformat()
+        }, indent=2)
+
     def cleanup_old_events(self, max_age_hours: float = 24.0):
         """Remove events older than max age"""
         cutoff = datetime.now() - timedelta(hours=max_age_hours)

@@ -324,3 +324,69 @@ class BacktestEngine:
             } for t in closed[-20:]],
             "timestamp": datetime.now().isoformat()
         }
+
+    def run(self, symbol: str = "XAUUSD") -> str:
+        """Run a simple backtest on the given symbol"""
+        try:
+            from tools.market_data_tool import MarketDataTool
+            mdt = MarketDataTool()
+            raw = json.loads(mdt.get_ohlcv(symbol, "1d", 200))
+
+            if "error" in raw:
+                return json.dumps({"error": raw["error"]})
+
+            data = raw.get("data", [])
+            if len(data) < 50:
+                return json.dumps({"error": "Insufficient data for backtest"})
+
+            # Simple moving average crossover strategy
+            def sma_crossover(candle: Dict, indicators: Dict) -> Optional[Dict]:
+                closes = indicators.get("closes", [])
+                if len(closes) < 50:
+                    return None
+                ema20 = sum(closes[-20:]) / 20
+                ema50 = sum(closes[-50:]) / 50
+                price = candle["close"]
+                atr = max(closes) - min(closes[-14:]) if len(closes) >= 14 else price * 0.005
+
+                if ema20 > ema50 and len(closes) > 50:
+                    prev_ema20 = sum(closes[-21:-1]) / 20
+                    prev_ema50 = sum(closes[-51:-1]) / 50
+                    if prev_ema20 <= prev_ema50:  # Cross up
+                        return {
+                            "direction": "BUY",
+                            "entry": price,
+                            "stop_loss": price - atr * 1.5,
+                            "take_profit": price + atr * 2.0,
+                            "lot_size": 0.01
+                        }
+                elif ema20 < ema50 and len(closes) > 50:
+                    prev_ema20 = sum(closes[-21:-1]) / 20
+                    prev_ema50 = sum(closes[-51:-1]) / 50
+                    if prev_ema20 >= prev_ema50:  # Cross down
+                        return {
+                            "direction": "SELL",
+                            "entry": price,
+                            "stop_loss": price + atr * 1.5,
+                            "take_profit": price - atr * 2.0,
+                            "lot_size": 0.01
+                        }
+                return None
+
+            results = self.run_backtest_on_data(symbol, data, sma_crossover)
+            return json.dumps(results, indent=2)
+
+        except Exception as e:
+            return json.dumps({"error": str(e)})
+
+    def status(self) -> str:
+        """Get backtest engine status"""
+        return json.dumps({
+            "initial_balance": self.initial_balance,
+            "current_balance": round(self.balance, 2),
+            "total_trades": len(self.trades),
+            "rejected_orders": self.rejected_orders,
+            "partial_fills": self.partial_fills,
+            "max_drawdown_pct": round(self.max_drawdown * 100, 2),
+            "timestamp": datetime.now().isoformat()
+        }, indent=2)

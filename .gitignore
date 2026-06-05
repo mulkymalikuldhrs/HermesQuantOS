@@ -4,6 +4,8 @@ config/.env
 .env.local
 .env.production
 .env.*.local
+config/.env.example
+!.env.example
 *.key
 *.pem
 credentials.db
@@ -19,6 +21,7 @@ __pycache__/
 dist/
 build/
 .eggs/
+*.egg
 
 # Database
 *.db
@@ -66,3 +69,11 @@ node_modules/
 
 # Replit
 .replit
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# MyPy
+.mypy_cache/

@@ -135,3 +135,54 @@ class PressureNormalizationEngine:
     def get_pressure(self) -> Dict:
         """Get current pressure state"""
         return self.sensor_outputs
+
+    def normalize(self, symbol: str = "XAUUSD") -> str:
+        """
+        Auto-normalize pressure for a symbol by fetching technical data.
+        """
+        try:
+            from tools.technical_analysis_tool import TechnicalAnalysisTool
+            from tools.news_sentinel import NewsSentinelTool
+
+            tat = TechnicalAnalysisTool()
+            analysis = json.loads(tat.analyze(symbol, "1h"))
+
+            if "error" in analysis:
+                return json.dumps({"error": analysis["error"]})
+
+            smc = analysis.get("smc_structure", {})
+            indicators = analysis.get("indicators", {})
+
+            trend_direction = smc.get("trend", "neutral")
+            trend_strength = 0.7 if trend_direction != "neutral" else 0.3
+
+            # Get BOS/CHoCH for SMC signal
+            bos_list = smc.get("bos", [])
+            smc_signal = "none"
+            if bos_list:
+                latest_bos = bos_list[-1].get("type", "")
+                smc_signal = latest_bos
+
+            displacement_strength = 0.6 if bos_list else 0.2
+            liquidity_sweep = len(smc.get("liquidity_sweeps", [])) > 0
+
+            result = self.compile_pressure(
+                trend_direction=trend_direction,
+                trend_strength=trend_strength,
+                smc_signal=smc_signal,
+                displacement_strength=displacement_strength,
+                liquidity_sweep=liquidity_sweep,
+            )
+
+            return json.dumps(result, indent=2)
+
+        except Exception as e:
+            return json.dumps({"error": str(e)})
+
+    def status(self) -> str:
+        """Get pressure engine status"""
+        return json.dumps({
+            "current_pressure": self.sensor_outputs,
+            "weights": self.SENSOR_WEIGHTS,
+            "timestamp": datetime.now().isoformat()
+        }, indent=2)

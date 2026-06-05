@@ -183,3 +183,55 @@ class DecisionSynthesisEngine:
         logger.info(f"DECISION: {action} | Clearance: {risk_clearance} | Regime: {regime}")
 
         return decision
+
+    def synthesize(self, symbol: str = "XAUUSD") -> str:
+        """
+        Synthesize a decision for the given symbol by auto-detecting regime
+        and calculating pressure from technical analysis.
+        """
+        try:
+            from tools.market_state_engine import MarketStateEngine
+            from tools.pressure_engine import PressureNormalizationEngine
+            from tools.technical_analysis_tool import TechnicalAnalysisTool
+
+            mse = MarketStateEngine()
+            regime_result = mse.auto_detect(symbol)
+            regime = regime_result.get("regime", "UNKNOWN")
+
+            tat = TechnicalAnalysisTool()
+            analysis = json.loads(tat.analyze(symbol, "1h"))
+            indicators = analysis.get("indicators", {})
+            smc = analysis.get("smc_structure", {})
+
+            trend = smc.get("trend", "neutral")
+            rsi = indicators.get("rsi_14", 50)
+            atr_pct_str = indicators.get("atr_pct", "1.0")
+            atr_pct = float(atr_pct_str.replace("%", "")) if isinstance(atr_pct_str, str) else atr_pct_str or 1.0
+
+            # Derive pressure
+            buy_pressure = 0.5
+            sell_pressure = 0.5
+            if trend == "bullish":
+                buy_pressure = 0.65 + (min(rsi, 70) / 70) * 0.15
+                sell_pressure = 1.0 - buy_pressure
+            elif trend == "bearish":
+                sell_pressure = 0.65 + ((100 - max(rsi, 30)) / 70) * 0.15
+                buy_pressure = 1.0 - sell_pressure
+
+            confidence = max(buy_pressure, sell_pressure)
+            volatility = regime_result.get("volatility", "NORMAL")
+
+            decision = self.evaluate(regime, buy_pressure, sell_pressure, confidence, volatility, 0.0)
+            return json.dumps(decision, indent=2)
+
+        except Exception as e:
+            return json.dumps({"error": str(e), "action": "NO_TRADE"})
+
+    def status(self) -> str:
+        """Get current decision engine status"""
+        return json.dumps({
+            "last_decision": self.last_decision,
+            "available_actions": ["ALLOW_LONG", "ALLOW_SHORT", "NO_TRADE", "WATCH_LONG", "WATCH_SHORT"],
+            "decision_rules": len(self.DECISION_TABLE),
+            "timestamp": datetime.now().isoformat()
+        }, indent=2)

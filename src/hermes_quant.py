@@ -31,6 +31,7 @@ import asyncio
 import traceback
 from datetime import datetime, timedelta
 from pathlib import Path
+from typing import Optional, Dict, List
 from dotenv import load_dotenv
 
 # Import Trading Tools
@@ -302,14 +303,14 @@ class HermesQuantOS:
         # Load previous memory
         self.load_memory()
 
-    def get_groq_key(self):
+    def get_groq_key(self) -> Optional[str]:
         if not GROQ_API_KEYS:
             return None
         key = GROQ_API_KEYS[self.groq_key_index]
         self.groq_key_index = (self.groq_key_index + 1) % len(GROQ_API_KEYS)
         return key
 
-    def get_opencode_key(self):
+    def get_opencode_key(self) -> Optional[str]:
         if not OPENCODE_API_KEYS:
             return None
         key = OPENCODE_API_KEYS[self.opencode_key_index]
@@ -323,7 +324,7 @@ class HermesQuantOS:
                     data = json.load(f)
                     self.conversation_history = data.get('history', [])
                     self.decisions_log = data.get('decisions', [])
-                        # PnL is now in shared RiskOfficer - loaded via SharedState._restore_state()
+                    # PnL is now in shared RiskOfficer - loaded via SharedState._restore_state()
                     # self.daily_pnl / self.weekly_pnl are DEPRECATED
                     logger.info(f"Loaded {len(self.conversation_history)} previous conversations")
         except Exception as e:
@@ -414,22 +415,28 @@ class HermesQuantOS:
         daily_pnl = risk_officer.daily_pnl if risk_officer else 0.0
         weekly_pnl = risk_officer.weekly_pnl if risk_officer else 0.0
 
-        if abs(daily_pnl) >= RISK_DAILY_MAX:
+        # Only check LOSSES (negative PnL), not gains
+        daily_loss = abs(daily_pnl) if daily_pnl < 0 else 0.0
+        weekly_loss = abs(weekly_pnl) if weekly_pnl < 0 else 0.0
+
+        if daily_loss >= RISK_DAILY_MAX:
             return {
                 'action': 'BLOCKED',
-                'reasoning': f'Daily loss limit reached: {daily_pnl:.2%} >= {RISK_DAILY_MAX:.2%}',
+                'reasoning': f'Daily loss limit reached: -{daily_loss:.2%} >= {RISK_DAILY_MAX:.2%}',
                 'message': f'<b>KILL SWITCH AKTIF - DAILY LIMIT</b>\n\n'
                            f'Daily PnL: {daily_pnl:.2%}\n'
+                           f'Daily Loss: -{daily_loss:.2%}\n'
                            f'Max Daily Loss: {RISK_DAILY_MAX:.2%}\n\n'
                            f'Trading dihentikan untuk hari ini. Risk rules tidak bisa di-override.'
             }
 
-        if abs(weekly_pnl) >= RISK_WEEKLY_MAX:
+        if weekly_loss >= RISK_WEEKLY_MAX:
             return {
                 'action': 'BLOCKED',
-                'reasoning': f'Weekly loss limit reached: {weekly_pnl:.2%} >= {RISK_WEEKLY_MAX:.2%}',
+                'reasoning': f'Weekly loss limit reached: -{weekly_loss:.2%} >= {RISK_WEEKLY_MAX:.2%}',
                 'message': f'<b>KILL SWITCH AKTIF - WEEKLY LIMIT</b>\n\n'
                            f'Weekly PnL: {weekly_pnl:.2%}\n'
+                           f'Weekly Loss: -{weekly_loss:.2%}\n'
                            f'Max Weekly Loss: {RISK_WEEKLY_MAX:.2%}\n\n'
                            f'Trading dihentikan untuk minggu ini. Risk rules tidak bisa di-override.'
             }
@@ -648,7 +655,7 @@ class HermesQuantOS:
                     elif tool_name == 'pressure_engine':
                         result = tool.normalize(args[0]) if len(args) >= 1 else tool.status()
                     elif tool_name == 'strategy_lifecycle':
-                        if 'report' in args_str.lower():
+                        if 'kill' in args_str.lower() or 'list' in args_str.lower():
                             result = tool.get_strategy_report()
                         else:
                             result = tool.get_strategy_report()
@@ -780,10 +787,14 @@ class HermesQuantOS:
         else:
             await self.send_telegram_message(f"Unknown command: {cmd}\nTry /help")
 
-    def get_system_status(self):
+    def get_system_status(self) -> str:
         uptime = datetime.now() - self.start_time
         hours = int(uptime.total_seconds() // 3600)
         minutes = int((uptime.total_seconds() % 3600) // 60)
+
+        risk_officer = self.tools.get('risk_officer') if self.tools else None
+        daily_pnl_str = f"{risk_officer.daily_pnl:.2%}" if risk_officer else "0.00%"
+        weekly_pnl_str = f"{risk_officer.weekly_pnl:.2%}" if risk_officer else "0.00%"
 
         return (
             f"<b>HERMES QUANT OS STATUS</b>\n\n"
@@ -791,15 +802,15 @@ class HermesQuantOS:
             f"Uptime: {hours}h {minutes}m\n"
             f"Provider: {self.current_provider}\n"
             f"Tools: {len(self.tools)}/21\n"
-            f"Daily PnL: {self.tools['risk_officer'].daily_pnl:.2%}\n"
-            f"Weekly PnL: {self.tools['risk_officer'].weekly_pnl:.2%}\n"
+            f"Daily PnL: {daily_pnl_str}\n"
+            f"Weekly PnL: {weekly_pnl_str}\n"
             f"Risk: {RISK_MAX_PER_TRADE:.1%}/{RISK_DAILY_MAX:.1%}/{RISK_WEEKLY_MAX:.1%}\n"
             f"Restart Count: {self.restart_count}\n"
             f"Stage: Research Lab (Paper Only)\n"
             f"AGENTS.md: Active"
         )
 
-    async def generate_response(self, prompt, force_provider=None):
+    async def generate_response(self, prompt: str, force_provider: str = None) -> str:
         import aiohttp
 
         messages = [
@@ -840,7 +851,8 @@ class HermesQuantOS:
 
         return "Error: All providers failed. System operating in degraded mode."
 
-    async def call_api(self, api_key, api_base, model, messages):
+    async def call_api(self, api_key: str, api_base: str, model: str,
+                       messages: list) -> str:
         import aiohttp
 
         headers = {
@@ -870,7 +882,7 @@ class HermesQuantOS:
                     error = await response.text()
                     raise Exception(f"API error {response.status}: {error[:200]}")
 
-    async def send_telegram_message(self, text):
+    async def send_telegram_message(self, text: str) -> bool:
         """Send message via Telegram with HTML formatting support"""
         import aiohttp
         url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
@@ -909,7 +921,7 @@ class HermesQuantOS:
             logger.error(f"Send telegram error: {e}")
         return False
 
-    async def handle_crash(self, error):
+    async def handle_crash(self, error: Exception) -> None:
         self.restart_count += 1
 
         self.decisions_log.append({
@@ -945,7 +957,7 @@ class HermesQuantOS:
         logger.info(f"Restarting in {RESTART_DELAY} seconds...")
         await asyncio.sleep(RESTART_DELAY)
 
-    def signal_handler(self, signum, frame):
+    def signal_handler(self, signum: int, frame) -> None:
         logger.info("Shutdown signal received!")
         self.decisions_log.append({
             'timestamp': datetime.now().isoformat(),

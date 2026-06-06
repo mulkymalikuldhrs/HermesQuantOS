@@ -4,7 +4,6 @@ config/.env
 .env.local
 .env.production
 .env.*.local
-config/.env.example
 !.env.example
 *.key
 *.pem

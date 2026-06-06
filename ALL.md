@@ -2,7 +2,7 @@
 
 > Autonomous Multi-Agent Trading & Research Infrastructure
 > Owner: Mulky Malikul Dhaher
-> Version: 3.2.0 | Codename: Chronicle
+> Version: 4.0.0 | Codename: Production
 > Repository: github.com/mulkymalikuldhrs/hermes-quant-os
 
 ---
@@ -31,8 +31,10 @@
 
 ## 1.3 Wallet Targets
 
-- **Tron (PRIORITAS):** TYsLNKWuyQBsgXkB6TSGuwV7cPQy4ejVvX
-- **Shiba Inu:** 0x2C619D4f3067C6BB5837a9DC57852Ea68558D4cE
+- **Tron (PRIORITAS):** Configure via `WALLET_TRON` environment variable
+- **Shiba Inu:** Configure via `WALLET_SHIBA` environment variable
+
+> Wallet addresses are loaded from `config/.env` at runtime. Never hardcode wallet addresses in source code or documentation.
 
 ---
 
@@ -406,6 +408,7 @@ hermes-quant-os/
 | 3.0.0 | 2026-05-23 | Constitution | AGENTS.md constitutional framework |
 | 3.1.0 | 2026-05-24 | Synthesis | Quant-Nanggroe-AI 10-tool integration |
 | 3.2.0 | 2026-05-25 | Chronicle | Documentation suite & upgrade planning |
+| 4.0.0 | 2026-05-25 | Production | Critical fixes: shared state, PnL sync, persistence, HTML Telegram, 21-tool routing |
 
 ---
 

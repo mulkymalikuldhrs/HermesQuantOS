@@ -7,7 +7,7 @@
 
 <!-- Badge Animasi -->
 <img src="https://img.shields.io/badge/Versi-4.0.0-FF6B35?style=for-the-badge&logo=semver&logoColor=white&labelColor=0A0A0A" alt="Versi" />
-<img src="https://img.shields.io/badge/Status-Produksi_Siap-00FF88?style=for-the-badge&logo=checkmarx&logoColor=white&labelColor=0A0A0A" alt="Status" />
+<img src="https://img.shields.io/badge/Status-Alpha_/_Under_Development-FFA500?style=for-the-badge&logo=semver&logoColor=white&labelColor=0A0A0A" alt="Status" />
 <img src="https://img.shields.io/badge/Agent-21_di_5_Lapisan-00D4FF?style=for-the-badge&logo=azuredevops&logoColor=white&labelColor=0A0A0A" alt="Agent" />
 <img src="https://img.shields.io/badge/Lisensi-MIT-blue?style=for-the-badge&logo=opensourceinitiative&logoColor=white&labelColor=0A0A0A" alt="Lisensi" />
 
@@ -79,7 +79,7 @@ Arsitektur ini menyintesis pola terkuat dari empat repositori referensi ke dalam
 
 - **21 Agent Spesialis** dalam 5 lapisan arsitektural (Data → Analisis → Keputusan → Eksekusi → Pembelajaran)
 - **Penjaga Risiko Konstitusional** dengan batasan hardcoded yang tidak bisa di-override oleh agent manapun — termasuk LLM
-- **Infrastruktur Auto-Restart 3 Lapisan** memastikan uptime 99.9% (Watchdog + Keeper + On-Boot)
+- **Infrastruktur Auto-Restart 3 Lapisan** meningkatkan keandalan sistem (Watchdog + Keeper + On-Boot)
 - **Multi-Provider LLM** dengan failover otomatis (NVIDIA Nemotron 70B → Groq Llama → OpenCode)
 - **Persistensi SQLite** untuk state trading, PnL, event kill switch, dan lifecycle strategi
 - **Antarmuka Telegram Bot** untuk perintah real-time, sinyal trading, dan alert sistem

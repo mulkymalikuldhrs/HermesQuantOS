@@ -7,7 +7,7 @@
 
 <!-- 动画徽章 -->
 <img src="https://img.shields.io/badge/版本-4.0.0-00FF88?style=for-the-badge&logo=semver&logoColor=white&labelColor=0A0A0A" alt="版本" />
-<img src="https://img.shields.io/badge/阶段-生产就绪-00D4FF?style=for-the-badge&logo=checkmarx&logoColor=white&labelColor=0A0A0A" alt="阶段" />
+<img src="https://img.shields.io/badge/阶段-Alpha_开发中-FFA500?style=for-the-badge&logo=semver&logoColor=white&labelColor=0A0A0A" alt="阶段" />
 <img src="https://img.shields.io/badge/代理-21个_5层架构-FF6B35?style=for-the-badge&logo=azuredevops&logoColor=white&labelColor=0A0A0A" alt="代理" />
 <img src="https://img.shields.io/badge/许可证-MIT-blue?style=for-the-badge&logo=opensourceinitiative&logoColor=white&labelColor=0A0A0A" alt="许可证" />
 
@@ -79,7 +79,7 @@ Hermes Quant Operating System 是一个**生产级自主多代理交易和研究
 
 - **21个专业化代理**分布于5个架构层（数据 → 分析 → 决策 → 执行 → 学习）
 - **宪政风险守护**，采用硬编码限制，任何代理（包括LLM）都无法绕过
-- **3层自动重启基础设施**，确保99.9%正常运行时间（Watchdog + Keeper + 开机启动）
+- **3层自动重启基础设施**，增强系统可靠性（Watchdog + Keeper + 开机启动）
 - **多提供商LLM**，自动故障转移（NVIDIA Nemotron 70B → Groq Llama → OpenCode）
 - **SQLite持久化**，用于交易状态、PnL、终止开关事件和策略生命周期
 - **Telegram Bot接口**，用于实时命令、交易信号和系统警报

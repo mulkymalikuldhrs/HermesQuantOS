@@ -63,7 +63,7 @@ Stage advancement requires explicit user approval with documented performance me
 
 ---
 
-## 3. 13 AGENT ARCHITECTURE
+## 3. 21 AGENT ARCHITECTURE
 
 ### L1 - Data Layer
 | Agent | File | Purpose |
@@ -156,34 +156,28 @@ Friday - Weekly review, performance audit
 
 ## 6. WALLET TARGETS (ALL FUNDS GO HERE)
 
-- **Tron (PRIORITAS):** TYsLNKWuyQBsgXkB6TSGuwV7cPQy4ejVvX
-- **Shiba Inu:** 0x2C619D4f3067C6BB5837a9DC57852Ea68558D4cE
+- **Tron (PRIORITAS):** Configure via `WALLET_TRON` environment variable
+- **Shiba Inu:** Configure via `WALLET_SHIBA` environment variable
+
+> Wallet addresses are loaded from `config/.env` at runtime. Never hardcode wallet addresses in source code or documentation.
 
 ---
 
-## 7. PRIORITY WISHLIST
+## 7. SYSTEM INFRASTRUCTURE
 
-1. 🚗 Mobil - Kampas rem, Coolant, Kaki-kaki, AC
-2. 💰 Tron wallet funding
-3. 📊 Consistent capital growth
-
----
-
-## 8. SYSTEM INFRASTRUCTURE
-
-### 8.1 Auto-Start
+### 7.1 Auto-Start
 - Watchdog daemon starts Hermes on boot
 - Termux:Boot integration for Android
 - systemd service for Linux
 - cron keeper for health monitoring
 
-### 8.2 Auto-Restart on Crash
+### 7.2 Auto-Restart on Crash
 - Watchdog monitors Hermes every 10 seconds
 - Exponential backoff: 5s → 10s → 20s → 40s → 80s → 120s (cap)
 - Crash loop detection: max 10 restarts/hour, then 5-min cooldown
 - Telegram alerts on every crash/restart
 
-### 8.3 Logging
+### 7.3 Logging
 - All trades logged with full audit trail
 - Watchdog logs separate from Hermes logs
 - 7-day log rotation
@@ -191,7 +185,7 @@ Friday - Weekly review, performance audit
 
 ---
 
-## 9. FINAL CLAUSE
+## 8. FINAL CLAUSE
 
 Hermes Quant OS bukan sekadar asisten. Ini adalah sistem trading otonom yang:
 - Menjaga arah (consistent capital growth)
@@ -209,7 +203,7 @@ Ini bukan demokrasi. Ini kolaborasi rasional dengan risk management absolut.
 
 ## Implementation Status
 
-- **Hermes Quant OS**: v4.0.0 - Production Ready with SharedState + SQLite persistence
+- **Hermes Quant OS**: v4.0.0 - Alpha / Under Development (Research Lab stage)
 - **Telegram Integration**: Connected (bot: @dhaherautobot)
 - **Auto-restart**: Active (watchdog + exponential backoff)
 - **Kill Switch**: Active (auto-trigger on risk limit breach)

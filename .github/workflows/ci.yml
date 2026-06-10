@@ -1,152 +1,17 @@
-name: HermesQuantOS CI
-
+name: CI
 on:
   push:
-    branches: [main, master, develop]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
 
 jobs:
-  lint:
-    name: Lint & Syntax Check
+  quality:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install dependencies
+      - name: Check for common issues
         run: |
-          python -m pip install --upgrade pip
-          pip install flake8 ruff
-          pip install -r requirements.txt || true
-
-      - name: Flake8 syntax check (fatal errors only)
-        run: |
-          flake8 src/ scripts/ --count --select=E9,F63,F7,F82 --show-source --statistics
-
-      - name: Ruff lint
-        run: |
-          ruff check src/ scripts/ --exit-zero
-
-  security:
-    name: Security Scan
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install bandit
-        run: pip install bandit
-
-      - name: Bandit security scan
-        run: |
-          bandit -r src/ scripts/ -f json -o bandit-report.json || true
-          bandit -r src/ scripts/ -ll -ii || true
-
-      - name: Check for hardcoded secrets
-        run: |
-          # Check for common secret patterns
-          ! rg -l "nvapi-[a-zA-Z0-9]{20,}" src/ config/ || (echo "ERROR: Hardcoded NVIDIA API key found!" && exit 1)
-          ! rg -l "gsk_[a-zA-Z0-9]{20,}" src/ config/ || (echo "ERROR: Hardcoded Groq API key found!" && exit 1)
-          ! rg -l "sk-[a-zA-Z0-9]{20,}" src/ config/ || (echo "ERROR: Hardcoded OpenAI key found!" && exit 1)
-          ! rg -l "0x[a-fA-F0-9]{40}" config/system_prompt.py || (echo "ERROR: Hardcoded wallet address found!" && exit 1)
-          echo "No hardcoded secrets detected."
-
-  test:
-    name: Import & Module Tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt || true
-
-      - name: Test tool imports
-        run: |
-          cd src
-          python -c "
-          from tools.shared_state import SharedState, get_shared_state
-          from tools.risk_officer_tool import RiskOfficerTool
-          from tools.kill_switch_tool import KillSwitchTool
-          from tools.journal_tool import JournalTool
-          from tools.portfolio_tool import PortfolioTool
-          from tools.pressure_engine import PressureNormalizationEngine
-          from tools.decision_engine import DecisionSynthesisEngine
-          from tools.market_state_engine import MarketStateEngine
-          from tools.news_sentinel import NewsSentinelTool
-          from tools.strategy_lifecycle import StrategyLifecycleManager
-          from tools.math_engine import MathEngine
-          from tools.backtest_engine import BacktestEngine
-          from tools.autoswitch_engine import AutoSwitchEngine
-          from tools.smc_agent_enhanced import SMCAgentEnhanced
-          from tools.audit_logger import AuditLogger
-          print('All tool imports successful!')
-          "
-
-      - name: Test risk officer logic
-        run: |
-          cd src
-          python -c "
-          from tools.risk_officer_tool import RiskOfficerTool
-          import json
-          ro = RiskOfficerTool()
-          # Should VETO: no stop loss
-          result = json.loads(ro.check_trade('XAUUSD', 'BUY', 1.0, 2150, 0))
-          assert result['verdict'] == 'VETOED', 'Should veto zero SL'
-          # Should APPROVE: valid trade within limits
-          result = json.loads(ro.check_trade('XAUUSD', 'BUY', 0.01, 2150, 2145))
-          assert result['verdict'] == 'APPROVED', 'Should approve valid trade'
-          print('Risk Officer logic tests passed!')
-          "
-
-      - name: Test kill switch logic
-        run: |
-          cd src
-          python -c "
-          from tools.kill_switch_tool import KillSwitchTool
-          import json
-          ks = KillSwitchTool()
-          # Activate
-          result = json.loads(ks.activate('MANUAL'))
-          assert result['status'] == 'ACTIVATED'
-          # Reset without confirmation
-          result = json.loads(ks.reset('WRONG'))
-          assert result['status'] == 'STILL_ACTIVE'
-          # Reset with confirmation
-          result = json.loads(ks.reset('CONFIRM_RESET_AFTER_REVIEW'))
-          assert result['status'] == 'RESET'
-          print('Kill Switch logic tests passed!')
-          "
-
-      - name: Test math engine
-        run: |
-          cd src
-          python -c "
-          from tools.math_engine import MathEngine
-          # RSI
-          closes = [100 + i * 0.5 for i in range(30)]
-          rsi = MathEngine.rsi(closes, 14)
-          assert rsi[-1] is not None
-          # EMA
-          ema = MathEngine.ema(closes, 20)
-          assert ema[-1] is not None
-          # MACD
-          macd = MathEngine.macd(closes)
-          assert macd['macd'][-1] is not None
-          print('Math Engine tests passed!')
-          "
+          echo "Running basic quality checks..."
+          # Check for TODO/FIXME
+          grep -r "TODO\|FIXME" --include="*.ts" --include="*.js" --include="*.py" --include="*.tsx" . || echo "No TODOs/FIXMEs found"

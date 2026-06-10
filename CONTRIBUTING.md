@@ -1,69 +1,133 @@
-# Contributing Guide
+# Contributing to Our Projects
 
-🇬🇧 **English** | 🇮🇩 [Bahasa Indonesia](#bahasa-indonesia) | 🇨🇳 [中文](#中文)
+First off, **thank you** for considering contributing! Every contribution matters — whether it's fixing a typo, adding a feature, improving docs, or just reporting a bug.
 
----
+## Quick Start for New Contributors
 
-## English
+### 🟢 Easy Ways to Contribute (No Experience Required)
 
-Thank you for your interest in contributing! We welcome contributions from everyone.
+| Area | How | Time |
+|------|-----|------|
+| **Fix a typo** | Find and fix typos in README, docs, or comments | 5 min |
+| **Improve documentation** | Add missing docs, clarify confusing sections | 15 min |
+| **Report a bug** | Found something broken? Open an issue! | 10 min |
+| **Suggest a feature** | Have an idea? We want to hear it | 10 min |
+| **Add tests** | Write tests for uncovered code | 30 min |
+| **Translate** | Help translate docs to your language | 30 min |
+| **Add code comments** | Make code easier to understand | 15 min |
+| **Fix a good-first-issue** | Look for issues tagged `good first issue` | 1 hour |
 
-### How to Contribute
+### How to Submit Your First Contribution
 
 1. **Fork** the repository
-2. Create a **feature branch** (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. Open a **Pull Request**
+2. **Clone** your fork locally
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/REPO_NAME.git
+   cd REPO_NAME
+   ```
+3. **Create a branch** for your changes
+   ```bash
+   git checkout -b fix/my-first-contribution
+   ```
+4. **Make your changes** and test them
+5. **Commit** with a clear message
+   ```bash
+   git commit -m "fix: correct typo in README"
+   ```
+6. **Push** to your fork
+   ```bash
+   git push origin fix/my-first-contribution
+   ```
+7. **Open a Pull Request** — describe what you changed and why
 
-### Guidelines
+That's it! We'll review your PR and help you get it merged.
 
-- Follow the existing code style and conventions
-- Write clear, descriptive commit messages
-- Add tests for new features
-- Update documentation as needed
-- Be respectful and constructive in discussions
+## Development Setup
 
-### ⚠️ Disclaimer
+### For TypeScript/Next.js Projects
+```bash
+npm install
+cp .env.example .env
+npm run dev
+```
 
-This project is provided strictly for **educational and research purposes**. The authors and contributors assume **no responsibility or liability** for any damages, losses, or risks arising from the use of this software. **We do not bear any responsibility or risk** for how this software is used.
+### For Python Projects
+```bash
+pip install -r requirements.txt
+cp .env.example .env
+python app.py
+```
+
+### For Kotlin/Android Projects
+```bash
+# Open in Android Studio
+./gradlew assembleDebug
+```
+
+## Code Style Guidelines
+
+- **TypeScript**: Follow the existing ESLint configuration
+- **Python**: Follow PEP 8, use type hints where possible
+- **Kotlin**: Follow Kotlin coding conventions
+- **Commits**: Use [Conventional Commits](https://www.conventionalcommits.org/)
+  - `feat:` new feature
+  - `fix:` bug fix
+  - `docs:` documentation only
+  - `style:` formatting, no code change
+  - `refactor:` code restructuring
+  - `test:` adding tests
+  - `chore:` maintenance
+
+## Pull Request Process
+
+1. Update documentation if your change affects behavior
+2. Add tests for new functionality
+3. Ensure all existing tests pass
+4. Keep PRs focused — one feature/fix per PR
+5. Be patient — we'll review as soon as possible
+
+## Reporting Bugs
+
+When filing a bug report, please include:
+
+1. **What happened** — describe the unexpected behavior
+2. **What you expected** — what should have happened
+3. **Steps to reproduce** — how can we see the bug?
+4. **Environment** — OS, Node.js/Python version, browser
+5. **Screenshots/logs** — if applicable
+
+## Suggesting Features
+
+We love feature suggestions! Please include:
+
+1. **The problem** — what are you trying to solve?
+2. **The solution** — how would you like it to work?
+3. **Alternatives** — other approaches you've considered
+4. **Additional context** — screenshots, examples, links
+
+## Community Guidelines
+
+- Be respectful and constructive
+- Help others learn and grow
+- Celebrate all contributions, no matter how small
+- Ask questions — there are no dumb questions
+- Follow our [Code of Conduct](CODE_OF_CONDUCT.md)
+
+## Recognition
+
+All contributors are valued! We recognize contributions through:
+
+- Listing in the repository's contributor list
+- Shoutouts in release notes
+- The satisfaction of building something together
+
+## Questions?
+
+Feel free to:
+- Open a [GitHub Issue](../../issues)
+- Start a [GitHub Discussion](../../discussions)
+- Email: mulkymalikudhr@mail.com
 
 ---
 
-## Bahasa Indonesia
-
-Terima kasih atas minat Anda untuk berkontribusi! Kami menyambut kontribusi dari semua orang.
-
-### Cara Berkontribusi
-
-1. **Fork** repositori ini
-2. Buat **branch fitur** (`git checkout -b feature/fitur-baru`)
-3. **Commit** perubahan Anda (`git commit -m 'Tambah fitur baru'`)
-4. **Push** ke branch (`git push origin feature/fitur-baru`)
-5. Buka **Pull Request**
-
-### ⚠️ Disclaimer
-
-Proyek ini disediakan secara ketat untuk **tujuan pendidikan dan penelitian**. Penulis dan kontributor tidak menanggung **tanggung jawab atau risiko** atas kerusakan, kerugian, atau risiko yang timbul dari penggunaan perangkat lunak ini. **Kami tidak menanggung tanggung jawab atau risiko** atas bagaimana perangkat lunak ini digunakan.
-
----
-
-## 中文
-
-感谢您有兴趣做出贡献！我们欢迎所有人的贡献。
-
-### 如何贡献
-
-1. **Fork** 本仓库
-2. 创建**功能分支** (`git checkout -b feature/amazing-feature`)
-3. **提交**您的更改 (`git commit -m 'Add amazing feature'`)
-4. **推送**到分支 (`git push origin feature/amazing-feature`)
-5. 发起**Pull Request**
-
-### ⚠️ 免责声明
-
-本项目严格仅供**教育和研究目的**。作者和贡献者对因使用本软件而产生的任何损害、损失或风险**不承担任何责任**。**我们不承担任何责任或风险**对于本软件的使用方式。
-
----
-
-**Contact:** Mulky Malikul Dhaher | mulkymalikuldhaher@email.com
+**Remember: Every expert was once a beginner. Your first contribution is always the hardest — we're here to help!**

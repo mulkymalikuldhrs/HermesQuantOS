@@ -1,4 +1,3 @@
-<img src="docs/banner.png" width="100%">
 
 <a href="https://github.com/mulkymalikuldhrs/HermesQuantOS">
   <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1a0f00,50:2d1f00,100:3d2b00&height=220&section=header&text=HermesQuantOS&fontSize=42&fontColor=fbbf24&animation=fadeIn&fontAlignY=30&desc=Autonomous%20Multi-Agent%20Trading%20Infrastructure&descSize=16&descColor=f97316&descAlignY=50" />

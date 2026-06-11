@@ -116,6 +116,230 @@ The system implements a layered architecture where specialized agents handle dis
 
 ---
 
+## Visual Architecture
+
+> Interactive diagrams showing system design, data flow, and implementation status. Click any diagram to expand.
+
+### 3-Tier Agent Swarm Architecture
+
+```mermaid
+graph TB
+    subgraph TIER1["🔍 TIER 1 — ANALYSIS AGENTS"]
+        A1["Microstructure<br/>Analyzer"]
+        A2["Sentiment<br/>Scanner"]
+        A3["Volatility<br/>Modeler"]
+        A4["Liquidity<br/>Assessor"]
+        A5["On-Chain<br/>Analyst"]
+        A6["Correlation<br/>Engine"]
+        A7["Macro<br/>Analyst"]
+    end
+
+    subgraph TIER2["📡 TIER 2 — SIGNAL AGENTS"]
+        S1["Momentum<br/>Detector"]
+        S2["Mean-Reversion<br/>Signal"]
+        S3["Breakout<br/>Identifier"]
+        S4["Scalping<br/>Signal"]
+        S5["Swing Trade<br/>Signal"]
+        S6["Arbitrage<br/>Detector"]
+        S7["Contrarian<br/>Signal"]
+    end
+
+    subgraph TIER3["⚡ TIER 3 — EXECUTION AGENTS"]
+        E1["Smart Order<br/>Router"]
+        E2["Split<br/>Executor"]
+        E3["Order<br/>Router"]
+        E4["Portfolio<br/>Rebalancer"]
+        E5["Hedging<br/>Agent"]
+        E6["Stop Loss<br/>Manager"]
+        E7["Position<br/>Sizer"]
+    end
+
+    subgraph GUARD["🔒 CONSTITUTIONAL RISK GUARD"]
+        RG["⚠️ Risk Gate"]
+        RG --> DD["Max Drawdown<br/>Enforcement"]
+        RG --> PS["Position Size<br/>Limits"]
+        RG --> EC["Exposure Cap<br/>Enforcement"]
+        RG --> KS["Kill Switch<br/>Protocol"]
+        RG --> CB["Circuit<br/>Breakers"]
+        RG --> LV["Leverage<br/>Hard Limits"]
+    end
+
+    TIER1 -->|"Raw Analysis<br/>Feed"| TIER2
+    TIER2 -->|"Composite<br/>Signals"| TIER3
+    TIER3 -->|"Execution<br/>Requests"| GUARD
+    GUARD -->|"Approved<br/>Orders"| EXCHANGE["💱 Exchange<br/>Execution"]
+
+    style TIER1 fill:#1a3a5c,stroke:#4a9eff,color:#fff
+    style TIER2 fill:#1a4a3c,stroke:#4aff9e,color:#fff
+    style TIER3 fill:#3a2a1c,stroke:#ff9e4a,color:#fff
+    style GUARD fill:#3a1a1a,stroke:#ff4a4a,color:#fff
+    style EXCHANGE fill:#2a1a3a,stroke:#b44aff,color:#fff
+```
+
+### Trading Pipeline — Signal to Execution
+
+```mermaid
+flowchart LR
+    subgraph INPUT["📊 Data Ingestion"]
+        M1["Market Data<br/>Streams"]
+        M2["Order Book<br/>Feeds"]
+        M3["Social<br/>Sentiment"]
+        M4["On-Chain<br/>Data"]
+    end
+
+    subgraph ANALYSIS["🧠 Multi-Agent Analysis"]
+        TA["Technical<br/>Analysis"]
+        FA["Fundamental<br/>Analysis"]
+        SA["Sentiment<br/>Analysis"]
+        VA["Volatility<br/>Assessment"]
+    end
+
+    subgraph SIGNAL["📡 Signal Generation"]
+        CS["Composite<br/>Score Calc"]
+        CF["Confidence<br/>Filter"]
+        TH["Threshold<br/>Gate"]
+    end
+
+    subgraph RISK["🛡️ Risk Layer"]
+        PS2["Position<br/>Sizing"]
+        DL["Drawdown<br/>Check"]
+        EX["Exposure<br/>Limit"]
+    end
+
+    subgraph EXEC["⚡ Execution"]
+        OE["Order<br/>Engine"]
+        SM["Slippage<br/>Minimizer"]
+        RC["Receipt &<br/>Tracking"]
+    end
+
+    INPUT --> ANALYSIS --> SIGNAL --> RISK --> EXEC
+    EXEC -->|"P&L Feedback"| ANALYSIS
+
+    style INPUT fill:#0d2137,stroke:#22d3ee,color:#fff
+    style ANALYSIS fill:#1a0f3d,stroke:#a78bfa,color:#fff
+    style SIGNAL fill:#1a3d0f,stroke:#4ade80,color:#fff
+    style RISK fill:#3d1a0f,stroke:#f97316,color:#fff
+    style EXEC fill:#3d0f2a,stroke:#f472b6,color:#fff
+```
+
+### Multi-Exchange Architecture
+
+```mermaid
+graph TB
+    subgraph CORE["🏗️ HermesQuantOS Core"]
+        API["Unified Exchange<br/>API Layer"]
+        ORCH["Agent Orchestration<br/>Engine"]
+        RISK2["Constitutional<br/>Risk Guard"]
+        WS["WebSocket<br/>Server"]
+        DASH["Flask Web<br/>Dashboard"]
+    end
+
+    subgraph EXCHANGES["💱 Exchange Connectors"]
+        subgraph BIN["Binance"]
+            B_SPOT["Spot Trading"]
+            B_FUT["Futures Trading"]
+            B_WS["WebSocket Feed"]
+        end
+        subgraph BYB["Bybit"]
+            BY_SPOT["Spot Trading"]
+            BY_DERIV["Derivatives"]
+            BY_WS["WebSocket Feed"]
+        end
+        subgraph OKX2["OKX"]
+            OK_SPOT["Spot Trading"]
+            OK_SWAP["Perpetual Swaps"]
+            OK_WS["WebSocket Feed"]
+        end
+    end
+
+    subGRAPH INFRA["☁️ Infrastructure"]
+        DB[("SQLite /<br/>PostgreSQL")]
+        REDIS[("Redis<br/>Cache")]
+        LOG["Logging &<br/>Audit Trail"]
+    end
+
+    ORCH --> API
+    API --> B_SPOT & B_FUT
+    API --> BY_SPOT & BY_DERIV
+    API --> OK_SPOT & OK_SWAP
+    B_WS & BY_WS & OK_WS --> WS
+    WS --> DASH
+    CORE --> DB & REDIS & LOG
+
+    style CORE fill:#1a2a3a,stroke:#fbbf24,color:#fff
+    style EXCHANGES fill:#0a1a2a,stroke:#22d3ee,color:#fff
+    style BIN fill:#1a1a0a,stroke:#F0B90B,color:#fff
+    style BYB fill:#1a0a1a,stroke:#f7a600,color:#fff
+    style OKX2 fill:#0a1a1a,stroke:#fff,color:#fff
+    style INFRA fill:#1a1a2a,stroke:#8b5cf6,color:#fff
+```
+
+### Honest Implementation Status Map
+
+```mermaid
+graph LR
+    subgraph DONE["✅ Implemented"]
+        D1["Flask App Scaffold"]
+        D2["Project Structure"]
+        D3["README & Docs"]
+        D4["Config System"]
+        D5["Basic Dashboard UI"]
+    end
+
+    subgraph PARTIAL["🟡 Partially Implemented"]
+        P1["Agent Base Class"]
+        P2["WebSocket Server"]
+        P3["Exchange API Layer"]
+        P4["Paper Trading Mode"]
+        P5["Risk Guard Skeleton"]
+    end
+
+    subgraph PLANNED["🔴 Planned / Conceptual"]
+        R1["21 Specialized Agents"]
+        R2["Agent Orchestration"]
+        R3["Smart Order Routing"]
+        R4["Multi-Exchange Live"]
+        R5["Backtesting Engine"]
+        R6["Portfolio Rebalancer"]
+        R7["Kill Switch Protocol"]
+        R8["Circuit Breakers"]
+        R9["On-Chain Analysis"]
+        R10["Sentiment Scanner"]
+    end
+
+    DONE ~~~ PARTIAL ~~~ PLANNED
+
+    style DONE fill:#0a2a0a,stroke:#4ade80,color:#4ade80
+    style PARTIAL fill:#2a2a0a,stroke:#facc15,color:#facc15
+    style PLANNED fill:#2a0a0a,stroke:#f87171,color:#f87171
+    style D1 fill:#0a3a0a,stroke:#4ade80,color:#fff
+    style D2 fill:#0a3a0a,stroke:#4ade80,color:#fff
+    style D3 fill:#0a3a0a,stroke:#4ade80,color:#fff
+    style D4 fill:#0a3a0a,stroke:#4ade80,color:#fff
+    style D5 fill:#0a3a0a,stroke:#4ade80,color:#fff
+    style P1 fill:#3a3a0a,stroke:#facc15,color:#fff
+    style P2 fill:#3a3a0a,stroke:#facc15,color:#fff
+    style P3 fill:#3a3a0a,stroke:#facc15,color:#fff
+    style P4 fill:#3a3a0a,stroke:#facc15,color:#fff
+    style P5 fill:#3a3a0a,stroke:#facc15,color:#fff
+    style R1 fill:#3a0a0a,stroke:#f87171,color:#fff
+    style R2 fill:#3a0a0a,stroke:#f87171,color:#fff
+    style R3 fill:#3a0a0a,stroke:#f87171,color:#fff
+    style R4 fill:#3a0a0a,stroke:#f87171,color:#fff
+    style R5 fill:#3a0a0a,stroke:#f87171,color:#fff
+    style R6 fill:#3a0a0a,stroke:#f87171,color:#fff
+    style R7 fill:#3a0a0a,stroke:#f87171,color:#fff
+    style R8 fill:#3a0a0a,stroke:#f87171,color:#fff
+    style R9 fill:#3a0a0a,stroke:#f87171,color:#fff
+    style R10 fill:#3a0a0a,stroke:#f87171,color:#fff
+```
+
+> **Legend**: 🟢 Green = Implemented | 🟡 Yellow = Partially Built | 🔴 Red = Planned/Conceptual
+>
+> The 21-agent architecture represents our **design vision**. Most agents exist as architectural concepts rather than working implementations. This is an active scaffold — contributions welcome.
+
+---
+
 ## Honest Notes
 
 > We believe in radical transparency. Here are the hard truths about this project.

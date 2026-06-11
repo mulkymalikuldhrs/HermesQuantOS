@@ -2,28 +2,30 @@
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability within this project, please send an email to **mulkymalikuldhaher@email.com**. All security vulnerabilities will be promptly addressed.
+We take security seriously. If you discover a vulnerability in this project, please report it responsibly.
 
-Please do not publicly disclose the vulnerability until it has been addressed by the maintainers.
+### How to Report
 
-## Security Measures
+1. **Do not** create a public GitHub issue for the vulnerability
+2. Email us at mulkymalikuldhr@agentmail.to with details
+3. Include steps to reproduce, affected versions, and potential impact
 
-- All dependencies are regularly audited for known vulnerabilities
-- Sensitive data is never logged or stored in plain text
-- API keys and credentials must never be committed to version control
-- All inputs are validated and sanitized before processing
+### What to Include
 
-## Best Practices
+- Description of the vulnerability
+- Steps to reproduce
+- Affected versions
+- Potential impact
+- Suggested fix (if available)
 
-- Always use the latest stable version
-- Keep your API keys and credentials secure
-- Report any suspicious behavior immediately
-- Follow responsible disclosure guidelines
+### Response Time
 
----
+We aim to acknowledge reports within 48 hours and provide a fix within 7 days for critical issues.
 
-> ⚠️ **For Education Purpose Only**
->
-> This project is provided strictly for educational and research purposes. The authors and contributors assume **no responsibility or liability** for any damages, losses, or risks arising from the use of this software. **We do not bear any responsibility or risk** for how this software is used.
->
-> **Contact:** Mulky Malikul Dhaher | mulkymalikuldhaher@email.com
+### Disclosure Policy
+
+- We practice responsible disclosure
+- We will credit researchers who report vulnerabilities (unless they prefer to remain anonymous)
+- We ask that you give us reasonable time to address the issue before public disclosure
+
+Thank you for helping keep this project secure!

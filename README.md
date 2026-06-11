@@ -1,3 +1,5 @@
+<img src="docs/banner.png" width="100%">
+
 <a href="https://github.com/mulkymalikuldhrs/HermesQuantOS">
   <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1a0f00,50:2d1f00,100:3d2b00&height=220&section=header&text=HermesQuantOS&fontSize=42&fontColor=fbbf24&animation=fadeIn&fontAlignY=30&desc=Autonomous%20Multi-Agent%20Trading%20Infrastructure&descSize=16&descColor=f97316&descAlignY=50" />
 </a>
@@ -43,17 +45,17 @@ The system implements a layered architecture where specialized agents handle dis
 - **Constitutional Risk Guard** — An independent safety layer with hard-coded risk rules (max drawdown, position sizing, exposure limits) that **cannot be overridden** by any AI agent, ensuring fail-safe boundaries at all times
 - **Agent Orchestration Engine** — Coordinates inter-agent communication, task delegation, and conflict resolution across the full agent swarm
 
-### Trading & Execution
+### Trading and Execution
 
 - **Multi-Exchange Support** — Unified API layer connecting to Binance, Bybit, OKX, and other exchanges (subject to API availability and regional access)
 - **Configurable Strategy Engine** — Define, backtest, and deploy custom trading strategies with parameterized entry/exit logic and risk overlays
 - **Smart Order Execution** — Intelligent order routing with slippage minimization, split execution, and adaptive limit/market order selection
 
-### Monitoring & Safety
+### Monitoring and Safety
 
 - **Real-time Web Dashboard** — Flask-based interface with WebSocket-powered live updates for agent status, open positions, P&L tracking, and risk metrics
 - **Paper Trading Mode** — Full-featured simulated trading environment to validate strategies and agent behavior before committing real capital
-- **Alert & Notification System** — Configurable alerts for risk threshold breaches, trade executions, agent state changes, and system events
+- **Alert and Notification System** — Configurable alerts for risk threshold breaches, trade executions, agent state changes, and system events
 
 ---
 
@@ -99,7 +101,7 @@ The system implements a layered architecture where specialized agents handle dis
 │  │  • Exposure Cap Enforcement    • Kill Switch Protocol │           │
 │  │  • Leverage Hard Limits        • Circuit Breakers     │           │
 │  │                                                      │            │
-│  │         🔒 Rules are IMMUNE to AI override 🔒         │           │
+│  │         🔒 Rules are IMMUNE to AI override 🔒         │            │
 │  └──────────────────────┬──────────────────────────────┘            │
 │                         │                                           │
 │                         ▼                                           │
@@ -252,19 +254,26 @@ graph TB
         end
     end
 
-    subGRAPH INFRA["☁️ Infrastructure"]
+    subgraph INFRA["☁️ Infrastructure"]
         DB[("SQLite /<br/>PostgreSQL")]
         REDIS[("Redis<br/>Cache")]
         LOG["Logging &<br/>Audit Trail"]
     end
 
     ORCH --> API
-    API --> B_SPOT & B_FUT
-    API --> BY_SPOT & BY_DERIV
-    API --> OK_SPOT & OK_SWAP
-    B_WS & BY_WS & OK_WS --> WS
+    API --> B_SPOT
+    API --> B_FUT
+    API --> BY_SPOT
+    API --> BY_DERIV
+    API --> OK_SPOT
+    API --> OK_SWAP
+    B_WS --> WS
+    BY_WS --> WS
+    OK_WS --> WS
     WS --> DASH
-    CORE --> DB & REDIS & LOG
+    CORE --> DB
+    CORE --> REDIS
+    CORE --> LOG
 
     style CORE fill:#1a2a3a,stroke:#fbbf24,color:#fff
     style EXCHANGES fill:#0a1a2a,stroke:#22d3ee,color:#fff

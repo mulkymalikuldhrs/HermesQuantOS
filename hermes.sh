@@ -493,6 +493,58 @@ agent_status() {
     echo ""
 }
 
+# ============================================================================
+# DAEMON — Immortal Guardian
+# ============================================================================
+
+daemon_start() {
+    if [ -f "$BASE_DIR/daemon.pid" ] && kill -0 "$(cat "$BASE_DIR/daemon.pid")" 2>/dev/null; then
+        warn "Daemon already running (PID $(cat $BASE_DIR/daemon.pid))"
+        return 0
+    fi
+
+    log "${BOLD}Starting Immortal Daemon (Guardian)...${NC}"
+    cd "$BASE_DIR/src"
+    mkdir -p "$LOG_DIR"
+    nohup python3 immortal_daemon.py > "$LOG_DIR/daemon_stdout.log" 2>&1 &
+    echo $! > "$BASE_DIR/daemon.pid"
+    sleep 2
+    
+    if kill -0 "$(cat $BASE_DIR/daemon.pid)" 2>/dev/null; then
+        log "${GREEN}Immortal Daemon RUNNING (PID $(cat $BASE_DIR/daemon.pid))${NC}"
+        log "  Auto-upgrade: 5min intervals"
+        log "  Auto-heal: enabled"
+        log "  Ecosystem: 5 repos monitored"
+    else
+        error "Daemon failed to start!"
+    fi
+}
+
+daemon_stop() {
+    if [ -f "$BASE_DIR/daemon.pid" ]; then
+        DPID=$(cat "$BASE_DIR/daemon.pid")
+        if kill -0 "$DPID" 2>/dev/null; then
+            kill "$DPID" 2>/dev/null || true
+            sleep 2
+            kill -9 "$DPID" 2>/dev/null || true
+        fi
+        rm -f "$BASE_DIR/daemon.pid"
+        log "Daemon stopped"
+    fi
+}
+
+daemon_status() {
+    if [ -f "$BASE_DIR/daemon.pid" ] && kill -0 "$(cat "$BASE_DIR/daemon.pid")" 2>/dev/null; then
+        log "${GREEN}Immortal Daemon: RUNNING${NC}"
+        echo ""
+        cd "$BASE_DIR/src"
+        python3 immortal_daemon.py --status 2>/dev/null | python3 -m json.tool 2>/dev/null || true
+    else
+        warn "Immortal Daemon: NOT RUNNING"
+        echo "Start with: ./hermes.sh daemon-start"
+    fi
+}
+
 case "${1:-start}" in
     start)        start ;;
     stop)         stop ;;
@@ -509,8 +561,11 @@ case "${1:-start}" in
     bridge-start) bridge_start ;;
     bridge-stop)  bridge_stop ;;
     bridge-status) bridge_status ;;
-    swarm)        agent_start && start ;;
-    all)          bootstrap && agent_start && start ;;
+    daemon-start) daemon_start ;;
+    daemon-stop)  daemon_stop ;;
+    daemon-status) daemon_status ;;
+    swarm)        daemon_start && agent_start && start ;;
+    all)          bootstrap && daemon_start && agent_start && start ;;
     *)
         echo "Usage: $0 {start|stop|restart|status|logs|health|watchdog|install|bootstrap|agent-start|agent-stop|agent-status|bridge-start|bridge-stop|bridge-status|swarm|all}"
         echo ""
@@ -529,6 +584,11 @@ case "${1:-start}" in
         echo "  bridge-start  - Start memory sync bridge only"
         echo "  bridge-stop   - Stop memory sync bridge"
         echo "  bridge-status - Show bridge sync state"
+        echo ""
+        echo "Guardian:"
+        echo "  daemon-start  - Start Immortal Daemon (auto-upgrade+heal)"
+        echo "  daemon-stop   - Stop Immortal Daemon"
+        echo "  daemon-status - Show ecosystem health"
         echo ""
         echo "One-Command:"
         echo "  bootstrap     - Full auto-install (first run)"

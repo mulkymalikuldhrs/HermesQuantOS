@@ -60,49 +60,61 @@ Every clone auto-connects. Every agent knows every other agent. They share memor
 ### The Hive Architecture
 
 ```
-                  ┌──────────────────────────┐
-                  │    ONE COMMAND (curl)     │
-                  │    install.sh             │
-                  └────────────┬─────────────┘
-                               │
-          ┌────────────────────┼────────────────────┐
-          ▼                    ▼                    ▼
-   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
-   │ Hermes Agent │   │ Swarm Proto  │   │ 21 Trading   │
-   │ (Nous Rsrch) │   │ Discovery    │   │ Agents       │
-   └──────┬───────┘   └──────┬───────┘   └──────┬───────┘
-          │                  │                   │
-          └──────────────────┼───────────────────┘
+                         ┌─────────────────────────┐
+                         │   ONE COMMAND (curl)     │
+                         │   bash install.sh        │
+                         └────────────┬────────────┘
+                                      │
+         ┌────────────────────────────┼────────────────────────────┐
+         ▼                            ▼                            ▼
+  ┌──────────────┐           ┌──────────────┐           ┌──────────────┐
+  │ ProxyGateLLM │           │  Mnemosyne   │           │ Hermes Agent │
+  │ (LLM Gateway)│           │ (Memory/AI)  │           │ (Nous Rsrch) │
+  │ 9+ providers │           │ RAG + 500 LLM│           │ Autonomous   │
+  └──────┬───────┘           └──────┬───────┘           └──────┬───────┘
+         │                          │                          │
+         │    ┌─────────────────────┴─────────────────────┐    │
+         │    │                                         │    │
+         └────┤         HERMES HIVE CORE                ├────┘
+              │                                         │
+              │  🛡️ Immortal Daemon (guardian)          │
+              │  🧠 Swarm Protocol (discovery/sync)     │
+              │  📊 21 Trading Agents (quant pipeline)  │
+              │  🔗 HyperGate (LLM router bridge)       │
+              │  🧬 Memory Bridge (state sync)          │
+              │  ⚕ Watchdog (crash protection)         │
+              │                                         │
+              └─────────────────┬───────────────────────┘
+                                │
+         ┌──────────────────────┼──────────────────────┐
+         ▼                      ▼                      ▼
+  ┌──────────────┐    ┌──────────────┐    ┌──────────────────┐
+  │HermesQuantOS │    │QuantNanggroe │    │AI-MultiColony    │
+  │(Trading)     │    │(Research)    │    │(Orchestration)   │
+  └──────┬───────┘    └──────┬───────┘    └──────┬───────────┘
+         │                   │                    │
+         └───────────────────┼────────────────────┘
                              │
                     ┌────────▼────────┐
-                    │  IMMORTAL DAEMON│
-                    │  • Self-Upgrade │
-                    │  • Auto-Heal    │
-                    │  • Expansion    │
-                    │  • Ecosystem    │
+                    │  SHARED MEMORY  │
+                    │  (agent repo)   │
+                    │  Git sync       │
                     └────────┬────────┘
                              │
-          ┌──────────────────┼──────────────────┐
-          ▼                  ▼                  ▼
-   ┌──────────┐     ┌──────────────┐    ┌──────────┐
-   │HermesQS  │     │QuantNanggroe │    │MultiColony│
-   │(Trading) │     │(Research)    │    │(Orch)     │
-   └────┬─────┘     └──────┬───────┘    └─────┬────┘
-        │                  │                  │
-        └──────────────────┼──────────────────┘
-                           │
-                  ┌────────▼────────┐
-                  │  SHARED MEMORY  │
-                  │  (agent repo)   │
-                  │  Real-time sync │
-                  └────────┬────────┘
-                           │
-          ┌────────────────┼────────────────┐
-          ▼                ▼                ▼
-   ┌──────────┐    ┌──────────┐    ┌──────────────┐
-   │VibeTrade │    │AutoHedge │    │(next clone…) │
-   │(Alphas)  │    │(Exec)    │    │auto-connects │
-   └──────────┘    └──────────┘    └──────────────┘
+         ┌───────────────────┼───────────────────┐
+         ▼                   ▼                   ▼
+  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
+  │ Vibe-Trading │   │  AutoHedge   │   │ ProxyGateLLM │
+  │ (450+ alphas)│   │ (Execution)  │   │ (LLM Router) │
+  └──────────────┘   └──────────────┘   └──────────────┘
+         │                   │                   │
+         └───────────────────┼───────────────────┘
+                             │
+                    ┌────────▼────────┐
+                    │   MNEMOSYNE     │
+                    │  (Knowledge     │
+                    │   Graph + RAG)  │
+                    └─────────────────┘
 ```
 
 ### Core Capabilities

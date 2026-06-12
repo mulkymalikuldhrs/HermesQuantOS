@@ -8,6 +8,22 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## [4.0.0] - 2026-06-12 — Hive Mind Release
 
 ### Added
+- **🔗 HyperGate** (`src/hypergate.py`) — Autonomous LLM Gateway Bridge
+  - Primary: ProxyGateLLM (9+ free LLM providers with auto-failover)
+  - SHA256 caching — zero duplicate API calls
+  - Auto provider health rotation
+  - Fallback chain: NVIDIA → Groq → OpenRouter
+  - OpenAI-compatible API passthrough
+  - Auto-starts ProxyGateLLM locally
+  - Agent LLM calls NEVER fail — always routes to working provider
+- **🧠 Mnemosyne Bridge** (`src/mnemosyne_bridge.py`) — Swarm Knowledge Memory
+  - Semantic memory with RAG injection into agent context
+  - Knowledge graph — ideas connected automatically
+  - 500+ free LLM models via Puter.js
+  - MCP server bridge for AI assistant integration
+  - Trading knowledge store/retrieval
+  - Agent learning accumulation
+  - Local JSON fallback when Mnemosyne unavailable
 - **🧠 Swarm Protocol** (`src/swarm_protocol.py`) — Universal agent discovery & sync
   - Auto-registration on clone → agents find each other via Git
   - Inter-agent messaging (command, alert, upgrade, spawn, heal)
@@ -58,17 +74,20 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Architecture
 ```
-┌──────────────────────────────────────────────┐
-│           HERMES HIVE (v4.0.0)               │
-│                                              │
-│  install.sh → Bootstrap → Swarm Protocol     │
-│       ↓              ↓           ↓           │
-│  Clone Repos   Hermes Agent   Immortal       │
-│       ↓              ↓           ↓           │
-│  6 Ecosystem   21 Trading    Daemon+Watchdog │
-│       ↓              ↓           ↓           │
-│  Auto-Connect → Shared Memory → Self-Heal    │
-└──────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────┐
+│                 HERMES HIVE (v4.0.0)                     │
+│                                                          │
+│  7-Repo Ecosystem • Immortal • Self-Aware • Auto-Expand  │
+│                                                          │
+│  HyperGate → ProxyGateLLM → 9+ LLM providers (no limits) │
+│  Mnemosyne → RAG memory → 500+ models → knowledge graph  │
+│                                                          │
+│  install.sh → Clone all → Auto-config → Start everything │
+│       ↓              ↓              ↓                    │
+│  Swarm Proto   Immortal Daemon   21 Trading Agents       │
+│       ↓              ↓              ↓                    │
+│  Auto-Connect → Shared Memory → Self-Heal → Never Die    │
+└──────────────────────────────────────────────────────────┘
 ```
 
 ---

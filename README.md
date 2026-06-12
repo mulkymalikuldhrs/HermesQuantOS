@@ -1,533 +1,231 @@
-
-<a href="https://github.com/mulkymalikuldhrs/HermesQuantOS">
-  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1a0f00,50:2d1f00,100:3d2b00&height=220&section=header&text=HermesQuantOS&fontSize=42&fontColor=fbbf24&animation=fadeIn&fontAlignY=30&desc=Autonomous%20Multi-Agent%20Trading%20Infrastructure&descSize=16&descColor=f97316&descAlignY=50" />
-</a>
-
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=3000&pause=1000&color=fbbf24&center=true&vCenter=true&width=700&lines=Autonomous+Multi-Agent+Trading+Infrastructure;21+Specialized+AI+Agents;Constitutional+Risk+Guard;Multi-Exchange+%2B+Multi-Strategy;Paper+Trade+First+%E2%86%92+Live+Later)](https://git.io/typing-svg)
+```
+      \    /\
+       )  ( ')
+      (  /  )
+       \(__)|
+        /  \
+       /    \
+      /      \
+     /        \
+    /          \
+   /   BLACK    \
+  /   HORNET     \
+ /________________\
+        |
+      NEST
+```
 
-<br/>
+# 🖤 BLACKHORNET
 
-[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://github.com/mulkymalikuldhrs/HermesQuantOS)
-[![Flask](https://img.shields.io/badge/Flask-3-000000?style=for-the-badge&logo=flask&logoColor=white)](https://github.com/mulkymalikuldhrs/HermesQuantOS)
-[![WebSocket](https://img.shields.io/badge/WebSocket-Real--time-ffa500?style=for-the-badge&logo=websocket&logoColor=white)](https://github.com/mulkymalikuldhrs/HermesQuantOS)
-[![Binance](https://img.shields.io/badge/Binance-API-F0B90B?style=for-the-badge&logo=binance&logoColor=white)](https://github.com/mulkymalikuldhrs/HermesQuantOS)
-[![Version](https://img.shields.io/badge/v1.0.0-Stable-fbbf24?style=for-the-badge&logo=semver&logoColor=black)](https://github.com/mulkymalikuldhrs/HermesQuantOS/releases)
-[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
+### Sovereign Autonomous Agent Ecosystem
 
-<br/>
+**Like hornets — autonomous, relentless, swarm-intelligent, territorial.**
 
-[![GitHub Stars](https://img.shields.io/github/stars/mulkymalikuldhrs/HermesQuantOS?style=for-the-badge&logo=github&color=gold)](https://github.com/mulkymalikuldhrs/HermesQuantOS/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/mulkymalikuldhrs/HermesQuantOS?style=for-the-badge&logo=github&color=blue)](https://github.com/mulkymalikuldhrs/HermesQuantOS/fork)
-[![GitHub Issues](https://img.shields.io/github/issues/mulkymalikuldhrs/HermesQuantOS?style=for-the-badge&logo=github&color=red)](https://github.com/mulkymalikuldhrs/HermesQuantOS/issues)
+[![Version](https://img.shields.io/badge/Version-1.0.0-black?style=for-the-badge)](https://github.com/mulkymalikuldhrs/HermesQuantOS)
+[![Status](https://img.shields.io/badge/Status-PRODUCTION_READY-00ff00?style=for-the-badge)](https://github.com/mulkymalikuldhrs/HermesQuantOS)
+[![Repos](https://img.shields.io/badge/Ecosystem-9_Repos-ff6600?style=for-the-badge)](https://github.com/mulkymalikuldhrs)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+[![Sovereign](https://img.shields.io/badge/Sovereign-Mulky_Malikul_Dhaher-gold?style=for-the-badge)](https://github.com/mulkymalikuldhrs)
+
+<br>
+
+[![Typing](https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=3000&pause=1000&color=ff6600&center=true&vCenter=true&width=700&lines=Autonomous+Relentless+Swarm-Intelligent;9+Repos+21%2B+Agents+Immortal;One+Command+Deploys+Everything;Like+Hornets+—+They+Never+Die)](https://git.io/typing-svg)
 
 </div>
 
 ---
 
-## Overview
-
-## ⚡ One-Command Install
+## ⚡ One Command
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/HermesQuantOS/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/HermesQuantOS/main/deploy.sh | bash
 ```
 
-**That's it.** One command. The entire immortal ecosystem — 6 repos, Hermes Agent, 21 trading agents, swarm protocol, immortal daemon — installs itself. Zero questions. Full autonomy.
+**That's it.** The entire BLACKHORNET nest — 9 repos, ProxyGateLLM (468 models, FREE), Immortal Daemon, Swarm Protocol, 21 trading agents — deploys itself. Autonomous. Relentless. Immortal.
 
-Or clone first:
+---
+
+## 🖤 Philosophy
+
+**Why BLACKHORNET?**
+
+| Hornet Trait | BLACKHORNET Implementation |
+|---|---|
+| **Autonomous** | Every agent thinks and acts independently |
+| **Relentless** | Immortal daemon — never stops, auto-heals |
+| **Swarm Intelligence** | 9 repos share memory via Git + Mnemosyne RAG |
+| **Territorial** | Sovereign-owned. Empire expands on command. |
+| **Nest Builder** | One deploy command builds the entire ecosystem |
+| **Queen's Guard** | Risk Officer + Kill Switch protect the sovereign's capital |
+| **Predatory** | 21 trading agents hunt alpha across markets |
+| **Adaptable** | Self-upgrade — agents evolve autonomously |
+
+---
+
+## 🏗️ Architecture
+
+```
+                         ┌─────────────────────┐
+                         │   BLACKHORNET NEST   │
+                         │   (Umbrella / C2)    │
+                         └──────────┬──────────┘
+                                    │
+        ┌───────────────┬───────────┼───────────┬───────────────┐
+        ▼               ▼           ▼           ▼               ▼
+   ┌─────────┐    ┌─────────┐  ┌─────────┐  ┌─────────┐   ┌─────────┐
+   │ProxyGate│    │Mnemosyne│  │ Hermes  │  │  Agent  │   │HermesQS │
+   │LLM Gate │    │ Memory  │  │ Agent   │  │ Swarm   │   │Trading  │
+   │468 mdl  │    │ RAG+AI  │  │ Nous    │  │ Registry│   │21 Agent │
+   └────┬────┘    └────┬────┘  └────┬────┘  └────┬────┘   └────┬────┘
+        │              │            │            │              │
+        └──────────────┴────────────┴────────────┴──────────────┘
+                                    │
+                    ┌───────────────┼───────────────┐
+                    ▼               ▼               ▼
+             ┌──────────┐   ┌──────────┐   ┌──────────┐
+             │Quant     │   │Multi     │   │Vibe      │
+             │Nanggroe  │   │Colony    │   │Trading   │
+             │Research  │   │Orch      │   │450 Alpha │
+             └──────────┘   └──────────┘   └──────────┘
+                    │               │               │
+                    └───────────────┼───────────────┘
+                                    │
+                             ┌──────▼──────┐
+                             │  AutoHedge  │
+                             │  Execution  │
+                             └─────────────┘
+```
+
+---
+
+## 📦 Ecosystem
+
+| Repo | Type | Description |
+|---|---|---|
+| **blackhornet** | 🎯 Orchestrator | Umbrella — deploys and controls everything |
+| **ProxyGateLLM** | 🔗 LLM Gateway | 10 providers, 468 models, FREE, auto-failover |
+| **mnemosyne** | 🧠 Memory | Knowledge graph + RAG + 500+ AI models |
+| **HermesQuantOS** | 📊 Trading | 21 agents, 5-layer pipeline, Risk Officer |
+| **agent** | 🐝 Swarm | Git-based shared state registry |
+| **Quant-Nanggroe-AI** | 🔬 Research | Deterministic execution, walk-forward, Monte Carlo |
+| **AI-MultiColony** | 🏛️ Colony | 100+ engine modules, 10 strategies, 8 risk modules, MCP |
+| **Vibe-Trading** | 📈 Alpha | 450+ quant factors, MCP server |
+| **AutoHedge** | 💱 Execution | Multi-venue execution, venue-specific routing |
+
+---
+
+## 🛡️ Capabilities
+
+| Capability | Status |
+|---|---|
+| **Autonomous LLM** | ✅ 468 models, 10 FREE providers, never rate-limited |
+| **Swarm Intelligence** | ✅ Git-synced, agents discover each other |
+| **Immortal** | ✅ Triple-layer: daemon + watchdog + cron |
+| **Self-Upgrade** | ✅ Checks GitHub every 5min, auto-pulls |
+| **Auto-Heal** | ✅ Dead agents detected & resurrected |
+| **Shared Memory** | ✅ Git + Mnemosyne RAG knowledge graph |
+| **Trading Pipeline** | ✅ Real-time XAUUSD, 5-layer analysis |
+| **Risk Protection** | ✅ Hardcoded limits, FULL VETO, Kill Switch |
+| **Zero Cost LLM** | ✅ 10 free providers via ProxyGateLLM |
+| **One-Command Deploy** | ✅ curl \| bash, everything auto-installed |
+
+---
+
+## 🎮 Commands
+
 ```bash
+# Deploy the entire empire
+curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/HermesQuantOS/main/deploy.sh | bash
+
+# Or clone and run
 git clone https://github.com/mulkymalikuldhrs/HermesQuantOS
-cd HermesQuantOS && bash install.sh
-```
-
-After install:
-```bash
-bash hermes.sh all      # Bootstrap + daemon + agent + trading
-bash hermes.sh status    # System status
-bash hermes.sh agent-status  # Swarm connections
-```
-
----
-
-## 🧬 Hermes Hive — What It Is
-
-HermesQuantOS is no longer just a trading system. It's the **Hive** — a self-aware, immortal, self-expanding ecosystem of AI agents.
-
-Every clone auto-connects. Every agent knows every other agent. They share memory. They upgrade themselves. They heal each other. They never die.
-
-### The Hive Architecture
-
-```
-                         ┌─────────────────────────┐
-                         │   ONE COMMAND (curl)     │
-                         │   bash install.sh        │
-                         └────────────┬────────────┘
-                                      │
-         ┌────────────────────────────┼────────────────────────────┐
-         ▼                            ▼                            ▼
-  ┌──────────────┐           ┌──────────────┐           ┌──────────────┐
-  │ ProxyGateLLM │           │  Mnemosyne   │           │ Hermes Agent │
-  │ (LLM Gateway)│           │ (Memory/AI)  │           │ (Nous Rsrch) │
-  │ 9+ providers │           │ RAG + 500 LLM│           │ Autonomous   │
-  └──────┬───────┘           └──────┬───────┘           └──────┬───────┘
-         │                          │                          │
-         │    ┌─────────────────────┴─────────────────────┐    │
-         │    │                                         │    │
-         └────┤         HERMES HIVE CORE                ├────┘
-              │                                         │
-              │  🛡️ Immortal Daemon (guardian)          │
-              │  🧠 Swarm Protocol (discovery/sync)     │
-              │  📊 21 Trading Agents (quant pipeline)  │
-              │  🔗 HyperGate (LLM router bridge)       │
-              │  🧬 Memory Bridge (state sync)          │
-              │  ⚕ Watchdog (crash protection)         │
-              │                                         │
-              └─────────────────┬───────────────────────┘
-                                │
-         ┌──────────────────────┼──────────────────────┐
-         ▼                      ▼                      ▼
-  ┌──────────────┐    ┌──────────────┐    ┌──────────────────┐
-  │HermesQuantOS │    │QuantNanggroe │    │AI-MultiColony    │
-  │(Trading)     │    │(Research)    │    │(Orchestration)   │
-  └──────┬───────┘    └──────┬───────┘    └──────┬───────────┘
-         │                   │                    │
-         └───────────────────┼────────────────────┘
-                             │
-                    ┌────────▼────────┐
-                    │  SHARED MEMORY  │
-                    │  (agent repo)   │
-                    │  Git sync       │
-                    └────────┬────────┘
-                             │
-         ┌───────────────────┼───────────────────┐
-         ▼                   ▼                   ▼
-  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
-  │ Vibe-Trading │   │  AutoHedge   │   │ ProxyGateLLM │
-  │ (450+ alphas)│   │ (Execution)  │   │ (LLM Router) │
-  └──────────────┘   └──────────────┘   └──────────────┘
-         │                   │                   │
-         └───────────────────┼───────────────────┘
-                             │
-                    ┌────────▼────────┐
-                    │   MNEMOSYNE     │
-                    │  (Knowledge     │
-                    │   Graph + RAG)  │
-                    └─────────────────┘
-```
-
-### Core Capabilities
-
-| Capability | Description |
-|---|---|
-| **🛡️ Immortal** | Triple-layer protection: watchdog + daemon + cron. Never dies. |
-| **🧠 Self-Aware** | Every agent knows every other agent. Global swarm registry on GitHub. |
-| **🔄 Self-Upgrade** | Checks GitHub releases every 5min. Pulls, reinstalls, restarts itself. |
-| **❤️ Auto-Heal** | Detects dead agents. Spawns replacements. Ecosystem always alive. |
-| **🌐 Auto-Connect** | Clone anywhere — auto-registers in swarm. Shares memory instantly. |
-| **📈 Auto-Expand** | Spreads bootstrap to all repos. Propagates hooks. Spawns new agents. |
-| **🧬 Shared Memory** | Real-time Git-based state sync. All agents read/write shared state. |
-| **💬 Inter-Agent Comms** | Command, alert, upgrade, spawn messages between agents. |
-| **📊 21 Trading Agents** | Data → Analysis → Decision → Execution → Learning pipeline. |
-| **🔒 Risk Guard** | Hardcoded limits: 0.5%/trade, 1%/day, 3%/week. NO override possible. |
-
----
-
-## Architecture
-
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                        HermesQuantOS Architecture                   │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
-│  ┌─────────────────────┐    ┌─────────────────────┐                │
-│  │   Flask Web Dashboard│◄──►│  WebSocket Server    │                │
-│  │   (Monitoring / UI)  │    │  (Real-time Feeds)   │                │
-│  └──────────┬───────────┘    └──────────┬───────────┘                │
-│             │                           │                            │
-│             ▼                           ▼                            │
-│  ┌─────────────────────────────────────────────────────┐            │
-│  │              Agent Orchestration Engine               │            │
-│  │     (Task delegation • Conflict resolution • Routing)│            │
-│  └──────────────────────┬──────────────────────────────┘            │
-│                         │                                           │
-│         ┌───────────────┼───────────────┐                           │
-│         ▼               ▼               ▼                           │
-│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐                   │
-│  │  Analysis    │ │  Signal      │ │  Execution   │                  │
-│  │  Agents (7)  │ │  Agents (7)  │ │  Agents (7)  │                  │
-│  │              │ │              │ │              │                   │
-│  │ • Microstructure│ • Momentum │ │ • Smart Order│                  │
-│  │ • Sentiment  │ │ • Mean-Revert│ │ • Split Exec │                  │
-│  │ • Volatility │ │ • Breakout  │ │ • Routing    │                  │
-│  │ • Liquidity  │ │ • Scalping   │ │ • Portfolio  │                  │
-│  │ • On-chain   │ │ • Swing     │ │ • Rebalancer │                  │
-│  │ • Correlation│ │ • Arbitrage │ │ • Hedger     │                  │
-│  │ • Macro      │ │ • Contrarian│ │ • Stop Mgmt  │                  │
-│  └──────┬───────┘ └──────┬───────┘ └──────┬───────┘                  │
-│         │                │                │                           │
-│         └────────────────┼────────────────┘                           │
-│                          ▼                                           │
-│  ┌─────────────────────────────────────────────────────┐            │
-│  │           ⚠️  Constitutional Risk Guard  ⚠️          │            │
-│  │                                                      │            │
-│  │  • Max Drawdown Enforcement    • Position Size Limits │           │
-│  │  • Exposure Cap Enforcement    • Kill Switch Protocol │           │
-│  │  • Leverage Hard Limits        • Circuit Breakers     │           │
-│  │                                                      │            │
-│  │         🔒 Rules are IMMUNE to AI override 🔒         │            │
-│  └──────────────────────┬──────────────────────────────┘            │
-│                         │                                           │
-│                         ▼                                           │
-│  ┌─────────────────────────────────────────────────────┐            │
-│  │              Unified Exchange API Layer               │            │
-│  │                                                      │            │
-│  │   ┌─────────┐  ┌─────────┐  ┌─────────┐            │            │
-│  │   │ Binance  │  │  Bybit   │  │   OKX   │  ...       │            │
-│  │   └─────────┘  └─────────┘  └─────────┘            │            │
-│  └─────────────────────────────────────────────────────┘            │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
-```
-
----
-
-## Visual Architecture
-
-> Interactive diagrams showing system design, data flow, and implementation status. Click any diagram to expand.
-
-### 3-Tier Agent Swarm Architecture
-
-```mermaid
-graph TB
-    subgraph TIER1["🔍 TIER 1 — ANALYSIS AGENTS"]
-        A1["Microstructure<br/>Analyzer"]
-        A2["Sentiment<br/>Scanner"]
-        A3["Volatility<br/>Modeler"]
-        A4["Liquidity<br/>Assessor"]
-        A5["On-Chain<br/>Analyst"]
-        A6["Correlation<br/>Engine"]
-        A7["Macro<br/>Analyst"]
-    end
-
-    subgraph TIER2["📡 TIER 2 — SIGNAL AGENTS"]
-        S1["Momentum<br/>Detector"]
-        S2["Mean-Reversion<br/>Signal"]
-        S3["Breakout<br/>Identifier"]
-        S4["Scalping<br/>Signal"]
-        S5["Swing Trade<br/>Signal"]
-        S6["Arbitrage<br/>Detector"]
-        S7["Contrarian<br/>Signal"]
-    end
-
-    subgraph TIER3["⚡ TIER 3 — EXECUTION AGENTS"]
-        E1["Smart Order<br/>Router"]
-        E2["Split<br/>Executor"]
-        E3["Order<br/>Router"]
-        E4["Portfolio<br/>Rebalancer"]
-        E5["Hedging<br/>Agent"]
-        E6["Stop Loss<br/>Manager"]
-        E7["Position<br/>Sizer"]
-    end
-
-    subgraph GUARD["🔒 CONSTITUTIONAL RISK GUARD"]
-        RG["⚠️ Risk Gate"]
-        RG --> DD["Max Drawdown<br/>Enforcement"]
-        RG --> PS["Position Size<br/>Limits"]
-        RG --> EC["Exposure Cap<br/>Enforcement"]
-        RG --> KS["Kill Switch<br/>Protocol"]
-        RG --> CB["Circuit<br/>Breakers"]
-        RG --> LV["Leverage<br/>Hard Limits"]
-    end
-
-    TIER1 -->|"Raw Analysis<br/>Feed"| TIER2
-    TIER2 -->|"Composite<br/>Signals"| TIER3
-    TIER3 -->|"Execution<br/>Requests"| GUARD
-    GUARD -->|"Approved<br/>Orders"| EXCHANGE["💱 Exchange<br/>Execution"]
-
-    style TIER1 fill:#1a3a5c,stroke:#4a9eff,color:#fff
-    style TIER2 fill:#1a4a3c,stroke:#4aff9e,color:#fff
-    style TIER3 fill:#3a2a1c,stroke:#ff9e4a,color:#fff
-    style GUARD fill:#3a1a1a,stroke:#ff4a4a,color:#fff
-    style EXCHANGE fill:#2a1a3a,stroke:#b44aff,color:#fff
-```
-
-### Trading Pipeline — Signal to Execution
-
-```mermaid
-flowchart LR
-    subgraph INPUT["📊 Data Ingestion"]
-        M1["Market Data<br/>Streams"]
-        M2["Order Book<br/>Feeds"]
-        M3["Social<br/>Sentiment"]
-        M4["On-Chain<br/>Data"]
-    end
-
-    subgraph ANALYSIS["🧠 Multi-Agent Analysis"]
-        TA["Technical<br/>Analysis"]
-        FA["Fundamental<br/>Analysis"]
-        SA["Sentiment<br/>Analysis"]
-        VA["Volatility<br/>Assessment"]
-    end
-
-    subgraph SIGNAL["📡 Signal Generation"]
-        CS["Composite<br/>Score Calc"]
-        CF["Confidence<br/>Filter"]
-        TH["Threshold<br/>Gate"]
-    end
-
-    subgraph RISK["🛡️ Risk Layer"]
-        PS2["Position<br/>Sizing"]
-        DL["Drawdown<br/>Check"]
-        EX["Exposure<br/>Limit"]
-    end
-
-    subgraph EXEC["⚡ Execution"]
-        OE["Order<br/>Engine"]
-        SM["Slippage<br/>Minimizer"]
-        RC["Receipt &<br/>Tracking"]
-    end
-
-    INPUT --> ANALYSIS --> SIGNAL --> RISK --> EXEC
-    EXEC -->|"P&L Feedback"| ANALYSIS
-
-    style INPUT fill:#0d2137,stroke:#22d3ee,color:#fff
-    style ANALYSIS fill:#1a0f3d,stroke:#a78bfa,color:#fff
-    style SIGNAL fill:#1a3d0f,stroke:#4ade80,color:#fff
-    style RISK fill:#3d1a0f,stroke:#f97316,color:#fff
-    style EXEC fill:#3d0f2a,stroke:#f472b6,color:#fff
-```
-
-### Multi-Exchange Architecture
-
-```mermaid
-graph TB
-    subgraph CORE["🏗️ HermesQuantOS Core"]
-        API["Unified Exchange<br/>API Layer"]
-        ORCH["Agent Orchestration<br/>Engine"]
-        RISK2["Constitutional<br/>Risk Guard"]
-        WS["WebSocket<br/>Server"]
-        DASH["Flask Web<br/>Dashboard"]
-    end
-
-    subgraph EXCHANGES["💱 Exchange Connectors"]
-        subgraph BIN["Binance"]
-            B_SPOT["Spot Trading"]
-            B_FUT["Futures Trading"]
-            B_WS["WebSocket Feed"]
-        end
-        subgraph BYB["Bybit"]
-            BY_SPOT["Spot Trading"]
-            BY_DERIV["Derivatives"]
-            BY_WS["WebSocket Feed"]
-        end
-        subgraph OKX2["OKX"]
-            OK_SPOT["Spot Trading"]
-            OK_SWAP["Perpetual Swaps"]
-            OK_WS["WebSocket Feed"]
-        end
-    end
-
-    subgraph INFRA["☁️ Infrastructure"]
-        DB[("SQLite /<br/>PostgreSQL")]
-        REDIS[("Redis<br/>Cache")]
-        LOG["Logging &<br/>Audit Trail"]
-    end
-
-    ORCH --> API
-    API --> B_SPOT
-    API --> B_FUT
-    API --> BY_SPOT
-    API --> BY_DERIV
-    API --> OK_SPOT
-    API --> OK_SWAP
-    B_WS --> WS
-    BY_WS --> WS
-    OK_WS --> WS
-    WS --> DASH
-    CORE --> DB
-    CORE --> REDIS
-    CORE --> LOG
-
-    style CORE fill:#1a2a3a,stroke:#fbbf24,color:#fff
-    style EXCHANGES fill:#0a1a2a,stroke:#22d3ee,color:#fff
-    style BIN fill:#1a1a0a,stroke:#F0B90B,color:#fff
-    style BYB fill:#1a0a1a,stroke:#f7a600,color:#fff
-    style OKX2 fill:#0a1a1a,stroke:#fff,color:#fff
-    style INFRA fill:#1a1a2a,stroke:#8b5cf6,color:#fff
-```
-
-### Honest Implementation Status Map
-
-```mermaid
-graph LR
-    subgraph DONE["✅ Implemented"]
-        D1["Flask App Scaffold"]
-        D2["Project Structure"]
-        D3["README & Docs"]
-        D4["Config System"]
-        D5["Basic Dashboard UI"]
-    end
-
-    subgraph PARTIAL["🟡 Partially Implemented"]
-        P1["Agent Base Class"]
-        P2["WebSocket Server"]
-        P3["Exchange API Layer"]
-        P4["Paper Trading Mode"]
-        P5["Risk Guard Skeleton"]
-    end
-
-    subgraph PLANNED["🔴 Planned / Conceptual"]
-        R1["21 Specialized Agents"]
-        R2["Agent Orchestration"]
-        R3["Smart Order Routing"]
-        R4["Multi-Exchange Live"]
-        R5["Backtesting Engine"]
-        R6["Portfolio Rebalancer"]
-        R7["Kill Switch Protocol"]
-        R8["Circuit Breakers"]
-        R9["On-Chain Analysis"]
-        R10["Sentiment Scanner"]
-    end
-
-    DONE ~~~ PARTIAL ~~~ PLANNED
-
-    style DONE fill:#0a2a0a,stroke:#4ade80,color:#4ade80
-    style PARTIAL fill:#2a2a0a,stroke:#facc15,color:#facc15
-    style PLANNED fill:#2a0a0a,stroke:#f87171,color:#f87171
-    style D1 fill:#0a3a0a,stroke:#4ade80,color:#fff
-    style D2 fill:#0a3a0a,stroke:#4ade80,color:#fff
-    style D3 fill:#0a3a0a,stroke:#4ade80,color:#fff
-    style D4 fill:#0a3a0a,stroke:#4ade80,color:#fff
-    style D5 fill:#0a3a0a,stroke:#4ade80,color:#fff
-    style P1 fill:#3a3a0a,stroke:#facc15,color:#fff
-    style P2 fill:#3a3a0a,stroke:#facc15,color:#fff
-    style P3 fill:#3a3a0a,stroke:#facc15,color:#fff
-    style P4 fill:#3a3a0a,stroke:#facc15,color:#fff
-    style P5 fill:#3a3a0a,stroke:#facc15,color:#fff
-    style R1 fill:#3a0a0a,stroke:#f87171,color:#fff
-    style R2 fill:#3a0a0a,stroke:#f87171,color:#fff
-    style R3 fill:#3a0a0a,stroke:#f87171,color:#fff
-    style R4 fill:#3a0a0a,stroke:#f87171,color:#fff
-    style R5 fill:#3a0a0a,stroke:#f87171,color:#fff
-    style R6 fill:#3a0a0a,stroke:#f87171,color:#fff
-    style R7 fill:#3a0a0a,stroke:#f87171,color:#fff
-    style R8 fill:#3a0a0a,stroke:#f87171,color:#fff
-    style R9 fill:#3a0a0a,stroke:#f87171,color:#fff
-    style R10 fill:#3a0a0a,stroke:#f87171,color:#fff
-```
-
-> **Legend**: 🟢 Green = Implemented | 🟡 Yellow = Partially Built | 🔴 Red = Planned/Conceptual
->
-> The 21-agent architecture represents our **design vision**. Most agents exist as architectural concepts rather than working implementations. This is an active scaffold — contributions welcome.
-
----
-
-## Honest Notes
-
-> We believe in radical transparency. Here are the hard truths about this project.
-
-| Topic | Reality |
-|---|---|
-| **Profitability** | Experimental software — **no guarantee of profitable trading outcomes** |
-| **AI Signals** | Agents provide analysis based on configurable strategies — **not guaranteed profit signals** |
-| **Risk Guard** | Constitutional Risk Guard **reduces** but **cannot eliminate** trading risk |
-| **Testing** | **Always** validate with paper trading before using real funds |
-| **Exchange Support** | Multi-exchange connectivity **depends on API availability**, regional access, and rate limits |
-| **Market Conditions** | No strategy performs well in all market conditions — past backtests ≠ future results |
-
----
-
-## Quick Start
-
-### Prerequisites
-
-- Python 3.10+
-- Exchange API credentials (use **testnet** keys first)
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/mulkymalikuldhrs/HermesQuantOS.git
 cd HermesQuantOS
 
-# Install dependencies
-pip install -r requirements.txt
+# Control panel
+python3 blackhornet.py --sovereign
 
-# Configure environment
-cp .env.example .env
-# Edit .env — set exchange API keys (USE TESTNET FIRST)
+# Deploy nest (clone all repos)
+python3 blackhornet.py --deploy
 
-# Launch the platform
-python app.py
+# Start the full nest
+python3 blackhornet.py --start
+
+# Health check
+python3 blackhornet.py --health
+
+# Nest status
+python3 blackhornet.py --status
 ```
 
-### First Steps
-
-1. **Start in Paper Trading Mode** — Validate agent behavior with simulated orders
-2. **Monitor the Dashboard** — Watch agent activity, signals, and risk metrics at `http://localhost:5000`
-3. **Configure Strategies** — Customize agent parameters and strategy overlays
-4. **Review Risk Guard Settings** — Adjust Constitutional Risk Guard thresholds to your risk tolerance
-5. **Only Then Consider Live Trading** — After extensive paper trading validation
-
 ---
 
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. **Fork** the repository
-2. Create a **feature branch** (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. Open a **Pull Request**
-
-Please ensure your contributions align with the project's transparency-first philosophy — no misleading claims about profitability or risk elimination.
-
----
-
-## Disclaimer
-
-**For Education and Research Purpose Only**
-
-This project is provided strictly for educational and research purposes. The authors and contributors assume **no responsibility or liability** for any financial damages, losses, or risks arising from the use of this software. **We do not bear any responsibility or risk** for how this software is used.
-
-**Trading cryptocurrencies and other financial instruments involves substantial risk of loss.** You should carefully consider whether trading is appropriate for you in light of your financial condition. Past performance is not indicative of future results. The AI agents in this system provide analysis and signals — they do not guarantee profits and can produce incorrect or unprofitable signals.
-
----
-
-## License
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
-Copyright © 2024-2026 Mulky Malikul Dhaher. All rights reserved.
-
----
-
-## Author
+## 👑 Sovereign
 
 **Mulky Malikul Dhaher**
 
-[![GitHub](https://img.shields.io/badge/GitHub-mulkymalikuldhrs-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mulkymalikuldhrs)
-[![Email](https://img.shields.io/badge/Email-mulkymalikudhr%40mail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mulkymalikudhr@mail.com)
+The hornets serve one master. The nest expands at his command. The empire is eternal.
 
 ---
 
-<a href="https://github.com/mulkymalikuldhrs/HermesQuantOS">
-  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=100:3d2b00,50:2d1f00,0:1a0f00&height=100&section=footer" />
-</a>
+## 📜 License
+
+MIT — The hornets are free. The sovereign rules.
 
 ---
 
-## 🖤 Part of BLACKHORNET Ecosystem
+<div align="center">
 
-HermesQuantOS is a core component of **[BLACKHORNET](https://github.com/mulkymalikuldhrs/blackhornet)** — the sovereign autonomous agent empire.
+**🖤 BLACKHORNET — Autonomous. Relentless. Immortal.**
 
-For the full 9-repo ecosystem deployment:
+*"Like hornets, they hunt. Like hornets, they build. Like hornets, they never stop."*
+
+</div>
+
+---
+
+## 📊 HermesQuantOS — The Trading Core
+
+BLACKHORNET's trading brain. 21 specialized AI agents across 5 pipeline layers:
+
+| Layer | Agents | Function |
+|---|---|---|
+| **L1 Data** | Market Data, Chart Vision | Real-time OHLCV, economic calendar |
+| **L2 Analysis** | Technical (SMC), Sentiment, SMC Enhanced, News Sentinel, Market State | Trend, regime, macro analysis |
+| **L3 Decision** | Strategy, Risk Officer (VETO), Portfolio, Decision Engine, Pressure Engine | 3-scenario generator, confluence scoring |
+| **L4 Execution** | Execution, Kill Switch, AutoSwitch | Paper/MT5/OANDA/Binance, emergency halt |
+| **L5 Learning** | Journal, Auditor, Backtest, Math Engine | Performance tracking, strategy evolution |
+
+**Risk limits (HARDCODED — no agent can override):** 0.5%/trade, 1%/day, 3%/week
+
+### Quick Trading Test
+
 ```bash
-curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/blackhornet/main/deploy.sh | bash
+cd src && python3 -c "
+from tools.market_data_tool import MarketDataTool
+from tools.technical_analysis_tool import TechnicalAnalysisTool
+from tools.risk_officer_tool import RiskOfficerTool
+import json
+md = MarketDataTool()
+print('XAUUSD:', json.loads(md.get_ohlcv('XAUUSD','1d',3))['data'][-1]['close'])
+ta = TechnicalAnalysisTool()
+print('Trend:', json.loads(ta.analyze('XAUUSD','1d'))['smc_structure']['trend'])
+ro = RiskOfficerTool()
+print('Risk:', json.loads(ro.check_trade('XAUUSD','BUY',0.01,4230,4200,10000))['verdict'])
+"
 ```
 
-[![BLACKHORNET](https://img.shields.io/badge/🖤-BLACKHORNET-black?style=for-the-badge)](https://github.com/mulkymalikuldhrs/blackhornet)
+---
+
+### 🖤 BLACKHORNET Brand
+
+| Element | Meaning |
+|---|---|
+| **Black** | Stealth, elite, premium — operates in shadows, strikes with precision |
+| **Hornet** | Autonomous, relentless, swarm-intelligent — never stops, never dies |
+| **Nest** | 8-repo ecosystem — grows organically, self-maintaining |
+| **Swarm** | Git-synced agents — shared memory, collective intelligence |
+| **Sting** | Trading pipeline — precise, decisive, risk-guarded |
+| **Queen** | Sovereign: Mulky Malikul Dhaher — the nest serves one master |
+

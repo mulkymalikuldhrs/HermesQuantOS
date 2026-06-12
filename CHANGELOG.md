@@ -5,25 +5,20 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
-## [4.0.0] - 2026-06-12 — Hive Mind Release
+## [4.0.0] - 2026-06-12 — 🖤 BLACKHORNET Release
+
+### Renamed: HermesQuantOS → BLACKHORNET
+- HermesQuantOS IS BLACKHORNET — the sovereign umbrella for the entire ecosystem
+- New identity: Like hornets — autonomous, relentless, swarm-intelligent, territorial
+- 8 repos unified under one brand
 
 ### Added
-- **🔗 HyperGate** (`src/hypergate.py`) — Autonomous LLM Gateway Bridge
-  - Primary: ProxyGateLLM (9+ free LLM providers with auto-failover)
-  - SHA256 caching — zero duplicate API calls
-  - Auto provider health rotation
-  - Fallback chain: NVIDIA → Groq → OpenRouter
-  - OpenAI-compatible API passthrough
-  - Auto-starts ProxyGateLLM locally
-  - Agent LLM calls NEVER fail — always routes to working provider
-- **🧠 Mnemosyne Bridge** (`src/mnemosyne_bridge.py`) — Swarm Knowledge Memory
-  - Semantic memory with RAG injection into agent context
-  - Knowledge graph — ideas connected automatically
-  - 500+ free LLM models via Puter.js
-  - MCP server bridge for AI assistant integration
-  - Trading knowledge store/retrieval
-  - Agent learning accumulation
-  - Local JSON fallback when Mnemosyne unavailable
+- **🐝 blackhornet.py** — Nest orchestrator (deploy, start, health, sovereign panel)
+- **🏛️ Colony Bridge** (`src/colony_bridge.py`) — AI-MultiColony-Ecosystem integration
+  - 115 engine modules, 11 capabilities, 31 agents, 9 strategies, 11 risk modules
+- **⚡ deploy.sh** — One-command empire deployer (8 repos)
+- **🔗 HyperGate** (`src/hypergate.py`) — ProxyGateLLM bridge, 468 models FREE
+- **🧠 Mnemosyne Bridge** (`src/mnemosyne_bridge.py`) — RAG memory + knowledge graph
 - **🧠 Swarm Protocol** (`src/swarm_protocol.py`) — Universal agent discovery & sync
   - Auto-registration on clone → agents find each other via Git
   - Inter-agent messaging (command, alert, upgrade, spawn, heal)

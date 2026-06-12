@@ -51,6 +51,8 @@ ECOSYSTEM_REPOS=(
     "AI-MultiColony-Ecosystem"
     "Vibe-Trading"
     "AutoHedge"
+    "ProxyGateLLM"
+    "mnemosyne"
 )
 
 # ── Banner ────────────────────────────────────────────────────────────

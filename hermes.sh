@@ -564,6 +564,10 @@ case "${1:-start}" in
     daemon-start) daemon_start ;;
     daemon-stop)  daemon_stop ;;
     daemon-status) daemon_status ;;
+    hypergate-status) cd "$BASE_DIR/src" && python3 hypergate.py --status 2>/dev/null ;;
+    hypergate-test) cd "$BASE_DIR/src" && python3 hypergate.py --test 2>/dev/null ;;
+    mnemosyne-status) cd "$BASE_DIR/src" && python3 mnemosyne_bridge.py --status 2>/dev/null ;;
+    mnemosyne-search) cd "$BASE_DIR/src" && python3 mnemosyne_bridge.py --search "${2:-trading}" 2>/dev/null ;;
     swarm)        daemon_start && agent_start && start ;;
     all)          bootstrap && daemon_start && agent_start && start ;;
     *)

@@ -45,6 +45,8 @@ ECOSYSTEM_REPOS = [
     "AI-MultiColony-Ecosystem",
     "Vibe-Trading",
     "AutoHedge",
+    "ProxyGateLLM",
+    "mnemosyne",
 ]
 GITHUB_USER = "mulkymalikuldhrs"
 

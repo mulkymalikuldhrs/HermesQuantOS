@@ -255,6 +255,15 @@ class HermesQuantOS:
         # Shared State (SQLite persistence, single PnL source)
         self.shared_state = None
 
+        # Initialize Memory Bridge — shared memory to agent swarm
+        self.memory_bridge = None
+        try:
+            from memory_bridge import MemoryBridge
+            self.memory_bridge = MemoryBridge()
+            logger.info("Memory Bridge connected to agent swarm")
+        except Exception as e:
+            logger.warning(f"Memory Bridge not available: {e}")
+
         # Initialize Trading Tools
         self.tools = {}
         if TOOLS_AVAILABLE:
@@ -376,6 +385,17 @@ class HermesQuantOS:
                 old_file.unlink()
 
             logger.info(f"Memory saved: {len(self.conversation_history)} conversations")
+
+            # Sync to Agent Swarm shared memory
+            if self.memory_bridge:
+                try:
+                    self.memory_bridge.update(
+                        decisions_today=len(self.decisions_log),
+                        pnl_daily_pct=daily_pnl,
+                    )
+                    self.memory_bridge.log_memory(f"Session {self.session_id}: {len(self.conversation_history)} conversations, PnL={daily_pnl:.4%}")
+                except Exception as be:
+                    logger.debug(f"Bridge sync skipped: {be}")
         except Exception as e:
             logger.error(f"Could not save memory: {e}")
 
@@ -931,6 +951,13 @@ class HermesQuantOS:
             'restart_count': self.restart_count
         })
         self.save_memory()
+
+        # Report crash to agent swarm
+        if self.memory_bridge:
+            try:
+                self.memory_bridge.report_error(str(error)[:200])
+            except Exception:
+                pass
 
         logger.error(f"Crash #{self.restart_count}: {error}")
 

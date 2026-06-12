@@ -359,6 +359,140 @@ install_cron() {
 # Main
 # ============================================================================
 
+# ============================================================================
+# AGENT SWARM — Start Hermes Agent (Nous Research) + Memory Bridge
+# ============================================================================
+
+agent_start() {
+    log "${BOLD}Starting Agent Swarm...${NC}"
+
+    HERMES_AGENT_DIR="$HOME/.hermes/hermes-agent"
+
+    # Start memory bridge
+    bridge_start
+
+    # Start Hermes Agent if installed
+    if [ -f "$HERMES_AGENT_DIR/venv/bin/python" ]; then
+        log "Starting Hermes Agent (Nous Research)..."
+        cd "$HERMES_AGENT_DIR"
+        nohup ./venv/bin/python run_agent.py > "$LOG_DIR/agent_stdout.log" 2>&1 &
+        echo $! > "$BASE_DIR/agent.pid"
+        log "${GREEN}Hermes Agent RUNNING (PID $(cat $BASE_DIR/agent.pid))${NC}"
+    else
+        warn "Hermes Agent not installed. Run: bash scripts/bootstrap.sh"
+    fi
+}
+
+agent_stop() {
+    log "Stopping Agent Swarm..."
+
+    if [ -f "$BASE_DIR/agent.pid" ]; then
+        APID=$(cat "$BASE_DIR/agent.pid")
+        if kill -0 "$APID" 2>/dev/null; then
+            kill "$APID" 2>/dev/null || true
+            sleep 2
+            kill -9 "$APID" 2>/dev/null || true
+        fi
+        rm -f "$BASE_DIR/agent.pid"
+    fi
+    pkill -f "run_agent.py" 2>/dev/null || true
+
+    bridge_stop
+    log "Agent Swarm stopped."
+}
+
+# ============================================================================
+# MEMORY BRIDGE — Shared memory sync to agent repo
+# ============================================================================
+
+bridge_start() {
+    if [ -f "$BASE_DIR/bridge.pid" ] && kill -0 "$(cat "$BASE_DIR/bridge.pid")" 2>/dev/null; then
+        warn "Memory bridge already running (PID $(cat $BASE_DIR/bridge.pid))"
+        return 0
+    fi
+
+    log "Starting Memory Bridge → agent repo..."
+    cd "$BASE_DIR/src"
+    nohup python3 memory_bridge.py --bot "${BOT_NAME:-traderbot}" \
+        --db "$BASE_DIR/data/hermes_quant.db" \
+        > "$LOG_DIR/bridge_stdout.log" 2>&1 &
+    echo $! > "$BASE_DIR/bridge.pid"
+    log "${GREEN}Memory Bridge RUNNING (PID $(cat $BASE_DIR/bridge.pid))${NC}"
+}
+
+bridge_stop() {
+    if [ -f "$BASE_DIR/bridge.pid" ]; then
+        BPID=$(cat "$BASE_DIR/bridge.pid")
+        if kill -0 "$BPID" 2>/dev/null; then
+            kill "$BPID" 2>/dev/null || true
+            sleep 1
+            kill -9 "$BPID" 2>/dev/null || true
+        fi
+        rm -f "$BASE_DIR/bridge.pid"
+    fi
+    pkill -f "memory_bridge.py" 2>/dev/null || true
+}
+
+bridge_status() {
+    if [ -f "$BASE_DIR/bridge.pid" ] && kill -0 "$(cat "$BASE_DIR/bridge.pid")" 2>/dev/null; then
+        log "${GREEN}Memory Bridge: RUNNING → $(cat $BASE_DIR/bridge.pid)${NC}"
+        echo ""
+        # Show last sync state
+        AGENT_SYNC="$HOME/.hermes/agent-sync/sync/logs/${BOT_NAME:-traderbot}_state.json"
+        if [ -f "$AGENT_SYNC" ]; then
+            python3 -c "import json; d=json.load(open('$AGENT_SYNC'));
+print('Bot:', d.get('bot_id'));
+print('Status:', d.get('status'));
+print('Uptime:', d.get('uptime_seconds'), 's');
+print('Trades today:', d.get('trades_today'));
+print('Last sync:', d.get('timestamp'));
+print('Connected agents:', d.get('connected_agents'))" 2>/dev/null
+        fi
+    else
+        warn "Memory Bridge: NOT RUNNING"
+    fi
+}
+
+# ============================================================================
+# BOOTSTRAP — Full auto-install
+# ============================================================================
+
+bootstrap() {
+    if [ -f "$BASE_DIR/scripts/bootstrap.sh" ]; then
+        bash "$BASE_DIR/scripts/bootstrap.sh"
+    else
+        error "bootstrap.sh not found in scripts/"
+        return 1
+    fi
+}
+
+# ============================================================================
+# AGENT STATUS — Show agent swarm connections
+# ============================================================================
+
+agent_status() {
+    echo ""
+    log "${BOLD}${MAGENTA}═══ AGENT SWARM STATUS ═══${NC}"
+    echo ""
+
+    # Hermes Agent
+    if [ -f "$BASE_DIR/agent.pid" ] && kill -0 "$(cat "$BASE_DIR/agent.pid")" 2>/dev/null; then
+        log "${GREEN}Hermes Agent: RUNNING (PID $(cat $BASE_DIR/agent.pid))${NC}"
+    else
+        warn "Hermes Agent: NOT RUNNING"
+    fi
+
+    bridge_status
+
+    # Connected repos
+    echo ""
+    info "Connected Repos:"
+    echo "  📊 HermesQuantOS: $BASE_DIR"
+    echo "  🧠 Agent Swarm:   $HOME/.hermes/agent-sync"
+    echo "  🤖 Hermes Agent:  $HOME/.hermes/hermes-agent"
+    echo ""
+}
+
 case "${1:-start}" in
     start)        start ;;
     stop)         stop ;;
@@ -368,18 +502,39 @@ case "${1:-start}" in
     health)       health ;;
     watchdog)     watchdog_start ;;
     install)      install_on_boot ;;
+    bootstrap)    bootstrap ;;
+    agent-start)  agent_start ;;
+    agent-stop)   agent_stop ;;
+    agent-status) agent_status ;;
+    bridge-start) bridge_start ;;
+    bridge-stop)  bridge_stop ;;
+    bridge-status) bridge_status ;;
+    swarm)        agent_start && start ;;
+    all)          bootstrap && agent_start && start ;;
     *)
-        echo "Usage: $0 {start|stop|restart|status|logs|health|watchdog|install}"
+        echo "Usage: $0 {start|stop|restart|status|logs|health|watchdog|install|bootstrap|agent-start|agent-stop|agent-status|bridge-start|bridge-stop|bridge-status|swarm|all}"
         echo ""
-        echo "Commands:"
-        echo "  start     - Start Hermes Quant OS (with watchdog)"
-        echo "  stop      - Stop Hermes Quant OS"
-        echo "  restart   - Restart Hermes Quant OS"
-        echo "  status    - Show system status"
-        echo "  logs      - Tail logs [hermes|watchdog|keeper|all]"
-        echo "  health    - Run health check"
-        echo "  watchdog  - Start watchdog only"
-        echo "  install   - Install on-boot + auto-restart"
+        echo "Core:"
+        echo "  start         - Start Hermes Quant OS (with watchdog)"
+        echo "  stop          - Stop Hermes Quant OS"
+        echo "  restart       - Restart Hermes Quant OS"
+        echo "  status        - Show system status"
+        echo "  logs          - Tail logs [hermes|watchdog|keeper|all]"
+        echo "  health        - Run health check"
+        echo ""
+        echo "Agent Swarm:"
+        echo "  agent-start   - Start Hermes Agent + Memory Bridge"
+        echo "  agent-stop    - Stop Hermes Agent + Memory Bridge"
+        echo "  agent-status  - Show agent swarm connections"
+        echo "  bridge-start  - Start memory sync bridge only"
+        echo "  bridge-stop   - Stop memory sync bridge"
+        echo "  bridge-status - Show bridge sync state"
+        echo ""
+        echo "One-Command:"
+        echo "  bootstrap     - Full auto-install (first run)"
+        echo "  swarm         - Start full agent swarm + trading"
+        echo "  all           - Bootstrap + start everything"
+        echo "  install       - Install on-boot + auto-restart"
         exit 1
         ;;
 esac

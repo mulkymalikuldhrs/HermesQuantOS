@@ -518,3 +518,16 @@ Copyright © 2024-2026 Mulky Malikul Dhaher. All rights reserved.
 <a href="https://github.com/mulkymalikuldhrs/HermesQuantOS">
   <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=100:3d2b00,50:2d1f00,0:1a0f00&height=100&section=footer" />
 </a>
+
+---
+
+## 🖤 Part of BLACKHORNET Ecosystem
+
+HermesQuantOS is a core component of **[BLACKHORNET](https://github.com/mulkymalikuldhrs/blackhornet)** — the sovereign autonomous agent empire.
+
+For the full 9-repo ecosystem deployment:
+```bash
+curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/blackhornet/main/deploy.sh | bash
+```
+
+[![BLACKHORNET](https://img.shields.io/badge/🖤-BLACKHORNET-black?style=for-the-badge)](https://github.com/mulkymalikuldhrs/blackhornet)

@@ -1,14 +1,14 @@
 # HERMES QUANT OPERATING SYSTEM - CHANGELOG
 
-All notable changes to Hermes Quant OS are documented in this file.
+All notable changes to BLACKHORNET are documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
 ## [4.0.0] - 2026-06-12 — 🖤 BLACKHORNET Release
 
-### Renamed: HermesQuantOS → BLACKHORNET
-- HermesQuantOS IS BLACKHORNET — the sovereign umbrella for the entire ecosystem
+### Renamed: blackhornet → BLACKHORNET
+- blackhornet IS BLACKHORNET — the sovereign umbrella for the entire ecosystem
 - New identity: Like hornets — autonomous, relentless, swarm-intelligent, territorial
 - 8 repos unified under one brand
 
@@ -35,7 +35,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
   - Dead agent resurrection
   - Guardian agent type in swarm
 - **🧬 Memory Bridge** (`src/memory_bridge.py`) — Shared memory sync
-  - Real-time state sync HermesQuantOS → mulkymalikuldhrs/agent
+  - Real-time state sync blackhornet → mulkymalikuldhrs/agent
   - Bidirectional: reads other agent states
   - Immortal: auto-retry, never stops
   - State files per bot (traderbot, devbot, researchbot, etc.)
@@ -103,7 +103,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Fixed - CRITICAL (P0 Blockers)
 - **Exposed API keys**: Created `.env.example` template with placeholders, added `.gitignore` to prevent credential leaks. All API keys in `.env` must be rotated immediately.
 - **Risk Officer PnL completely broken**: `ExecutionTool` was creating fresh `RiskOfficerTool()` instances on every trade, meaning daily/weekly loss limits were NEVER enforced. Fixed by introducing `SharedState` singleton with shared tool instances.
-- **Dual PnL desync**: `HermesQuantOS` and `RiskOfficerTool` tracked PnL independently and were never synchronized. Fixed: `RiskOfficerTool` is now the single source of truth, accessed via `SharedState.risk_officer`.
+- **Dual PnL desync**: `blackhornet` and `RiskOfficerTool` tracked PnL independently and were never synchronized. Fixed: `RiskOfficerTool` is now the single source of truth, accessed via `SharedState.risk_officer`.
 - **No data persistence**: All trading state (PnL, trades, kill switch, strategies) was lost on restart. Fixed: implemented SQLite persistence via `shared_state.py` using `schemas/trading_journal.sql`. State is restored on startup.
 - **Telegram HTML stripped**: `send_telegram_message()` was stripping all HTML tags, making all formatted messages appear as plain text. Fixed: now uses `"parse_mode": "HTML"` in Telegram API payload with automatic fallback to plain text if HTML parsing fails.
 
@@ -241,7 +241,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - `src/tools/journal_tool.py` - Trade logging, PnL calculation, performance stats
 - `src/tools/auditor_research_tool.py` - Trade audit (plan vs execution), edge decay detection, strategy refinement
 - `schemas/trading_journal.sql` - 7-table SQL schema for full audit trail
-- `config/hermes-quant.yaml` - System configuration
+- `config/blackhornet.yaml` - System configuration
 - `config/system_prompt.py` - Trading-focused system prompt
 - `requirements.txt` - Python dependencies
 - `README.md` - Quick start guide
@@ -275,4 +275,4 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ---
 
 **Maintained by Mulky Malikul Dhaher**
-**Repository: github.com/mulkymalikuldhrs/HermesQuantOS**
+**Repository: github.com/mulkymalikuldhrs/blackhornet**

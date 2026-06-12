@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-HERMES QUANT OS - Watchdog Daemon
+BLACKHORNET - Watchdog Daemon
 ===================================
-Keeps Hermes Quant OS running 24/7 with:
+Keeps BLACKHORNET running 24/7 with:
 - Automatic restart on crash
 - Exponential backoff (5s → 10s → 20s → 40s → max 120s)
 - Crash loop detection (max 10 restarts/hour)
@@ -79,7 +79,7 @@ def send_telegram(text):
 
 
 class HermesWatchdog:
-    """Watchdog daemon that keeps Hermes Quant OS alive"""
+    """Watchdog daemon that keeps BLACKHORNET alive"""
 
     def __init__(self):
         self.running = True
@@ -173,14 +173,14 @@ class HermesWatchdog:
         return len(self.restart_history) >= MAX_RESTARTS_PER_HOUR
 
     def start_hermes(self):
-        """Start Hermes Quant OS"""
+        """Start BLACKHORNET"""
         try:
             # Check crash loop limit
             if self.check_crash_loop():
                 self.log(f"CRASH LOOP DETECTED: {len(self.restart_history)} restarts in last hour. "
                          f"Waiting 5 minutes...", "CRITICAL")
                 send_telegram(
-                    "HERMES QUANT OS - CRASH LOOP DETECTED\n\n"
+                    "BLACKHORNET - CRASH LOOP DETECTED\n\n"
                     f"Restarts: {len(self.restart_history)}/hour\n"
                     f"Cooling down for 5 minutes...\n"
                     f"Manual check recommended."
@@ -193,7 +193,7 @@ class HermesWatchdog:
             time.sleep(2)
 
             # Start Hermes
-            self.log(f"Starting Hermes Quant OS... (attempt #{self.start_count + 1})")
+            self.log(f"Starting BLACKHORNET... (attempt #{self.start_count + 1})")
 
             stdout_file = LOG_DIR / "stdout.log"
 
@@ -274,7 +274,7 @@ class HermesWatchdog:
     def run(self):
         """Main watchdog loop"""
         self.log("=" * 60)
-        self.log("HERMES QUANT OS WATCHDOG STARTED")
+        self.log("BLACKHORNET WATCHDOG STARTED")
         self.log(f"Check Interval: {CHECK_INTERVAL}s")
         self.log(f"Max Restarts/Hour: {MAX_RESTARTS_PER_HOUR}")
         self.log(f"Backoff: {BASE_DELAY}s → {MAX_DELAY}s (exponential)")
@@ -293,7 +293,7 @@ class HermesWatchdog:
                 time.sleep(10)
                 if not self.start_hermes():
                     self.log("FATAL: Cannot start Hermes!", "CRITICAL")
-                    send_telegram("HERMES QUANT OS FATAL: Cannot start! Manual intervention required!")
+                    send_telegram("BLACKHORNET FATAL: Cannot start! Manual intervention required!")
                     # Don't exit - keep trying
 
         self.update_health("running")
@@ -323,7 +323,7 @@ class HermesWatchdog:
 
                     # Alert
                     send_telegram(
-                        f"HERMES QUANT OS CRASHED\n\n"
+                        f"BLACKHORNET CRASHED\n\n"
                         f"Restart #{self.restart_count + 1}\n"
                         f"Delay: {self.current_delay}s\n"
                         f"Auto-restarting..."

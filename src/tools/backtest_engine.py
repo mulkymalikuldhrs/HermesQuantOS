@@ -14,7 +14,7 @@ from datetime import datetime
 from typing import Dict, List, Optional
 from dataclasses import dataclass, field
 
-logger = logging.getLogger("HermesQuantOS.BacktestEngine")
+logger = logging.getLogger("blackhornet.BacktestEngine")
 
 
 @dataclass

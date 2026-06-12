@@ -2,7 +2,7 @@
 """
 DHAHER SWARM — Python Watchdog Daemon
 ======================================
-Based on HermesQuantOS watchdog.py pattern.
+Based on blackhornet watchdog.py pattern.
 10-second health checks with exponential backoff restart.
 Ensures all 7 gateway profiles + ProxyGateLLM stay alive.
 """

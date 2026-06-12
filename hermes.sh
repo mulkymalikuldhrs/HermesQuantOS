@@ -1,6 +1,6 @@
 #!/bin/bash
 # ============================================================================
-# HERMES QUANT OS - Main Control Script
+# BLACKHORNET - Main Control Script
 # ============================================================================
 # Usage: ./hermes.sh [start|stop|restart|status|logs|watchdog|health|install]
 #
@@ -50,7 +50,7 @@ start() {
         return 0
     fi
 
-    log "${BOLD}Starting Hermes Quant OS...${NC}"
+    log "${BOLD}Starting BLACKHORNET...${NC}"
     mkdir -p "$LOG_DIR"
     mkdir -p "$BASE_DIR/.hermes"
 
@@ -72,7 +72,7 @@ start() {
 
     # Verify watchdog started
     if kill -0 "$WDOG_PID" 2>/dev/null; then
-        log "${GREEN}${BOLD}Watchdog RUNNING - Hermes Quant OS is Always-On!${NC}"
+        log "${GREEN}${BOLD}Watchdog RUNNING - BLACKHORNET is Always-On!${NC}"
         log "  Watchdog PID: $WDOG_PID"
         log "  Check Interval: 10s"
         log "  Max Restarts/Hour: 10"
@@ -99,7 +99,7 @@ start() {
 # ============================================================================
 
 stop() {
-    log "Stopping Hermes Quant OS..."
+    log "Stopping BLACKHORNET..."
 
     # Stop watchdog first (so it doesn't restart Hermes)
     if [ -f "$WATCHDOG_PID" ]; then
@@ -138,7 +138,7 @@ stop() {
     # Kill any remaining Hermes processes
     pkill -f "hermes_quant.py" 2>/dev/null || true
 
-    log "${GREEN}Hermes Quant OS stopped.${NC}"
+    log "${GREEN}BLACKHORNET stopped.${NC}"
 }
 
 # ============================================================================
@@ -147,7 +147,7 @@ stop() {
 
 status() {
     echo ""
-    log "${BOLD}${CYAN}═══ HERMES QUANT OS STATUS ═══${NC}"
+    log "${BOLD}${CYAN}═══ BLACKHORNET STATUS ═══${NC}"
     echo ""
 
     # Check Hermes
@@ -261,7 +261,7 @@ watchdog_start() {
 # ============================================================================
 
 install_on_boot() {
-    log "${BOLD}Installing Hermes Quant OS as system service...${NC}"
+    log "${BOLD}Installing BLACKHORNET as system service...${NC}"
     echo ""
 
     # Detect environment
@@ -281,7 +281,7 @@ install_on_boot() {
 install_systemd() {
     log "Installing systemd service..."
 
-    cat > /tmp/hermes-quant.service << EOF
+    cat > /tmp/blackhornet.service << EOF
 [Unit]
 Description=Hermes Quant Operating System - Autonomous Trading
 After=network-online.target
@@ -304,12 +304,12 @@ StandardError=append:$LOG_DIR/systemd.log
 WantedBy=multi-user.target
 EOF
 
-    sudo cp /tmp/hermes-quant.service /etc/systemd/system/
+    sudo cp /tmp/blackhornet.service /etc/systemd/system/
     sudo systemctl daemon-reload
-    sudo systemctl enable hermes-quant
+    sudo systemctl enable blackhornet
     log "${GREEN}Systemd service installed and enabled!${NC}"
-    log "Start: sudo systemctl start hermes-quant"
-    log "Status: sudo systemctl status hermes-quant"
+    log "Start: sudo systemctl start blackhornet"
+    log "Status: sudo systemctl status blackhornet"
 }
 
 install_termux_boot() {
@@ -318,9 +318,9 @@ install_termux_boot() {
     BOOT_DIR="$HOME/.termux/boot"
     mkdir -p "$BOOT_DIR"
 
-    cat > "$BOOT_DIR/hermes-quant.sh" << EOF
+    cat > "$BOOT_DIR/blackhornet.sh" << EOF
 #!/data/data/com.termux/files/usr/bin/bash
-# Hermes Quant OS - Auto-start on boot
+# BLACKHORNET - Auto-start on boot
 
 # Wait for network
 sleep 10
@@ -330,10 +330,10 @@ cd $BASE_DIR
 bash hermes.sh start
 EOF
 
-    chmod +x "$BOOT_DIR/hermes-quant.sh"
+    chmod +x "$BOOT_DIR/blackhornet.sh"
     log "${GREEN}Termux:Boot installed!${NC}"
     log "Install Termux:Boot from F-Droid for auto-start on device boot."
-    log "File: $BOOT_DIR/hermes-quant.sh"
+    log "File: $BOOT_DIR/blackhornet.sh"
 }
 
 install_cron() {
@@ -487,7 +487,7 @@ agent_status() {
     # Connected repos
     echo ""
     info "Connected Repos:"
-    echo "  📊 HermesQuantOS: $BASE_DIR"
+    echo "  📊 blackhornet: $BASE_DIR"
     echo "  🧠 Agent Swarm:   $HOME/.hermes/agent-sync"
     echo "  🤖 Hermes Agent:  $HOME/.hermes/hermes-agent"
     echo ""
@@ -574,9 +574,9 @@ case "${1:-start}" in
         echo "Usage: $0 {start|stop|restart|status|logs|health|watchdog|install|bootstrap|agent-start|agent-stop|agent-status|bridge-start|bridge-stop|bridge-status|swarm|all}"
         echo ""
         echo "Core:"
-        echo "  start         - Start Hermes Quant OS (with watchdog)"
-        echo "  stop          - Stop Hermes Quant OS"
-        echo "  restart       - Restart Hermes Quant OS"
+        echo "  start         - Start BLACKHORNET (with watchdog)"
+        echo "  stop          - Stop BLACKHORNET"
+        echo "  restart       - Restart BLACKHORNET"
         echo "  status        - Show system status"
         echo "  logs          - Tail logs [hermes|watchdog|keeper|all]"
         echo "  health        - Run health check"

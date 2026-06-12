@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- 动画：打字标题 -->
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=36&duration=3000&pause=1000&color=00FF88&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=120&lines=HERMES+QUANT+OS;自主多代理交易基础设施" alt="HERMES QUANT OS" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=36&duration=3000&pause=1000&color=00FF88&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=120&lines=HERMES+QUANT+OS;自主多代理交易基础设施" alt="BLACKHORNET" />
 
 <br/>
 
@@ -97,7 +97,7 @@ Hermes Quant Operating System 是一个**生产级自主多代理交易和研究
         ▼
 ┌───────────────────────────────────────────────────┐
 │        HERMES QUANT OPERATING SYSTEM               │
-│        (HermesQuantOS)                             │
+│        (blackhornet)                             │
 │                                                    │
 │  ┌─────────────────────────────────────────────┐  │
 │  │  Nous Research Hermes (基础框架)             │  │
@@ -229,7 +229,7 @@ RISK_WEEKLY_MAX    = 0.03     # 3.0% — 不可覆盖
 └──────────────────┬──────────────────────┘
                    │
 ┌──────────────────▼──────────────────────┐
-│  HERMES QUANT OS（主进程）               │
+│  BLACKHORNET（主进程）               │
 │  21个工具 | 多提供商LLM | SQLite        │
 └─────────────────────────────────────────┘
 ```
@@ -256,8 +256,8 @@ sudo ./scripts/install_server.sh
 
 ```bash
 # 克隆仓库
-git clone https://github.com/mulkymalikuldhrs/HermesQuantOS.git
-cd HermesQuantOS
+git clone https://github.com/mulkymalikuldhrs/blackhornet.git
+cd blackhornet
 
 # 安装依赖
 pip install -r requirements.txt
@@ -392,7 +392,7 @@ DATA_DIR=./data
 ## 项目结构
 
 ```
-HermesQuantOS/
+blackhornet/
 ├── src/
 │   ├── hermes_quant.py              # 主代理控制器
 │   ├── watchdog.py                  # Watchdog守护进程（10秒监控）
@@ -426,7 +426,7 @@ HermesQuantOS/
 │   └── install_server.sh            # Linux安装器
 ├── config/
 │   ├── .env.example                 # 环境模板
-│   ├── hermes-quant.yaml            # 系统配置
+│   ├── blackhornet.yaml            # 系统配置
 │   └── system_prompt.py             # 交易系统提示
 ├── schemas/
 │   └── trading_journal.sql          # 7表SQL架构
@@ -487,7 +487,7 @@ HermesQuantOS/
 
 </div>
 
-我们欢迎开发者、量化分析师、风险工程师和AI研究人员的贡献！HermesQuantOS建立在**协作产生卓越系统**的原则之上。
+我们欢迎开发者、量化分析师、风险工程师和AI研究人员的贡献！blackhornet建立在**协作产生卓越系统**的原则之上。
 
 ### 如何贡献
 
@@ -528,7 +528,7 @@ HermesQuantOS/
 
 <br/>
 
-**项目仓库**：[github.com/mulkymalikuldhrs/HermesQuantOS](https://github.com/mulkymalikuldhrs/HermesQuantOS)
+**项目仓库**：[github.com/mulkymalikuldhrs/blackhornet](https://github.com/mulkymalikuldhrs/blackhornet)
 
 </div>
 

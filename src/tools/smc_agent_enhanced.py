@@ -13,7 +13,7 @@ from datetime import datetime
 from typing import Dict, List, Optional
 from dataclasses import dataclass, field, asdict
 
-logger = logging.getLogger("HermesQuantOS.SMCAgentEnhanced")
+logger = logging.getLogger("blackhornet.SMCAgentEnhanced")
 
 
 @dataclass
@@ -90,7 +90,7 @@ class SMCAgentEnhanced:
     SYMBOLS = ["EURUSD", "GBPUSD", "USDJPY", "AUDUSD", "USDCAD",
                "BTCUSD", "ETHUSD", "XAUUSD", "US30", "NAS100"]
 
-    # Risk parameters (aligned with Hermes Quant OS hardcoded rules)
+    # Risk parameters (aligned with BLACKHORNET hardcoded rules)
     RISK_PER_TRADE = 0.005  # 0.5%
     MAX_DAILY_RISK = 0.01   # 1%
     MIN_RR_RATIO = 1.5

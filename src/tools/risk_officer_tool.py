@@ -11,7 +11,7 @@ import logging
 from datetime import datetime, timedelta
 from typing import Optional, Dict, List
 
-logger = logging.getLogger("HermesQuantOS.RiskOfficer")
+logger = logging.getLogger("blackhornet.RiskOfficer")
 
 # HARDCODED RISK LIMITS - NO OVERRIDE POSSIBLE
 MAX_RISK_PER_TRADE = 0.005    # 0.5% max risk per trade

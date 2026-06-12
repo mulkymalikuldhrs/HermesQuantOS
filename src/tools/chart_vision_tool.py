@@ -9,7 +9,7 @@ import logging
 import os
 from datetime import datetime
 
-logger = logging.getLogger("HermesQuantOS.ChartVision")
+logger = logging.getLogger("blackhornet.ChartVision")
 
 
 class ChartVisionTool:

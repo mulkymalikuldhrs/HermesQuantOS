@@ -13,7 +13,7 @@ import asyncio
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Tuple
 
-logger = logging.getLogger("HermesQuantOS.AutoSwitch")
+logger = logging.getLogger("blackhornet.AutoSwitch")
 
 
 class ProviderHealth:

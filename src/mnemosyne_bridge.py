@@ -117,7 +117,7 @@ class MnemosyneBridge:
     def _check_health(self) -> bool:
         try:
             req = Request(f"{MNEMOSYNE_URL}/api/health", 
-                         headers={"User-Agent": "HermesQuantOS/4.0"})
+                         headers={"User-Agent": "blackhornet/4.0"})
             resp = urlopen(req, timeout=3)
             return resp.status == 200
         except Exception:
@@ -133,7 +133,7 @@ class MnemosyneBridge:
             req = Request(url, data=data,
                 headers={
                     "Content-Type": "application/json",
-                    "User-Agent": "HermesQuantOS/4.0"
+                    "User-Agent": "blackhornet/4.0"
                 },
                 method=method
             )

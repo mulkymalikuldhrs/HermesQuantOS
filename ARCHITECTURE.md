@@ -19,7 +19,7 @@ The foundational agent framework is adapted from **Nous Research Hermes Agent** 
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    HERMES QUANT OS                               │
+│                    BLACKHORNET                               │
 │                                                                  │
 │  ┌──────────────────────────────────────────────────────────┐   │
 │  │  L5: LEARNING LAYER                                      │   │
@@ -188,7 +188,7 @@ User (Telegram)
 Telegram Bot API (polling, 3s interval)
     │
     ▼
-HermesQuantOS.process_telegram_update()
+blackhornet.process_telegram_update()
     │
     ├── Filter: chat_id must match TELEGRAM_CHAT_ID
     ├── Dedup: message_id tracking (last 100)
@@ -258,7 +258,7 @@ HermesQuantOS.process_telegram_update()
                           │
                           ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  HERMES QUANT OS (Main Process)                             │
+│  BLACKHORNET (Main Process)                             │
 │  ┌─────────────────────────────────────────────────────┐    │
 │  │ - Telegram bot polling (3s interval)                │    │
 │  │ - Tool orchestration (21 tools)                     │    │
@@ -462,4 +462,4 @@ Key patterns to adopt:
 ---
 
 **Document maintained by Mulky Malikul Dhaher**
-**Repository: github.com/mulkymalikuldhrs/hermes-quant-os**
+**Repository: github.com/mulkymalikuldhrs/blackhornet-os**

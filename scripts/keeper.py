@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-HERMES QUANT OS - Keeper Daemon
+BLACKHORNET - Keeper Daemon
 ================================
 Cron-friendly health check + auto-restart.
 Runs every minute via cron or Termux:Boot.
@@ -66,7 +66,7 @@ def start_watchdog():
 
 def start_hermes_direct():
     """Start Hermes directly (fallback if no watchdog)"""
-    log("Starting Hermes Quant OS directly...")
+    log("Starting BLACKHORNET directly...")
     subprocess.Popen(
         [sys.executable, str(HERMES_SCRIPT)],
         stdout=open(LOG_DIR / "stdout.log", 'a'),
@@ -107,7 +107,7 @@ def main():
         # Don't double-start - let watchdog handle it
 
     else:
-        log("All systems operational. Hermes Quant OS is eternal.")
+        log("All systems operational. BLACKHORNET is eternal.")
 
     log("Keeper check complete.")
 

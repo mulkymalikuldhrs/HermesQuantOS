@@ -12,7 +12,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
 
-logger = logging.getLogger("HermesQuantOS.AuditLogger")
+logger = logging.getLogger("blackhornet.AuditLogger")
 
 
 class AuditLogger:

@@ -11,7 +11,7 @@ import math
 from datetime import datetime, timedelta
 from typing import Dict, List
 
-logger = logging.getLogger("HermesQuantOS.NewsSentinel")
+logger = logging.getLogger("blackhornet.NewsSentinel")
 
 
 class NewsSentinelTool:

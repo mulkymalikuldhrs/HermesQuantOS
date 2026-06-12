@@ -18,7 +18,7 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 ENV PATH="/root/.local/bin:$PATH"
 
 # Clone ecosystem
-RUN git clone https://github.com/mulkymalikuldhrs/HermesQuantOS.git . \
+RUN git clone https://github.com/mulkymalikuldhrs/blackhornet.git . \
     && git clone https://github.com/mulkymalikuldhrs/ProxyGateLLM.git /proxygate \
     && git clone https://github.com/mulkymalikuldhrs/mnemosyne.git /mnemosyne
 

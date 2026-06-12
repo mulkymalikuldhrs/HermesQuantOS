@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-HERMES QUANT OS — Agent Swarm Memory Bridge
+BLACKHORNET — Agent Swarm Memory Bridge
 ============================================
-Real-time shared memory sync between HermesQuantOS agents
+Real-time shared memory sync between blackhornet agents
 and the mulkymalikuldhrs/agent swarm repository.
 
 Architecture:
-  HermesQuantOS tools → SharedState (SQLite) → MemoryBridge → agent repo (Git)
+  blackhornet tools → SharedState (SQLite) → MemoryBridge → agent repo (Git)
                                                                     ↕
   Hermes Agent (Nous) ← hermes memory ← agent repo ← other bot clones
 
@@ -44,7 +44,7 @@ HERMES_HOME = Path(os.getenv("HERMES_HOME", Path.home() / ".hermes"))
 # ── State schema ───────────────────────────────────────────────────────
 STATE_SCHEMA = {
     "bot_id": BOT_NAME,
-    "agent": "HermesQuantOS",
+    "agent": "blackhornet",
     "version": "4.0.0",
     "status": "RUNNING",  # RUNNING | IDLE | ERROR | SHUTDOWN
     "uptime_seconds": 0,
@@ -65,7 +65,7 @@ STATE_SCHEMA = {
 
 
 class MemoryBridge:
-    """Shared memory bridge: HermesQuantOS ↔ Agent Swarm Repo"""
+    """Shared memory bridge: blackhornet ↔ Agent Swarm Repo"""
 
     def __init__(self, repo_path: Optional[str] = None):
         self.repo_path = Path(repo_path or HERMES_HOME / "agent-sync")
@@ -170,7 +170,7 @@ class MemoryBridge:
 
     def connect_shared_state(self, db_path: str) -> None:
         """
-        Connect to HermesQuantOS SharedState (SQLite) and mirror
+        Connect to blackhornet SharedState (SQLite) and mirror
         trading data into the memory bridge.
         """
         try:
@@ -276,11 +276,11 @@ class MemoryBridge:
 def main():
     """Run memory bridge as standalone daemon."""
     import argparse
-    parser = argparse.ArgumentParser(description="HermesQuantOS Memory Bridge")
+    parser = argparse.ArgumentParser(description="blackhornet Memory Bridge")
     parser.add_argument("--bot", default=None, help="Bot name for state file")
     parser.add_argument("--interval", type=int, default=None, help="Sync interval in seconds")
     parser.add_argument("--once", action="store_true", help="Sync once and exit")
-    parser.add_argument("--db", help="Path to HermesQuantOS SQLite DB for state mirroring")
+    parser.add_argument("--db", help="Path to blackhornet SQLite DB for state mirroring")
     args = parser.parse_args()
 
     if args.bot is not None:

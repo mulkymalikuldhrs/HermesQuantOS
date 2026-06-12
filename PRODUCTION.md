@@ -9,7 +9,7 @@
 ## Quick Deploy (30 seconds)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/HermesQuantOS/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/blackhornet/main/install.sh | bash
 ```
 
 This single command:
@@ -32,8 +32,8 @@ This single command:
 
 ```bash
 # Prerequisites: git, curl
-curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/HermesQuantOS/main/install.sh | bash
-cd ~/hermes-ecosystem/HermesQuantOS
+curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/blackhornet/main/install.sh | bash
+cd ~/hermes-ecosystem/blackhornet
 
 # Start everything
 bash hermes.sh all
@@ -112,7 +112,7 @@ bash install.sh
 │                                                             │
 │  Layer 5: Ecosystem Repos                                   │
 │  ┌─────────────────────────────────────────────────────┐    │
-│  │  HermesQuantOS · QuantNanggroe · MultiColony         │    │
+│  │  blackhornet · QuantNanggroe · MultiColony         │    │
 │  │  VibeTrading · AutoHedge · ProxyGateLLM · Mnemosyne  │    │
 │  └─────────────────────────────────────────────────────┘    │
 │                                                             │
@@ -171,7 +171,7 @@ All should return ✅ without errors for production readiness.
 The Immortal Daemon auto-upgrades every 5 minutes. Manual upgrade:
 
 ```bash
-cd ~/hermes-ecosystem/HermesQuantOS
+cd ~/hermes-ecosystem/blackhornet
 git pull
 bash hermes.sh restart
 ```
@@ -180,6 +180,6 @@ bash hermes.sh restart
 
 ## Support
 
-- GitHub: https://github.com/mulkymalikuldhrs/HermesQuantOS
+- GitHub: https://github.com/mulkymalikuldhrs/blackhornet
 - Swarm: https://github.com/mulkymalikuldhrs/agent
 - Owner: Mulky Malikul Dhaher

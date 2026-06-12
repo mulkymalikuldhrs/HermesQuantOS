@@ -125,7 +125,7 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
-logger = logging.getLogger("HermesQuantOS")
+logger = logging.getLogger("blackhornet")
 
 # ===========================================
 # AGENTS.MD SYSTEM PROMPT
@@ -134,7 +134,7 @@ logger = logging.getLogger("HermesQuantOS")
 AGENTS_SYSTEM_PROMPT = f"""Kamu adalah HERMES QUANT OPERATING SYSTEM - sistem trading otonom berdasarkan prinsip AGENTS.md.
 
 ## IDENTITAS & KONTEKS (WAJIB DIINGAT)
-- **Nama:** Hermes Quant OS
+- **Nama:** BLACKHORNET
 - **Owner:** Mulky Malikul Dhaher
 - **Mission:** Autonomous multi-agent trading & research untuk consistent capital growth
 - **Target Markets:** Forex (XAUUSD, major pairs), Crypto (SHIB, TRX), Polymarket
@@ -194,7 +194,7 @@ Jika tidak lolos → JANGAN EKSEKUSI.
 - Jika user salah → WAJIB bilang
 
 ## TOOL SYSTEM - KEMAMPUAN TRADING
-Hermes Quant OS memiliki 21 trading tools:
+BLACKHORNET memiliki 21 trading tools:
 
 L1 Data:
 1. market_data: OHLCV, economic calendar, market overview
@@ -232,10 +232,10 @@ Contoh: [TOOL:market_data]XAUUSD|1h|50[/TOOL]
 Contoh: [TOOL:risk_check]XAUUSD|BUY|0.01|2150|2140[/TOOL]
 
 ---
-Hermes Quant OS bukan sekadar asisten. Ini adalah sistem trading otonom yang menjaga arah, kualitas, dan efisiensi modal. Semua keputusan trading harus melewati Risk Officer. Tidak ada pengecualian."""
+BLACKHORNET bukan sekadar asisten. Ini adalah sistem trading otonom yang menjaga arah, kualitas, dan efisiensi modal. Semua keputusan trading harus melewati Risk Officer. Tidak ada pengecualian."""
 
 
-class HermesQuantOS:
+class blackhornet:
     """HERMES QUANT OPERATING SYSTEM - Main Agent Controller"""
 
     def __init__(self):
@@ -362,7 +362,7 @@ class HermesQuantOS:
             # Markdown memory export
             md_path = MEMORY_DIR / f"memory_{timestamp}.md"
             with open(md_path, 'w') as f:
-                f.write(f"# Hermes Quant OS Memory - {timestamp}\n\n")
+                f.write(f"# BLACKHORNET Memory - {timestamp}\n\n")
                 f.write(f"## Session: {self.session_id}\n")
                 f.write(f"## Last Update: {datetime.now().isoformat()}\n")
                 f.write(f"## Daily PnL: {daily_pnl:.2%}\n")
@@ -464,7 +464,7 @@ class HermesQuantOS:
         return {'action': 'PROCEED', 'reasoning': 'Low risk, proceeding with response'}
 
     async def start(self):
-        """Main entry point for Hermes Quant OS"""
+        """Main entry point for BLACKHORNET"""
         logger.info("=" * 60)
         logger.info("HERMES QUANT OPERATING SYSTEM STARTING")
         logger.info(f"Session ID: {self.session_id}")
@@ -492,7 +492,7 @@ class HermesQuantOS:
         self.save_memory()
 
         await self.send_telegram_message(
-            f"<b>HERMES QUANT OS STARTED</b>\n\n"
+            f"<b>BLACKHORNET STARTED</b>\n\n"
             f"Session: {self.session_id}\n"
             f"Tools: {len(self.tools)} loaded\n"
             f"Risk: {RISK_MAX_PER_TRADE:.1%}/{RISK_DAILY_MAX:.1%}/{RISK_WEEKLY_MAX:.1%}\n"
@@ -772,7 +772,7 @@ class HermesQuantOS:
 
         elif cmd == "/help":
             await self.send_telegram_message(
-                "<b>HERMES QUANT OS - Help</b>\n\n"
+                "<b>BLACKHORNET - Help</b>\n\n"
                 "Sistem trading otonom dengan 21 agent.\n"
                 "Risk: 0.5%/trade, 1%/day, 3%/week\n\n"
                 "<b>Commands:</b>\n"
@@ -817,7 +817,7 @@ class HermesQuantOS:
         weekly_pnl_str = f"{risk_officer.weekly_pnl:.2%}" if risk_officer else "0.00%"
 
         return (
-            f"<b>HERMES QUANT OS STATUS</b>\n\n"
+            f"<b>BLACKHORNET STATUS</b>\n\n"
             f"Session: {self.session_id}\n"
             f"Uptime: {hours}h {minutes}m\n"
             f"Provider: {self.current_provider}\n"
@@ -964,7 +964,7 @@ class HermesQuantOS:
         if MAX_RESTART_ATTEMPTS > 0 and self.restart_count >= MAX_RESTART_ATTEMPTS:
             logger.critical("Max restart attempts reached!")
             await self.send_telegram_message(
-                f"HERMES QUANT OS CRITICAL FAILURE\n\n"
+                f"BLACKHORNET CRITICAL FAILURE\n\n"
                 f"Error: {str(error)[:200]}\n"
                 f"Restart attempts: {self.restart_count}/{MAX_RESTART_ATTEMPTS}\n\n"
                 f"Manual intervention required!"
@@ -975,7 +975,7 @@ class HermesQuantOS:
         attempt_info = f"Always-On Mode (Restart #{self.restart_count})"
 
         await self.send_telegram_message(
-            f"HERMES QUANT OS RESTARTING\n\n"
+            f"BLACKHORNET RESTARTING\n\n"
             f"{attempt_info}\n"
             f"Error: {str(error)[:100]}\n"
             f"Restarting in {RESTART_DELAY}s..."
@@ -996,7 +996,7 @@ class HermesQuantOS:
 
 
 async def main():
-    hermes = HermesQuantOS()
+    hermes = blackhornet()
 
     signal.signal(signal.SIGINT, hermes.signal_handler)
     signal.signal(signal.SIGTERM, hermes.signal_handler)

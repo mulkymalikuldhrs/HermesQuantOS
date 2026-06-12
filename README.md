@@ -23,8 +23,8 @@
 
 **Like hornets — autonomous, relentless, swarm-intelligent, territorial.**
 
-[![Version](https://img.shields.io/badge/Version-1.0.0-black?style=for-the-badge)](https://github.com/mulkymalikuldhrs/HermesQuantOS)
-[![Status](https://img.shields.io/badge/Status-PRODUCTION_READY-00ff00?style=for-the-badge)](https://github.com/mulkymalikuldhrs/HermesQuantOS)
+[![Version](https://img.shields.io/badge/Version-1.0.0-black?style=for-the-badge)](https://github.com/mulkymalikuldhrs/blackhornet)
+[![Status](https://img.shields.io/badge/Status-PRODUCTION_READY-00ff00?style=for-the-badge)](https://github.com/mulkymalikuldhrs/blackhornet)
 [![Repos](https://img.shields.io/badge/Ecosystem-9_Repos-ff6600?style=for-the-badge)](https://github.com/mulkymalikuldhrs)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 [![Sovereign](https://img.shields.io/badge/Sovereign-Mulky_Malikul_Dhaher-gold?style=for-the-badge)](https://github.com/mulkymalikuldhrs)
@@ -40,7 +40,7 @@
 ## ⚡ One Command
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/HermesQuantOS/main/deploy.sh | bash
+curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/blackhornet/main/deploy.sh | bash
 ```
 
 **That's it.** The entire BLACKHORNET nest — 9 repos, ProxyGateLLM (468 models, FREE), Immortal Daemon, Swarm Protocol, 21 trading agents — deploys itself. Autonomous. Relentless. Immortal.
@@ -107,7 +107,7 @@ curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/HermesQuantOS/main
 | **blackhornet** | 🎯 Orchestrator | Umbrella — deploys and controls everything |
 | **ProxyGateLLM** | 🔗 LLM Gateway | 10 providers, 468 models, FREE, auto-failover |
 | **mnemosyne** | 🧠 Memory | Knowledge graph + RAG + 500+ AI models |
-| **HermesQuantOS** | 📊 Trading | 21 agents, 5-layer pipeline, Risk Officer |
+| **blackhornet** | 📊 Trading | 21 agents, 5-layer pipeline, Risk Officer |
 | **agent** | 🐝 Swarm | Git-based shared state registry |
 | **Quant-Nanggroe-AI** | 🔬 Research | Deterministic execution, walk-forward, Monte Carlo |
 | **AI-MultiColony** | 🏛️ Colony | 100+ engine modules, 10 strategies, 8 risk modules, MCP |
@@ -137,11 +137,11 @@ curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/HermesQuantOS/main
 
 ```bash
 # Deploy the entire empire
-curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/HermesQuantOS/main/deploy.sh | bash
+curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/blackhornet/main/deploy.sh | bash
 
 # Or clone and run
-git clone https://github.com/mulkymalikuldhrs/HermesQuantOS
-cd HermesQuantOS
+git clone https://github.com/mulkymalikuldhrs/blackhornet
+cd blackhornet
 
 # Control panel
 python3 blackhornet.py --sovereign
@@ -185,7 +185,7 @@ MIT — The hornets are free. The sovereign rules.
 
 ---
 
-## 📊 HermesQuantOS — The Trading Core
+## 📊 blackhornet — The Trading Core
 
 BLACKHORNET's trading brain. 21 specialized AI agents across 5 pipeline layers:
 

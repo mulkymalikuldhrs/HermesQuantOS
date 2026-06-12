@@ -9,7 +9,7 @@ import logging
 from datetime import datetime
 from typing import Dict, List
 
-logger = logging.getLogger("HermesQuantOS.Journal")
+logger = logging.getLogger("blackhornet.Journal")
 
 
 class JournalTool:

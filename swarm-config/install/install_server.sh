@@ -25,7 +25,7 @@ mkdir -p ~/.hermes/shared-workspace
 cd ~/.hermes/shared-workspace
 git clone https://github.com/mulkymalikuldhrs/ProxyGateLLM.git 2>/dev/null || (cd ProxyGateLLM && git pull)
 git clone https://github.com/mulkymalikuldhrs/mnemosyne.git 2>/dev/null || (cd mnemosyne && git pull)
-git clone https://github.com/mulkymalikuldhrs/HermesQuantOS.git 2>/dev/null || (cd HermesQuantOS && git pull)
+git clone https://github.com/mulkymalikuldhrs/blackhornet.git 2>/dev/null || (cd blackhornet && git pull)
 git clone https://github.com/mulkymalikuldhrs/agent.git github-sync 2>/dev/null || (cd github-sync && git pull)
 
 # 4. Install ProxyGateLLM deps

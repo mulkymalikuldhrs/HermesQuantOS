@@ -12,7 +12,7 @@ import logging
 from datetime import datetime
 from typing import Dict, List
 
-logger = logging.getLogger("HermesQuantOS.DecisionSynthesis")
+logger = logging.getLogger("blackhornet.DecisionSynthesis")
 
 
 class DecisionSynthesisEngine:
@@ -20,7 +20,7 @@ class DecisionSynthesisEngine:
     Deterministic decision table that synthesizes pressure + regime → trade decision.
     
     Source: Quant-Nanggroe-AI v15.2.0 Decision Synthesis Engine
-    Adapted for Hermes Quant OS.
+    Adapted for BLACKHORNET.
     """
 
     # Machine-readable decision rules

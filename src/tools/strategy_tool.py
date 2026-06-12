@@ -9,7 +9,7 @@ import json
 import logging
 from datetime import datetime
 
-logger = logging.getLogger("HermesQuantOS.Strategy")
+logger = logging.getLogger("blackhornet.Strategy")
 
 
 class StrategyTool:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Hermes Quant OS - Shared State Manager
+BLACKHORNET - Shared State Manager
 ========================================
 Single Source of Truth for all runtime state.
 Solves: PnL desync, state lost on restart, redundant tool instances.
@@ -18,7 +18,7 @@ from pathlib import Path
 from datetime import datetime
 from typing import Optional, Dict, Union, List, TypedDict
 
-logger = logging.getLogger("HermesQuantOS.SharedState")
+logger = logging.getLogger("blackhornet.SharedState")
 
 # Default database path
 DEFAULT_DB_PATH = Path(__file__).parent.parent / "data" / "hermes_quant.db"
@@ -26,7 +26,7 @@ DEFAULT_DB_PATH = Path(__file__).parent.parent / "data" / "hermes_quant.db"
 
 class SharedState:
     """
-    Global shared state singleton for Hermes Quant OS.
+    Global shared state singleton for BLACKHORNET.
 
     Guarantees:
     - One RiskOfficerTool instance (PnL never desyncs)

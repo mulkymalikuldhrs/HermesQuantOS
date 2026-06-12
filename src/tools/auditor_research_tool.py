@@ -8,7 +8,7 @@ import json
 import logging
 from datetime import datetime
 
-logger = logging.getLogger("HermesQuantOS.AuditorResearch")
+logger = logging.getLogger("blackhornet.AuditorResearch")
 
 
 class AuditorResearchTool:

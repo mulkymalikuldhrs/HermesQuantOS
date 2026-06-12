@@ -9,7 +9,7 @@ import logging
 from datetime import datetime
 from typing import Dict, List, Any
 
-logger = logging.getLogger("HermesQuantOS.Portfolio")
+logger = logging.getLogger("blackhornet.Portfolio")
 
 
 class PortfolioTool:

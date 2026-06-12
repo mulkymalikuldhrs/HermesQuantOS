@@ -10,7 +10,7 @@ import logging
 from datetime import datetime
 from typing import Optional, Dict, List
 
-logger = logging.getLogger("HermesQuantOS.TechnicalAnalysis")
+logger = logging.getLogger("blackhornet.TechnicalAnalysis")
 
 
 class TechnicalAnalysisTool:

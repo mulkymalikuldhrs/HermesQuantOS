@@ -11,7 +11,7 @@ Philosophy:
 
 Ecosystem:
   blackhornet/          ← YOU ARE HERE (umbrella + orchestrator)
-  HermesQuantOS/        ← Trading agents (21 specialized)
+  blackhornet/        ← Trading agents (21 specialized)
   ProxyGateLLM/         ← LLM gateway (10 providers, 468 models)
   mnemosyne/            ← Knowledge memory (RAG + graph)
   agent/                ← Swarm shared state registry
@@ -42,7 +42,7 @@ ECOSYSTEM_NAME = "BLACKHORNET"
 NEST_DIR = Path(os.getenv("BLACKHORNET_NEST", Path.home() / "blackhornet-nest"))
 
 ECOSYSTEM_REPOS = {
-    "HermesQuantOS":       {"type": "orchestrator", "url": "https://github.com/mulkymalikuldhrs/HermesQuantOS"},
+    "blackhornet":       {"type": "orchestrator", "url": "https://github.com/mulkymalikuldhrs/blackhornet"},
     "ProxyGateLLM":        {"type": "llm-gateway",  "url": "https://github.com/mulkymalikuldhrs/ProxyGateLLM"},
     "mnemosyne":           {"type": "memory",       "url": "https://github.com/mulkymalikuldhrs/mnemosyne"},
     "agent":               {"type": "swarm-registry","url": "https://github.com/mulkymalikuldhrs/agent"},
@@ -149,8 +149,8 @@ class BlackHornetNest:
             )
             logger.info("  🧠 Mnemosyne started")
 
-        # 3. Immortal Daemon from HermesQuantOS
-        hq_dir = NEST_DIR / "HermesQuantOS"
+        # 3. Immortal Daemon from blackhornet
+        hq_dir = NEST_DIR / "blackhornet"
         if hq_dir.exists():
             subprocess.Popen(
                 [sys.executable, "src/immortal_daemon.py"],
@@ -226,7 +226,7 @@ class BlackHornetNest:
         health["daemon_running"] = bool(result.stdout.strip())
 
         # Check Trading Pipeline
-        hq_src = NEST_DIR / "HermesQuantOS" / "src"
+        hq_src = NEST_DIR / "blackhornet" / "src"
         if hq_src.exists():
             try:
                 sys.path.insert(0, str(hq_src))

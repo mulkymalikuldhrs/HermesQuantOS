@@ -11,7 +11,7 @@ import logging
 from datetime import datetime
 from typing import Dict, Optional
 
-logger = logging.getLogger("HermesQuantOS.PressureEngine")
+logger = logging.getLogger("blackhornet.PressureEngine")
 
 
 class PressureNormalizationEngine:
@@ -19,7 +19,7 @@ class PressureNormalizationEngine:
     Compiles all sensor outputs into normalized pressure vectors.
     
     Source: Quant-Nanggroe-AI v15.2.0 Pressure Normalization Engine
-    Adapted for Hermes Quant OS Python backend.
+    Adapted for BLACKHORNET Python backend.
     """
 
     # Sensor weight configuration

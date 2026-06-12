@@ -3,7 +3,7 @@
 > Autonomous Multi-Agent Trading & Research Infrastructure
 > Owner: Mulky Malikul Dhaher
 > Version: 4.0.0 | Codename: Production
-> Repository: github.com/mulkymalikuldhrs/hermes-quant-os
+> Repository: github.com/mulkymalikuldhrs/blackhornet-os
 
 ---
 
@@ -249,7 +249,7 @@ L5: LEARNING
 ## 5.2 Message Flow (Telegram)
 
 ```
-User → Telegram Bot API → HermesQuantOS
+User → Telegram Bot API → blackhornet
     │
     ├── Command (/start, /status, /market, etc.)
     │   → handle_command() → Tool call → Response
@@ -332,7 +332,7 @@ Failover: NVIDIA → Groq (all keys) → OpenCode (all keys) → Degraded mode
 # PART 7: PROJECT STRUCTURE
 
 ```
-hermes-quant-os/
+blackhornet-os/
 ├── AGENTS.md              # Single Source of Truth
 ├── README.md              # Quick Start
 ├── CHANGELOG.md           # Version History
@@ -375,7 +375,7 @@ hermes-quant-os/
 ├── schemas/
 │   └── trading_journal.sql
 ├── config/
-│   ├── hermes-quant.yaml
+│   ├── blackhornet.yaml
 │   ├── system_prompt.py
 │   └── .env
 ├── docs/
@@ -493,5 +493,5 @@ hermes-quant-os/
 ---
 
 **Document maintained by Mulky Malikul Dhaher**
-**Repository: github.com/mulkymalikuldhrs/hermes-quant-os**
+**Repository: github.com/mulkymalikuldhrs/blackhornet-os**
 **This is not just documentation. This is the operational brain of an autonomous trading system.**

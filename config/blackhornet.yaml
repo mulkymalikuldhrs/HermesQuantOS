@@ -6,7 +6,7 @@
 # SYSTEM
 # ===========================================
 system:
-  name: "Hermes Quant OS"
+  name: "BLACKHORNET"
   version: "4.0.0"
   owner: "Mulky Malikul Dhaher"
   deployment_stage: "research_lab"  # research_lab | paper_trading | micro_live | semi_autonomous | full_autonomous

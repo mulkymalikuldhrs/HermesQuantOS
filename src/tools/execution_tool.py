@@ -15,7 +15,7 @@ import logging
 from datetime import datetime
 from typing import Optional, Dict, List, Any
 
-logger = logging.getLogger("HermesQuantOS.Execution")
+logger = logging.getLogger("blackhornet.Execution")
 
 
 class ExecutionTool:

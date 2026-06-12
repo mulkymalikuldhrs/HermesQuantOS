@@ -95,8 +95,8 @@ class SwarmProtocol:
     def __init__(self,
                  agent_id: str = None,
                  agent_type: str = "trading",
-                 repo: str = "HermesQuantOS",
-                 repo_url: str = "https://github.com/mulkymalikuldhrs/HermesQuantOS",
+                 repo: str = "blackhornet",
+                 repo_url: str = "https://github.com/mulkymalikuldhrs/blackhornet",
                  version: str = "4.0.0",
                  swarm_repo_path: str = None):
         
@@ -567,7 +567,7 @@ def main():
     parser = argparse.ArgumentParser(description="Hermes Swarm Protocol")
     parser.add_argument("--agent-id", help="Agent ID (auto-generated if not set)")
     parser.add_argument("--type", default="trading", help="Agent type")
-    parser.add_argument("--repo", default="HermesQuantOS", help="Source repo name")
+    parser.add_argument("--repo", default="blackhornet", help="Source repo name")
     parser.add_argument("--expand", action="store_true", help="Auto-expand to all ecosystem repos")
     parser.add_argument("--heal", action="store_true", help="Check and resurrect dead agents")
     parser.add_argument("--list", action="store_true", help="List all agents and exit")

@@ -102,12 +102,12 @@ def main():
 
     # Repos
     print(f"{M}{B}║{N} {hd('📦 ECOSYSTEM (7 repos)')}")
-    repos = ['HermesQuantOS','Quant-Nanggroe-AI','AI-MultiColony-Ecosystem',
+    repos = ['blackhornet','Quant-Nanggroe-AI','AI-MultiColony-Ecosystem',
              'Vibe-Trading','AutoHedge','ProxyGateLLM','mnemosyne']
     base = Path(__file__).parent
     ws = base.parent
     for repo in repos:
-        d = base if repo == 'HermesQuantOS' else (ws / repo)
+        d = base if repo == 'blackhornet' else (ws / repo)
         if d.exists():
             print(f"{M}{B}║{N}   {ok(repo)}")
         else:

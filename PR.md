@@ -99,7 +99,7 @@ Related to #
 
 4. **Import Safety**: Tool imports in `hermes_quant.py` must be wrapped in try/except with `TOOLS_AVAILABLE` flag.
 
-5. **Configuration**: New configurable parameters must have sensible defaults and be documented in `hermes-quant.yaml`.
+5. **Configuration**: New configurable parameters must have sensible defaults and be documented in `blackhornet.yaml`.
 
 ---
 
@@ -181,7 +181,7 @@ Watchdog, keeper, on-boot, deployment. Must include:
 **Description:** Enhance the main agent loop to support autonomous market scanning at configurable intervals. Currently, the agent only responds to Telegram messages. This PR would add a scheduled analysis cycle where the agent proactively scans configured markets, generates scenarios, and reports findings without user prompting.
 
 **Key Changes:**
-- Add `autonomous_loop` method to `HermesQuantOS`
+- Add `autonomous_loop` method to `blackhornet`
 - Configurable scan intervals per market (e.g., XAUUSD every 15min, SHIB every 5min)
 - Auto-generate 3-scenario analysis when confluence score >= 3/5
 - Telegram notification for high-confluence setups only
@@ -256,4 +256,4 @@ Watchdog, keeper, on-boot, deployment. Must include:
 ---
 
 **Document maintained by Mulky Malikul Dhaher**
-**Repository: github.com/mulkymalikuldhrs/hermes-quant-os**
+**Repository: github.com/mulkymalikuldhrs/blackhornet-os**

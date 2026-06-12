@@ -5,7 +5,7 @@
 # Philosophy: Like hornets — autonomous, relentless, swarm-intelligent.
 # One command births the entire sovereign agent empire.
 #
-#   curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/HermesQuantOS/main/deploy.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/blackhornet/main/deploy.sh | bash
 # ============================================================================
 
 set -euo pipefail
@@ -95,7 +95,7 @@ main() {
     step "3/6" "Deploying hornet swarm (9 repos)..."
 
     REPOS=(
-        "HermesQuantOS"
+        "blackhornet"
         "ProxyGateLLM"
         "mnemosyne"
         "agent"
@@ -125,9 +125,9 @@ main() {
         warn "ProxyGateLLM starting (check /tmp/blackhornet-proxygate.log)"
     fi
 
-    # 5. Install HermesQuantOS deps
+    # 5. Install blackhornet deps
     step "5/6" "Arming trading hornets..."
-    cd "$NEST_DIR/HermesQuantOS"
+    cd "$NEST_DIR/blackhornet"
     $PY -m pip install -r requirements.txt openai -q 2>/dev/null || true
     ok "Trading pipeline armed"
 
@@ -142,7 +142,7 @@ main() {
     # 6. Start the nest
     step "6/6" "Launching BLACKHORNET nest..."
 
-    cd "$NEST_DIR/HermesQuantOS/src"
+    cd "$NEST_DIR/blackhornet/src"
 
     # Start immortal daemon
     nohup $PY immortal_daemon.py > ../../logs/daemon.log 2>&1 &
@@ -155,7 +155,7 @@ main() {
     ok "Memory Bridge (PID $(cat ../../bridge.pid))"
 
     # Register in swarm
-    cd "$NEST_DIR/HermesQuantOS/src"
+    cd "$NEST_DIR/blackhornet/src"
     $PY -c "
 from swarm_protocol import SwarmProtocol
 s = SwarmProtocol(agent_type='blackhornet')
@@ -181,7 +181,7 @@ print('Swarm registered:', s.identity.agent_id)
     echo -e "    cd $NEST_DIR/blackhornet"
     echo -e "    python3 blackhornet.py --sovereign   # Control panel"
     echo -e "    python3 blackhornet.py --status      # Nest status"
-    echo -e "    cd $NEST_DIR/HermesQuantOS && python3 sovereign.py"
+    echo -e "    cd $NEST_DIR/blackhornet && python3 sovereign.py"
     echo ""
     echo -e "  ${DIM}The hornets are autonomous. The nest is immortal.${NC}"
     echo -e "  ${DIM}They hunt. They build. They expand. They never die.${NC}"

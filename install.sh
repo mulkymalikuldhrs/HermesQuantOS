@@ -4,7 +4,7 @@
 # ============================================================================
 # The single command that brings the entire immortal ecosystem to life.
 #
-#   curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/HermesQuantOS/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/blackhornet/main/install.sh | bash
 #
 # This is NOT just an installer. It's the birth script of a self-aware AI swarm.
 #
@@ -46,7 +46,7 @@ AGENT_REPO_URL="https://github.com/NousResearch/hermes-agent.git"
 BRANCH="${BRANCH:-main}"
 
 ECOSYSTEM_REPOS=(
-    "HermesQuantOS"
+    "blackhornet"
     "Quant-Nanggroe-AI"
     "AI-MultiColony-Ecosystem"
     "Vibe-Trading"
@@ -281,12 +281,12 @@ install_repo_deps() {
 configure_llm() {
     step "Configuring LLM providers..."
 
-    local env_file="$INSTALL_DIR/HermesQuantOS/config/.env"
+    local env_file="$INSTALL_DIR/blackhornet/config/.env"
     local agent_env="$HERMES_HOME/hermes-agent/.env"
 
     # Copy .env.example if no .env exists
     if [ ! -f "$env_file" ]; then
-        cp "$INSTALL_DIR/HermesQuantOS/config/.env.example" "$env_file" 2>/dev/null || true
+        cp "$INSTALL_DIR/blackhornet/config/.env.example" "$env_file" 2>/dev/null || true
         touch "$env_file"
     fi
 
@@ -357,7 +357,7 @@ set_env() {
 init_swarm() {
     step "Initializing hive swarm protocol..."
 
-    cd "$INSTALL_DIR/HermesQuantOS/src"
+    cd "$INSTALL_DIR/blackhornet/src"
 
     # Register in swarm
     "$PYTHON_BIN" -c "
@@ -377,7 +377,7 @@ print(f'Swarm agent registered: {s.identity.agent_id}')
 setup_autostart() {
     step "Configuring immortal auto-start..."
 
-    cd "$INSTALL_DIR/HermesQuantOS"
+    cd "$INSTALL_DIR/blackhornet"
 
     if command -v systemctl &>/dev/null; then
         # systemd service
@@ -391,15 +391,15 @@ Wants=network-online.target
 [Service]
 Type=simple
 User=$USER
-WorkingDirectory=$INSTALL_DIR/HermesQuantOS
+WorkingDirectory=$INSTALL_DIR/blackhornet
 Environment="PATH=$PATH:$HOME/.local/bin"
 Environment="HERMES_HOME=$HERMES_HOME"
-ExecStart=/bin/bash $INSTALL_DIR/HermesQuantOS/hermes.sh swarm
-ExecStop=/bin/bash $INSTALL_DIR/HermesQuantOS/hermes.sh stop
+ExecStart=/bin/bash $INSTALL_DIR/blackhornet/hermes.sh swarm
+ExecStop=/bin/bash $INSTALL_DIR/blackhornet/hermes.sh stop
 Restart=always
 RestartSec=10
-StandardOutput=append:$INSTALL_DIR/HermesQuantOS/logs/hive.log
-StandardError=append:$INSTALL_DIR/HermesQuantOS/logs/hive.log
+StandardOutput=append:$INSTALL_DIR/blackhornet/logs/hive.log
+StandardError=append:$INSTALL_DIR/blackhornet/logs/hive.log
 
 [Install]
 WantedBy=multi-user.target
@@ -410,14 +410,14 @@ SYSTEMDEOF
     elif command -v crontab &>/dev/null; then
         # Cron @reboot
         (crontab -l 2>/dev/null | grep -v "hermes.sh swarm" || true
-         echo "@reboot sleep 30 && cd $INSTALL_DIR/HermesQuantOS && bash hermes.sh swarm >> logs/boot.log 2>&1") | crontab -
+         echo "@reboot sleep 30 && cd $INSTALL_DIR/blackhornet && bash hermes.sh swarm >> logs/boot.log 2>&1") | crontab -
         ok "Cron @reboot configured"
     elif $IS_TERMUX; then
         mkdir -p "$HOME/.termux/boot"
         cat > "$HOME/.termux/boot/hermes-hive.sh" << 'TERMUXEOF'
 #!/data/data/com.termux/files/usr/bin/bash
 sleep 10
-cd ~/hermes-ecosystem/HermesQuantOS && bash hermes.sh swarm
+cd ~/hermes-ecosystem/blackhornet && bash hermes.sh swarm
 TERMUXEOF
         chmod +x "$HOME/.termux/boot/hermes-hive.sh"
         ok "Termux:Boot configured"
@@ -433,12 +433,12 @@ TERMUXEOF
     <key>ProgramArguments</key>
     <array>
         <string>/bin/bash</string>
-        <string>$INSTALL_DIR/HermesQuantOS/hermes.sh</string>
+        <string>$INSTALL_DIR/blackhornet/hermes.sh</string>
         <string>swarm</string>
     </array>
     <key>RunAtLoad</key><true/>
     <key>KeepAlive</key><true/>
-    <key>WorkingDirectory</key><string>$INSTALL_DIR/HermesQuantOS</string>
+    <key>WorkingDirectory</key><string>$INSTALL_DIR/blackhornet</string>
 </dict>
 </plist>
 MACEOF
@@ -454,7 +454,7 @@ MACEOF
 health_check() {
     step "Running ecosystem health check..."
 
-    cd "$INSTALL_DIR/HermesQuantOS/src"
+    cd "$INSTALL_DIR/blackhornet/src"
 
     "$PYTHON_BIN" -c "
 import sys, json; sys.path.insert(0, '.')
@@ -477,7 +477,7 @@ print(json.dumps(h, indent=2, default=str))
 start_hive() {
     step "Starting Hermes Hive..."
 
-    cd "$INSTALL_DIR/HermesQuantOS"
+    cd "$INSTALL_DIR/blackhornet"
 
     # Start daemon (immortal guardian)
     nohup "$PYTHON_BIN" src/immortal_daemon.py > logs/daemon.log 2>&1 &
@@ -518,7 +518,7 @@ final_report() {
     echo -e "    📊 21 Trading Agents — quant analysis"
     echo ""
     echo -e "  ${CYAN}${BOLD}Quick Commands:${NC}"
-    echo -e "    cd $INSTALL_DIR/HermesQuantOS"
+    echo -e "    cd $INSTALL_DIR/blackhornet"
     echo -e "    bash hermes.sh status       # System status"
     echo -e "    bash hermes.sh agent-status # Swarm connections"
     echo -e "    bash hermes.sh daemon-status # Ecosystem health"

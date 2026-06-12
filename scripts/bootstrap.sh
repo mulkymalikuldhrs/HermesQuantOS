@@ -1,15 +1,15 @@
 #!/bin/bash
 # ============================================================================
-# HERMES QUANT OS - Bootstrap Installer
+# BLACKHORNET - Bootstrap Installer
 # ============================================================================
 # Auto-installer: one command to install everything.
-# Run: curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/HermesQuantOS/main/scripts/bootstrap.sh | bash
+# Run: curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/blackhornet/main/scripts/bootstrap.sh | bash
 # Or:  bash scripts/bootstrap.sh
 #
 # Installs:
 #   1. Python 3.11+ (if needed)
 #   2. Hermes Agent from Nous Research (autonomous core)
-#   3. HermesQuantOS trading tools + dependencies
+#   3. blackhornet trading tools + dependencies
 #   4. Shared memory sync bridge → mulkymalikuldhrs/agent
 #   5. Immortal cron/auto-restart setup
 # ============================================================================
@@ -30,7 +30,7 @@ HERMES_AGENT_REPO="https://github.com/NousResearch/hermes-agent.git"
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 echo ""
-echo -e "${MAGENTA}${BOLD}⚕ HERMES QUANT OS - Bootstrap${NC}"
+echo -e "${MAGENTA}${BOLD}⚕ BLACKHORNET - Bootstrap${NC}"
 echo -e "${CYAN}Autonomous Multi-Agent Trading Infrastructure${NC}"
 echo ""
 
@@ -94,8 +94,8 @@ ln -sf "$HERMES_AGENT_DIR/hermes" "$HOME/.local/bin/hermes"
 chmod +x "$HOME/.local/bin/hermes" 2>/dev/null || true
 echo -e "${GREEN}✓ 'hermes' command linked to ~/.local/bin${NC}"
 
-# ── HermesQuantOS dependencies ────────────────────────────────────────
-echo -e "${CYAN}[4/6]${NC} Installing HermesQuantOS dependencies..."
+# ── blackhornet dependencies ────────────────────────────────────────
+echo -e "${CYAN}[4/6]${NC} Installing blackhornet dependencies..."
 cd "$REPO_DIR"
 "$PYTHON_BIN" -m pip install -r requirements.txt -q 2>&1 | tail -3
 echo -e "${GREEN}✓ Trading tools dependencies installed${NC}"
@@ -140,11 +140,11 @@ touch "$HERMES_HOME/.bootstrapped"
 
 echo ""
 echo -e "${GREEN}${BOLD}══════════════════════════════════════════════${NC}"
-echo -e "${GREEN}${BOLD}  ⚕ HERMES QUANT OS — INSTALLED & IMMORTAL  ${NC}"
+echo -e "${GREEN}${BOLD}  ⚕ BLACKHORNET — INSTALLED & IMMORTAL  ${NC}"
 echo -e "${GREEN}${BOLD}══════════════════════════════════════════════${NC}"
 echo ""
 echo -e "  ${BOLD}Hermes Agent:${NC}   $HERMES_AGENT_DIR"
-echo -e "  ${BOLD}HermesQuantOS:${NC}  $REPO_DIR"
+echo -e "  ${BOLD}blackhornet:${NC}  $REPO_DIR"
 echo -e "  ${BOLD}Agent Swarm:${NC}    $AGENT_SYNC_DIR"
 echo ""
 echo -e "${CYAN}Quick start:${NC}"

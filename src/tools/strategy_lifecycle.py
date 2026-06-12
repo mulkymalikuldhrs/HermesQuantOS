@@ -11,7 +11,7 @@ import logging
 from datetime import datetime
 from typing import Dict, List
 
-logger = logging.getLogger("HermesQuantOS.StrategyLifecycle")
+logger = logging.getLogger("blackhornet.StrategyLifecycle")
 
 
 class StrategyLifecycleManager:
@@ -19,7 +19,7 @@ class StrategyLifecycleManager:
     Darwinian strategy evolution: survival of the fittest.
     
     Source: Quant-Nanggroe-AI v15.2.0 Strategy Lifecycle
-    Adapted for Hermes Quant OS.
+    Adapted for BLACKHORNET.
     """
 
     # Strategy states

@@ -1,6 +1,6 @@
 #!/bin/bash
 # ============================================================================
-# HERMES QUANT OS - Linux Server Installation Script
+# BLACKHORNET - Linux Server Installation Script
 # ============================================================================
 # Installs on Linux server with systemd for on-boot + auto-restart
 #
@@ -17,11 +17,11 @@ BOLD='\033[1m'
 NC='\033[0m'
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-INSTALL_DIR="${1:-/opt/hermes-quant}"
+INSTALL_DIR="${1:-/opt/blackhornet}"
 SERVICE_USER="${SUDO_USER:-$(whoami)}"
 
 echo -e "${BOLD}${GREEN}"
-echo "HERMES QUANT OS - Server Installer"
+echo "BLACKHORNET - Server Installer"
 echo "Installing to: $INSTALL_DIR"
 echo "Service user: $SERVICE_USER"
 echo -e "${NC}"
@@ -46,7 +46,7 @@ sed -i "s|/workspace/hermes_quant|$INSTALL_DIR|g" "$INSTALL_DIR/config/.env" 2>/
 
 # Install systemd service
 echo -e "${BOLD}${GREEN}[3/5] Installing systemd service...${NC}"
-cat > /etc/systemd/system/hermes-quant.service << EOF
+cat > /etc/systemd/system/blackhornet.service << EOF
 [Unit]
 Description=Hermes Quant Operating System
 After=network-online.target
@@ -70,7 +70,7 @@ WantedBy=multi-user.target
 EOF
 
 systemctl daemon-reload
-systemctl enable hermes-quant
+systemctl enable blackhornet
 
 # Install cron health check
 echo -e "${BOLD}${GREEN}[4/5] Installing cron keeper...${NC}"
@@ -78,17 +78,17 @@ CRON_CMD="*/1 * * * * cd $INSTALL_DIR && python3 scripts/keeper.py >> $INSTALL_D
 (crontab -u $SERVICE_USER -l 2>/dev/null | grep -v "hermes"; echo "$CRON_CMD") | crontab -u $SERVICE_USER - || true
 
 # Start
-echo -e "${BOLD}${GREEN}[5/5] Starting Hermes Quant OS...${NC}"
-systemctl start hermes-quant
+echo -e "${BOLD}${GREEN}[5/5] Starting BLACKHORNET...${NC}"
+systemctl start blackhornet
 
 echo ""
-echo -e "${BOLD}${GREEN}HERMES QUANT OS INSTALLED!${NC}"
+echo -e "${BOLD}${GREEN}BLACKHORNET INSTALLED!${NC}"
 echo ""
 echo "Commands:"
-echo "  Start:   sudo systemctl start hermes-quant"
-echo "  Stop:    sudo systemctl stop hermes-quant"
-echo "  Status:  sudo systemctl status hermes-quant"
-echo "  Logs:    journalctl -u hermes-quant -f"
+echo "  Start:   sudo systemctl start blackhornet"
+echo "  Stop:    sudo systemctl stop blackhornet"
+echo "  Status:  sudo systemctl status blackhornet"
+echo "  Logs:    journalctl -u blackhornet -f"
 echo ""
 echo "On-boot:  Enabled (systemd)"
 echo "Watchdog: Active (auto-restart on crash)"

@@ -2,7 +2,7 @@
 """
 HYPERGATE — Autonomous LLM Gateway Bridge
 ==========================================
-Integrates ProxyGateLLM into HermesQuantOS as the primary LLM access layer.
+Integrates ProxyGateLLM into blackhornet as the primary LLM access layer.
 
 ProxyGateLLM provides:
   - 9+ free LLM providers with auto-failover
@@ -130,7 +130,7 @@ class HyperGate:
             import urllib.request
             req = urllib.request.Request(
                 f"{PROXYGATE_URL}/health",
-                headers={"User-Agent": "HermesQuantOS/4.0"}
+                headers={"User-Agent": "blackhornet/4.0"}
             )
             resp = urllib.request.urlopen(req, timeout=3)
             return resp.status == 200
@@ -149,7 +149,7 @@ class HyperGate:
                 import urllib.request
                 req = urllib.request.Request(
                     f"{PROXYGATE_URL}/providers",
-                    headers={"User-Agent": "HermesQuantOS/4.0"}
+                    headers={"User-Agent": "blackhornet/4.0"}
                 )
                 resp = urllib.request.urlopen(req, timeout=5)
                 data = json.loads(resp.read())
@@ -236,7 +236,7 @@ class HyperGate:
                 data=body,
                 headers={
                     "Content-Type": "application/json",
-                    "User-Agent": "HermesQuantOS/4.0"
+                    "User-Agent": "blackhornet/4.0"
                 },
                 method="POST"
             )

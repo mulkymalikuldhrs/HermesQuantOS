@@ -13,7 +13,7 @@ import math
 from typing import Dict, List, Optional, Tuple
 from datetime import datetime
 
-logger = logging.getLogger("HermesQuantOS.MathEngine")
+logger = logging.getLogger("blackhornet.MathEngine")
 
 
 class MathEngine:

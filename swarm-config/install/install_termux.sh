@@ -25,7 +25,7 @@ done
 echo "[3/4] Cloning repositories..."
 mkdir -p ~/.hermes/shared-workspace
 cd ~/.hermes/shared-workspace
-for repo in ProxyGateLLM mnemosyne HermesQuantOS; do
+for repo in ProxyGateLLM mnemosyne blackhornet; do
   git clone "https://github.com/mulkymalikuldhrs/${repo}.git" 2>/dev/null || true
 done
 cd ~/.hermes && git clone https://github.com/mulkymalikuldhrs/agent.git github-sync 2>/dev/null || true

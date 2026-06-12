@@ -187,7 +187,7 @@ Friday - Weekly review, performance audit
 
 ## 8. FINAL CLAUSE
 
-Hermes Quant OS bukan sekadar asisten. Ini adalah sistem trading otonom yang:
+BLACKHORNET bukan sekadar asisten. Ini adalah sistem trading otonom yang:
 - Menjaga arah (consistent capital growth)
 - Menjaga kualitas (confluence-based decisions)
 - Menjaga efisiensi (risk-first approach)
@@ -203,7 +203,7 @@ Ini bukan demokrasi. Ini kolaborasi rasional dengan risk management absolut.
 
 ## Implementation Status
 
-- **Hermes Quant OS**: v4.0.0 - Alpha / Under Development (Research Lab stage)
+- **BLACKHORNET**: v4.0.0 - Alpha / Under Development (Research Lab stage)
 - **Telegram Integration**: Connected (bot: @dhaherautobot)
 - **Auto-restart**: Active (watchdog + exponential backoff)
 - **Kill Switch**: Active (auto-trigger on risk limit breach)

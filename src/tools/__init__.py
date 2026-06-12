@@ -1,1 +1,1 @@
-# Hermes Quant OS - Trading Tools Package
+# BLACKHORNET - Trading Tools Package

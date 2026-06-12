@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Animasi: Header Ketik -->
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=36&duration=3000&pause=1000&color=FF6B35&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=120&lines=HERMES+QUANT+OS;Infrastruktur+Trading+Otonom+Multi-Agent" alt="HERMES QUANT OS" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=36&duration=3000&pause=1000&color=FF6B35&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=120&lines=HERMES+QUANT+OS;Infrastruktur+Trading+Otonom+Multi-Agent" alt="BLACKHORNET" />
 
 <br/>
 
@@ -39,15 +39,15 @@
 ## ⚡ Install Sekali Perintah
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/HermesQuantOS/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/blackhornet/main/install.sh | bash
 ```
 
 **Selesai.** Satu perintah. Seluruh ekosistem immortal — 6 repo, Hermes Agent, 21 trading agent, swarm protocol, immortal daemon — terinstall sendiri. Tanpa tanya. Otonomi penuh.
 
 Atau clone dulu:
 ```bash
-git clone https://github.com/mulkymalikuldhrs/HermesQuantOS
-cd HermesQuantOS && bash install.sh
+git clone https://github.com/mulkymalikuldhrs/blackhornet
+cd blackhornet && bash install.sh
 ```
 
 Setelah install:
@@ -142,7 +142,7 @@ Arsitektur ini menyintesis pola terkuat dari empat repositori referensi ke dalam
         ▼
 ┌───────────────────────────────────────────────────┐
 │        HERMES QUANT OPERATING SYSTEM               │
-│        (HermesQuantOS)                             │
+│        (blackhornet)                             │
 │                                                    │
 │  ┌─────────────────────────────────────────────┐  │
 │  │  Nous Research Hermes (Framework Dasar)     │  │
@@ -280,7 +280,7 @@ Setiap trade harus melewati semua 9 checkpoint. Risk Officer memiliki **FULL VET
 └──────────────────┬──────────────────────┘
                    │
 ┌──────────────────▼──────────────────────┐
-│  HERMES QUANT OS (Proses Utama)         │
+│  BLACKHORNET (Proses Utama)         │
 │  21 Tools | Multi-Provider LLM | SQLite │
 └─────────────────────────────────────────┘
 ```
@@ -307,8 +307,8 @@ sudo ./scripts/install_server.sh
 
 ```bash
 # Clone repositori
-git clone https://github.com/mulkymalikuldhrs/HermesQuantOS.git
-cd HermesQuantOS
+git clone https://github.com/mulkymalikuldhrs/blackhornet.git
+cd blackhornet
 
 # Install dependensi
 pip install -r requirements.txt
@@ -443,7 +443,7 @@ Sistem mengikuti **pipeline deployment 5 tahap**. Kemajuan tahap memerlukan pers
 ## Struktur Proyek
 
 ```
-HermesQuantOS/
+blackhornet/
 ├── src/
 │   ├── hermes_quant.py              # Controller agent utama
 │   ├── watchdog.py                  # Daemon watchdog (monitor 10s)
@@ -477,7 +477,7 @@ HermesQuantOS/
 │   └── install_server.sh            # Installer Linux
 ├── config/
 │   ├── .env.example                 # Template environment
-│   ├── hermes-quant.yaml            # Konfigurasi sistem
+│   ├── blackhornet.yaml            # Konfigurasi sistem
 │   └── system_prompt.py             # Prompt sistem trading
 ├── schemas/
 │   └── trading_journal.sql          # Skema SQL 7-tabel
@@ -538,7 +538,7 @@ Lihat [UPGRADE_PLAN.md](./UPGRADE_PLAN.md) untuk peta jalan upgrade otonom 15-18
 
 </div>
 
-Kami menerima kontribusi dari developer, analis kuantitatif, insinyur risiko, dan peneliti AI! HermesQuantOS dibangun berdasarkan prinsip bahwa **kolaborasi menghasilkan sistem yang lebih unggul**.
+Kami menerima kontribusi dari developer, analis kuantitatif, insinyur risiko, dan peneliti AI! blackhornet dibangun berdasarkan prinsip bahwa **kolaborasi menghasilkan sistem yang lebih unggul**.
 
 ### Cara Berkontribusi
 
@@ -579,7 +579,7 @@ Kami menerima kontribusi dari developer, analis kuantitatif, insinyur risiko, da
 
 <br/>
 
-**Repositori Proyek**: [github.com/mulkymalikuldhrs/HermesQuantOS](https://github.com/mulkymalikuldhrs/HermesQuantOS)
+**Repositori Proyek**: [github.com/mulkymalikuldhrs/blackhornet](https://github.com/mulkymalikuldhrs/blackhornet)
 
 </div>
 

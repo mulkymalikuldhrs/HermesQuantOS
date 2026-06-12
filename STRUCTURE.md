@@ -3,7 +3,7 @@
 ## Directory Tree
 
 ```
-hermes-quant-os/
+blackhornet-os/
 ├── AGENTS.md                          # Single Source of Truth & Operational Constitution
 ├── README.md                          # Quick Start Guide
 ├── CHANGELOG.md                       # Version History & Release Notes
@@ -16,7 +16,7 @@ hermes-quant-os/
 ├── hermes.sh                          # Main Control Script (start/stop/restart/status/logs/health/install)
 │
 ├── src/                               # Source Code
-│   ├── hermes_quant.py                # Main Agent Controller (HermesQuantOS class)
+│   ├── hermes_quant.py                # Main Agent Controller (blackhornet class)
 │   ├── watchdog.py                    # Watchdog Daemon (10s check, exponential backoff)
 │   │
 │   └── tools/                         # Trading Tools (21 Agent Modules)
@@ -62,7 +62,7 @@ hermes-quant-os/
 │   └── trading_journal.sql           # 7-table SQL schema for full audit trail
 │
 ├── config/                            # Configuration Files
-│   ├── hermes-quant.yaml             # Main system configuration
+│   ├── blackhornet.yaml             # Main system configuration
 │   ├── system_prompt.py              # Trading-focused system prompt
 │   └── .env                          # Environment variables (API keys, tokens)
 │
@@ -159,7 +159,7 @@ hermes-quant-os/
 
 | File | Purpose |
 |------|---------|
-| `hermes-quant.yaml` | System configuration: model names, intervals, limits |
+| `blackhornet.yaml` | System configuration: model names, intervals, limits |
 | `system_prompt.py` | AGENTS.md-aligned system prompt for LLM |
 | `.env` | API keys (NVIDIA, Groq, OpenCode, Telegram), chat ID, model names |
 
@@ -178,4 +178,4 @@ hermes-quant-os/
 ---
 
 **Document maintained by Mulky Malikul Dhaher**
-**Repository: github.com/mulkymalikuldhrs/hermes-quant-os**
+**Repository: github.com/mulkymalikuldhrs/blackhornet-os**

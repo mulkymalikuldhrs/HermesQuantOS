@@ -5,7 +5,75 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
-## [4.1.0] - 2026-03-05
+## [4.0.0] - 2026-06-12 — Hive Mind Release
+
+### Added
+- **🧠 Swarm Protocol** (`src/swarm_protocol.py`) — Universal agent discovery & sync
+  - Auto-registration on clone → agents find each other via Git
+  - Inter-agent messaging (command, alert, upgrade, spawn, heal)
+  - Heartbeat with auto-timeout dead-agent detection
+  - Self-upgrade: checks GitHub releases, auto-pulls latest
+  - Auto-expansion: spawns agents into all 5 ecosystem repos
+  - Auto-heal: detects dead agents, resurrects them
+  - Capability auto-detection (trading, market_data, risk_management, etc.)
+- **⚕ Immortal Daemon** (`src/immortal_daemon.py`) — Eternal guardian
+  - Ecosystem-wide health monitoring (5 repos, 6 components)
+  - Auto-upgrade when repos behind origin
+  - Bootstrap propagation to all repos
+  - post-merge Git hooks for auto-connect on git pull
+  - Dead agent resurrection
+  - Guardian agent type in swarm
+- **🧬 Memory Bridge** (`src/memory_bridge.py`) — Shared memory sync
+  - Real-time state sync HermesQuantOS → mulkymalikuldhrs/agent
+  - Bidirectional: reads other agent states
+  - Immortal: auto-retry, never stops
+  - State files per bot (traderbot, devbot, researchbot, etc.)
+  - SQLite ←→ Git bridge for PnL, decisions, positions
+- **📦 Zero-Touch Installer** (`install.sh`) — Single-command ecosystem birth
+  - curl | bash — one URL, zero questions
+  - Auto-detects OS (Linux/macOS/Termux/WSL)
+  - Installs ALL dependencies (Python 3.11+, uv, git)
+  - Clones ALL 6 ecosystem repos in parallel
+  - Installs Hermes Agent (Nous Research) + all repo deps
+  - Auto-configures LLM providers from environment
+  - Initializes swarm protocol
+  - Sets up immortal auto-start (systemd/cron/launchd/Termux:Boot)
+  - Runs health check + starts everything
+- **📋 hermes.sh** — 20+ command control center
+  - swarm: start full agent swarm + trading
+  - daemon-start/stop/status: immortal guardian management
+  - agent-start/stop/status: agent swarm management
+  - bridge-start/stop/status: memory sync management
+  - bootstrap: full auto-install
+  - all: bootstrap + daemon + agent + trading
+- **🪝 Git Hooks** — auto-connect on every pull
+  - post-merge: re-register in swarm, reinstall deps
+  - Cross-repo hook propagation
+
+### Changed
+- `hermes_quant.py`: integrated MemoryBridge for crash reporting & state sync
+- `hermes.sh`: expanded from 8 to 20+ commands
+- Python requirement: >=3.11 (for Hermes Agent compatibility)
+- All agents now have swarm awareness — they know about each other
+
+### Architecture
+```
+┌──────────────────────────────────────────────┐
+│           HERMES HIVE (v4.0.0)               │
+│                                              │
+│  install.sh → Bootstrap → Swarm Protocol     │
+│       ↓              ↓           ↓           │
+│  Clone Repos   Hermes Agent   Immortal       │
+│       ↓              ↓           ↓           │
+│  6 Ecosystem   21 Trading    Daemon+Watchdog │
+│       ↓              ↓           ↓           │
+│  Auto-Connect → Shared Memory → Self-Heal    │
+└──────────────────────────────────────────────┘
+```
+
+---
+
+## [3.0.0] - 2026-03-05
 
 ### Fixed
 - Replaced placeholder comment in `market_data_tool.py` with clear "not configured" status

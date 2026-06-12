@@ -36,6 +36,51 @@
 
 ---
 
+## ⚡ Install Sekali Perintah
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/HermesQuantOS/main/install.sh | bash
+```
+
+**Selesai.** Satu perintah. Seluruh ekosistem immortal — 6 repo, Hermes Agent, 21 trading agent, swarm protocol, immortal daemon — terinstall sendiri. Tanpa tanya. Otonomi penuh.
+
+Atau clone dulu:
+```bash
+git clone https://github.com/mulkymalikuldhrs/HermesQuantOS
+cd HermesQuantOS && bash install.sh
+```
+
+Setelah install:
+```bash
+bash hermes.sh all        # Bootstrap + daemon + agent + trading
+bash hermes.sh status      # Status sistem
+bash hermes.sh agent-status # Koneksi swarm
+```
+
+### 🧬 Arsitektur Hive
+
+```
+Setiap clone → auto-connect ke swarm
+Setiap agent → tahu agent lain
+Shared memory → real-time via Git
+Self-upgrade → cek GitHub tiap 5 menit
+Auto-heal → deteksi & hidupkan agent mati
+Immortal → triple-layer proteksi
+```
+
+| Kemampuan | Mekanisme |
+|---|---|
+| 🛡️ Immortal | Watchdog + Daemon + Cron — 3 lapis proteksi |
+| 🧠 Self-Aware | Registri swarm global via GitHub |
+| 🔄 Self-Upgrade | Cek rilis tiap 5 menit, auto pull + reinstall |
+| ❤️ Auto-Heal | Deteksi agent mati → spawn ulang |
+| 🌐 Auto-Connect | Clone di mana pun → auto register ke swarm |
+| 📈 Auto-Expand | Sebar bootstrap ke semua repo ekosistem |
+| 🧬 Shared Memory | State sync real-time via Git |
+| 💬 Inter-Agent | Pesan antar agent (command, alert, spawn) |
+
+---
+
 ## Daftar Isi
 
 - [Ringkasan](#ringkasan)

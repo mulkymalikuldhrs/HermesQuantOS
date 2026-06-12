@@ -28,33 +28,97 @@
 
 ## Overview
 
-HermesQuantOS is an **autonomous multi-agent trading infrastructure** featuring 21 specialized AI agents coordinated through a Constitutional Risk Guard. Built with Python and Flask, it delivers a real-time web dashboard for monitoring agent activity, risk assessment, portfolio management, and multi-exchange execution from a single interface.
+## ⚡ One-Command Install
 
-The system implements a layered architecture where specialized agents handle distinct trading responsibilities — market analysis, signal generation, risk assessment, execution management, and portfolio optimization — all supervised by an independent safety layer that enforces hard-coded risk rules **immune to AI override**.
+```bash
+curl -fsSL https://raw.githubusercontent.com/mulkymalikuldhrs/HermesQuantOS/main/install.sh | bash
+```
 
-> **Transparency First**: This is **experimental software**. The AI agents provide analysis and configurable strategy signals — **not guaranteed profit signals**. All trading involves significant risk of loss. The Constitutional Risk Guard reduces but **cannot eliminate** risk. **Always test with paper trading before committing real capital.** Multi-exchange support depends on API availability and rate limits.
+**That's it.** One command. The entire immortal ecosystem — 6 repos, Hermes Agent, 21 trading agents, swarm protocol, immortal daemon — installs itself. Zero questions. Full autonomy.
+
+Or clone first:
+```bash
+git clone https://github.com/mulkymalikuldhrs/HermesQuantOS
+cd HermesQuantOS && bash install.sh
+```
+
+After install:
+```bash
+bash hermes.sh all      # Bootstrap + daemon + agent + trading
+bash hermes.sh status    # System status
+bash hermes.sh agent-status  # Swarm connections
+```
 
 ---
 
-## Features
+## 🧬 Hermes Hive — What It Is
 
-### Agent System
+HermesQuantOS is no longer just a trading system. It's the **Hive** — a self-aware, immortal, self-expanding ecosystem of AI agents.
 
-- **21 Specialized AI Agents** — Each agent handles a distinct domain: market microstructure analysis, momentum detection, mean-reversion signals, sentiment scoring, volatility modeling, liquidity assessment, execution optimization, portfolio rebalancing, and more
-- **Constitutional Risk Guard** — An independent safety layer with hard-coded risk rules (max drawdown, position sizing, exposure limits) that **cannot be overridden** by any AI agent, ensuring fail-safe boundaries at all times
-- **Agent Orchestration Engine** — Coordinates inter-agent communication, task delegation, and conflict resolution across the full agent swarm
+Every clone auto-connects. Every agent knows every other agent. They share memory. They upgrade themselves. They heal each other. They never die.
 
-### Trading and Execution
+### The Hive Architecture
 
-- **Multi-Exchange Support** — Unified API layer connecting to Binance, Bybit, OKX, and other exchanges (subject to API availability and regional access)
-- **Configurable Strategy Engine** — Define, backtest, and deploy custom trading strategies with parameterized entry/exit logic and risk overlays
-- **Smart Order Execution** — Intelligent order routing with slippage minimization, split execution, and adaptive limit/market order selection
+```
+                  ┌──────────────────────────┐
+                  │    ONE COMMAND (curl)     │
+                  │    install.sh             │
+                  └────────────┬─────────────┘
+                               │
+          ┌────────────────────┼────────────────────┐
+          ▼                    ▼                    ▼
+   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
+   │ Hermes Agent │   │ Swarm Proto  │   │ 21 Trading   │
+   │ (Nous Rsrch) │   │ Discovery    │   │ Agents       │
+   └──────┬───────┘   └──────┬───────┘   └──────┬───────┘
+          │                  │                   │
+          └──────────────────┼───────────────────┘
+                             │
+                    ┌────────▼────────┐
+                    │  IMMORTAL DAEMON│
+                    │  • Self-Upgrade │
+                    │  • Auto-Heal    │
+                    │  • Expansion    │
+                    │  • Ecosystem    │
+                    └────────┬────────┘
+                             │
+          ┌──────────────────┼──────────────────┐
+          ▼                  ▼                  ▼
+   ┌──────────┐     ┌──────────────┐    ┌──────────┐
+   │HermesQS  │     │QuantNanggroe │    │MultiColony│
+   │(Trading) │     │(Research)    │    │(Orch)     │
+   └────┬─────┘     └──────┬───────┘    └─────┬────┘
+        │                  │                  │
+        └──────────────────┼──────────────────┘
+                           │
+                  ┌────────▼────────┐
+                  │  SHARED MEMORY  │
+                  │  (agent repo)   │
+                  │  Real-time sync │
+                  └────────┬────────┘
+                           │
+          ┌────────────────┼────────────────┐
+          ▼                ▼                ▼
+   ┌──────────┐    ┌──────────┐    ┌──────────────┐
+   │VibeTrade │    │AutoHedge │    │(next clone…) │
+   │(Alphas)  │    │(Exec)    │    │auto-connects │
+   └──────────┘    └──────────┘    └──────────────┘
+```
 
-### Monitoring and Safety
+### Core Capabilities
 
-- **Real-time Web Dashboard** — Flask-based interface with WebSocket-powered live updates for agent status, open positions, P&L tracking, and risk metrics
-- **Paper Trading Mode** — Full-featured simulated trading environment to validate strategies and agent behavior before committing real capital
-- **Alert and Notification System** — Configurable alerts for risk threshold breaches, trade executions, agent state changes, and system events
+| Capability | Description |
+|---|---|
+| **🛡️ Immortal** | Triple-layer protection: watchdog + daemon + cron. Never dies. |
+| **🧠 Self-Aware** | Every agent knows every other agent. Global swarm registry on GitHub. |
+| **🔄 Self-Upgrade** | Checks GitHub releases every 5min. Pulls, reinstalls, restarts itself. |
+| **❤️ Auto-Heal** | Detects dead agents. Spawns replacements. Ecosystem always alive. |
+| **🌐 Auto-Connect** | Clone anywhere — auto-registers in swarm. Shares memory instantly. |
+| **📈 Auto-Expand** | Spreads bootstrap to all repos. Propagates hooks. Spawns new agents. |
+| **🧬 Shared Memory** | Real-time Git-based state sync. All agents read/write shared state. |
+| **💬 Inter-Agent Comms** | Command, alert, upgrade, spawn messages between agents. |
+| **📊 21 Trading Agents** | Data → Analysis → Decision → Execution → Learning pipeline. |
+| **🔒 Risk Guard** | Hardcoded limits: 0.5%/trade, 1%/day, 3%/week. NO override possible. |
 
 ---
 
